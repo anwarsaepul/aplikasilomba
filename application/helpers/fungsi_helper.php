@@ -95,3 +95,71 @@ function err_phone($lok){
     </script>
 <?php
 }
+
+function tampil_error($lokasi)
+{
+?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            text: 'Error',
+            showConfirmButton: false,
+            timer: 1500,
+            title: 'Data tidak ditemukan'
+        }).then((result) => {
+            window.location = '<?= site_url($lokasi) ?>';
+        })
+    </script>
+<?php
+}
+
+function tampil_hapus($lokasi)
+{
+?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            text: 'Success',
+            showConfirmButton: false,
+            timer: 1500,
+            title: 'Data Berhasil Dihapus'
+        }).then((result) => {
+            window.location = '<?= site_url($lokasi) ?>';
+        })
+    </script>
+<?php
+}
+
+function tampil_edit($lokasi)
+{
+?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            text: 'Success',
+            showConfirmButton: false,
+            title: 'Data Berhasil Diedit',
+            timer: 1500
+        }).then((result) => {
+            window.location = '<?= site_url($lokasi) ?>';
+        })
+    </script>
+<?php
+}
+
+function tampil_simpan($lokasi)
+{
+?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            text: 'Success',
+            title: 'Data Berhasil Disimpan',
+            showConfirmButton: false,
+            timer: 1500
+        }).then((result) => {
+            window.location = '<?= site_url($lokasi) ?>';
+        })
+    </script>
+<?php
+}

@@ -80,6 +80,46 @@
             </li>
 
             <li class="nav-item">
+              <a href="#" class="nav-link 
+              <?= $this->uri->segment(1) == 'kategori' ||
+                $this->uri->segment(1) == 'jarak' ||
+                $this->uri->segment(1) == 'sasaran' ||
+                $this->uri->segment(1) == 'penilaian' ? 'active' : '' ?>">
+                <i class="nav-icon fa fa-archive"></i>
+                <p>
+                  Lomba
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url('kategori') ?>" class="nav-link <?= $this->uri->segment(1) == 'kategori' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kategori</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('jarak') ?>" class="nav-link <?= $this->uri->segment(1) == 'jarak' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Jarak</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('sasaran') ?>" class="nav-link <?= $this->uri->segment(1) == 'sasaran' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sasaran</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('penilaian') ?>" class="nav-link <?= $this->uri->segment(1) == 'penilaian' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Penilaian</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
               <a href="<?= base_url('auth/logout') ?>" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i></i>
                 <p>Logout</p>
@@ -127,131 +167,7 @@
 
   <script>
     $(document).ready(function() {
-      $('#table1').DataTable({
-      });
-
-      $(document).on('click', '#pil', function(e) {
-        e.preventDefault();
-        $(this).parent('tr').remove();
-      });
-
-      $(document).on('click', '#select', function() {
-        const item_id = $(this).data('id');
-        const kode_product = $(this).data('kode_product');
-        const nama_item = $(this).data('nama_item');
-        const nama_unit = $(this).data('nama_unit');
-        const stock = $(this).data('stock');
-        const harga_jual = $(this).data('harga_jual');
-        const qty = $(this).data('qty');
-
-        const qtysale = $('#qtysale').val();
-        const discount = $('#discount').val();
-
-        const keranjang_id = $(this).data('keranjang_id');
-        // alert(keranjang_id);
-
-        $('#harga_jual').val(harga_jual);
-        $('#item_id').val(item_id);
-        $('#kode_product').val(kode_product);
-        $('#nama_item').val(nama_item);
-        $('#nama_unit').val(nama_unit);
-        $('#stock').val(stock);
-
-        const grand_total = parseInt(harga_jual) * parseInt(qtysale);
-        const diskon = (discount / 100) * grand_total;
-        const total_akhir = parseInt(grand_total) - parseInt(diskon);
-
-        $('#sub_total').val(grand_total);
-        $('#potongan_diskon').val(diskon);
-        $('#total_akhir').val(total_akhir);
-      });
-
-
-      $('#qtysale').keyup(function() {
-        const harga_jual = $('#harga_jual').val();
-        const discount = $('#discount').val();
-        const qty = $('#qtysale').val();
-        const stock = $('#stock').val();
-
-        if (parseInt(qty) >= parseInt(stock)) {
-          Swal.fire({
-            icon: 'error',
-            showConfirmButton: false,
-            timer: 1500,
-            title: 'Melebihi Stok yang ada'
-          })
-        }
-
-
-        const sub_total = parseInt(harga_jual) * parseInt(qty);
-        const diskon = (discount / 100) * sub_total;
-        const total_akhir = parseInt(sub_total) - parseInt(diskon);
-
-        $('#sub_total').val(sub_total);
-        $('#potongan_diskon').val(diskon);
-        $('#total_akhir').val(total_akhir);
-      });
-
-
-      $('#discount').keyup(function() {
-        const harga_jual = $('#harga_jual').val();
-        const qty = $('#qty').val();
-        const sub_total = $('#sub_total').val();
-        const discount = $(this).val();
-
-        const diskon = (discount / 100) * sub_total;
-        const total_akhir = parseInt(sub_total) - parseInt(diskon);
-
-        $('#sub_total').val(sub_total);
-        $('#potongan_diskon').val(diskon);
-        $('#total_akhir').val(total_akhir);
-      });
-
-      $('#cash').keyup(function() {
-        const grand_total = $('#grand_total').val();
-        const cash = $('#cash').val();
-        const total = parseInt(cash) - parseInt(grand_total);
-        $('#kembalian').val(total);
-        $('#kembalian_v').val(total);
-      });
-
-      // $('#tanggal').daterangepicker({
-      //   startDate: start,
-      //   endDate: end,
-      //   ranges: {
-      //     'Hari ini': [moment(), moment()],
-      //     'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-      //     '7 hari terakhir': [moment().subtract(6, 'days'), moment()],
-      //     '30 hari terakhir': [moment().subtract(29, 'days'), moment()],
-      //     'Bulan ini': [moment().startOf('month'), moment().endOf('month')],
-      //     'Bulan lalu': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
-      //     'Tahun ini': [moment().startOf('year'), moment().endOf('year')],
-      //     'Tahun lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')]
-      //   }
-      // }, cb);
-
-      // cb(start, end);
-
-      $(document).on('click', '#set_detail', function() {
-        const kodeproduct = $(this).data('kodeproduct');
-        const nama_item = $(this).data('nama_item');
-        const nama_supplier = $(this).data('nama_supplier');
-        const qty = $(this).data('qty');
-        const detail = $(this).data('detail');
-        const harga_beli = $(this).data('harga_beli');
-        const harga_jual = $(this).data('harga_jual');
-        const date = $(this).data('date');
-        // alert(kodeproduct);
-
-        $('#kodeproduct').text(kodeproduct);
-        $('#nama_item').text(nama_item);
-        $('#nama_supplier').text(nama_supplier);
-        $('#qty').text(qty);
-        $('#detail').text(detail);
-        $('#harga_beli').text(harga_beli);
-        $('#harga_jual').text(harga_jual);
-        $('#date').text(date);
-      });
+      $('#table1').DataTable({});
 
       $(document).on('click', '#tmblhps', function(e) {
         e.preventDefault();
