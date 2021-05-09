@@ -2,11 +2,11 @@
 <section class="content">
     <div class="box">
         <div class="box-header">
-            <div class="col-sm pt-3">
-                <div class="float-sm-left">
+            <div class="col-sm mb-5 pt-3">
+                <div class="float-left">
                     <h3><i class="nav-icon fa fa-object-group"></i> Kategori</h3>
                 </div>
-                <div class="float-sm-right">
+                <div class="float-right">
                     <a href="<?= base_url('kategori') ?>" class="btn btn-warning btn-flat"><i class="nav-icon fa fa-undo"></i> Back
                     </a>
                 </div>

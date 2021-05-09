@@ -3,15 +3,17 @@
     <div class="box">
         <div class="box-header">
             <div class="col-sm pt-3">
-                <ol class="float-sm-right">
-                    <a href="<?= base_url('penilaian/add') ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Tambah Penilaian
+                <div class="float-left">
+                    <h3><i class="nav-icon fa fa-object-group"></i> Perlombaan</h3>
+                </div>
+                <div class="float-right">
+                    <a href="<?= base_url('perlombaan/add') ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Data perlombaan
                     </a>
-                </ol>
-                <h3><i class="nav-icon fa fa-object-group"></i> Penilaian</h3>
+                </div>
             </div>
         </div>
-        <div class="box-body table-responsive">
-            <table class="table table-bordered text-center table-striped" id="table1">
+        <div class="box-body table-responsive pl-2 pr-2">
+            <table class="table table-bordered table-responsive text-center table-striped" id="table1">
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>
@@ -21,7 +23,8 @@
                         <th>Point</th>
                         <th>Keterangan</th>
                         <th>Durasi</th>
-                        <th>jumlah Line</th>
+                        <th>Jumlah Line</th>
+                        <th>Biaya</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -37,18 +40,15 @@
                             <td><?= $data->keterangan ?></td>
                             <td><?= $data->durasi ?> Menit</td>
                             <td><?= $data->jumlah_line ?></td>
-                            <td class="text-center" width="150px">
-                                <a href="<?= base_url('penilaian/edit/' . $data->penilaian_id) ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>Update</a>
-                                <a href="<?= base_url('penilaian/del/' . $data->penilaian_id) ?>" class="btn btn-danger btn-xs" id="tmblhps"><i class="fa fa-trash"></i>Delete</a>
+                            <td><?= indo_currency($data->biaya) ?></td>
+                            <td>
+                                <a href="<?= base_url('perlombaan/edit/' . $data->perlombaan_id) ?>" class="btn btn-primary btn-xs mb-2"><i class="fa fa-edit"></i>Update</a>
+                                <a href="<?= base_url('perlombaan/del/' . $data->perlombaan_id) ?>" class="btn btn-danger btn-xs mb-2" id="tmblhps"><i class="fa fa-trash"></i>Delete</a>
                             </td>
                         </tr>
-
                     <?php } ?>
                 </tbody>
             </table>
         </div>
     </div>
 </section>
-<!-- <script>
-  window.addEventListener("load", window.print());
-</script> -->

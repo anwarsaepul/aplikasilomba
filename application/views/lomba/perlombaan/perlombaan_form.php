@@ -2,20 +2,22 @@
 <section class="content bg-light">
     <div class="box">
         <div class="box-header">
-            <div class="col-sm pt-3">
-                <ol class="float-sm-right">
-                    <a href="<?= base_url('penilaian') ?>" class="btn btn-warning btn-flat"><i class="nav-icon fa fa-undo"></i> Back
+            <div class="col-sm mb-5 pt-3">
+                <div class="float-left">
+                    <h3><i class="nav-icon fa fa-object-group"></i> perlombaan</h3>
+                </div>
+                <div class="float-right">
+                    <a href="<?= base_url('perlombaan') ?>" class="btn btn-warning btn-flat"><i class="nav-icon fa fa-undo"></i> Back
                     </a>
-                </ol>
-                <h3><i class="nav-icon fa fa-object-group"></i> penilaian</h3>
+                </div>
             </div>
         </div>
         <div class="box-body">
             <div class="box pb-2">
                 <div class="col-md-6 mx-auto col-md-offset-6">
-                    <form action="<?= base_url('penilaian/process') ?>" method="POST">
+                    <form action="<?= base_url('perlombaan/process') ?>" method="POST">
                         <div class="form-group">
-                            <h3 class="box-title text-center"><?= ucfirst($page) ?> Data penilaian</h3>
+                            <h3 class="box-title text-center"><?= ucfirst($page) ?> Data Perlombaan</h3>
                         </div>
                         <div class="form-group">
                             <label>Kategori *</label>
@@ -46,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <label for="point">Point *</label>
-                            <input type="hidden" name="id" value="<?= $row->penilaian_id ?>">
+                            <input type="hidden" name="id" value="<?= $row->perlombaan_id ?>">
                             <input type="number" value="<?= $row->point ?>" class="form-control" id="point" name="point" required placeholder="Input point">
                         </div>
                         <div class="form-group">
@@ -60,6 +62,10 @@
                         <div class="form-group">
                             <label for="line">Jumlah Line *</label>
                             <input type="number" value="<?= $row->jumlah_line ?>" class="form-control" id="line" name="line" required placeholder="Input line">
+                        </div>
+                        <div class="form-group">
+                            <label for="biaya">Biaya *</label>
+                            <input type="number" value="<?= $row->biaya ?>" class="form-control" id="line" name="biaya" required placeholder="Input biaya">
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" name="<?= $page ?>" class="btn btn-success btn-flat">

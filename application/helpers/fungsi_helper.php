@@ -163,3 +163,8 @@ function tampil_simpan($lokasi)
     </script>
 <?php
 }
+
+function indo_currency($nominal)
+{
+    return $result = "Rp " . number_format($nominal, 2, ',', '.');
+}

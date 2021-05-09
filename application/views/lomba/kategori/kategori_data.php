@@ -3,11 +3,11 @@
 	<div class="box">
 		<div class="box-header">
 			<div class="col-sm pt-3">
-				<div class="float-sm-left">
-					<h3><i class="nav-icon fa fa-object-group"></i> Data Kategori</h3>
+				<div class="float-left">
+					<h3><i class="nav-icon fa fa-object-group"></i> Kategori</h3>
 				</div>
-				<div class="float-sm-right">
-					<a href="<?= base_url('kategori/add') ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Tambah Kategori
+				<div class="float-right">
+					<a href="<?= base_url('kategori/add') ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Data Kategori
 					</a>
 				</div>
 			</div>
@@ -15,7 +15,7 @@
 		<div class="box-body table-responsive">
 			<div class="box">
 				<div class="col-md-8 mx-auto col-md-offset-4">
-					<table class="table border table-bordered text-center table-striped" id="table1" style="width: 100%;">
+					<table class="table border table-responsive table-bordered text-center table-striped" id="table1" style="width: 100%;">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My POS</title>
+  <title>My Aplikasi</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -84,7 +84,7 @@
               <?= $this->uri->segment(1) == 'kategori' ||
                 $this->uri->segment(1) == 'jarak' ||
                 $this->uri->segment(1) == 'sasaran' ||
-                $this->uri->segment(1) == 'penilaian' ? 'active' : '' ?>">
+                $this->uri->segment(1) == 'perlombaan' ? 'active' : '' ?>">
                 <i class="nav-icon fa fa-archive"></i>
                 <p>
                   Lomba
@@ -111,9 +111,9 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<?= base_url('penilaian') ?>" class="nav-link <?= $this->uri->segment(1) == 'penilaian' ? 'active' : '' ?>">
+                  <a href="<?= base_url('perlombaan') ?>" class="nav-link <?= $this->uri->segment(1) == 'perlombaan' ? 'active' : '' ?>">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Penilaian</p>
+                    <p>Perlombaan</p>
                   </a>
                 </li>
               </ul>

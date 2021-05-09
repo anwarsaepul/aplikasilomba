@@ -3,10 +3,10 @@
 	<div class="box">
 		<div class="box-header">
 			<div class="col-sm pt-3">
-				<div class="float-sm-left">
+				<div class="float-left">
 					<h3><i class="nav-icon fa fa-object-group"></i> Data Jarak</h3>
 				</div>
-				<div class="float-sm-right">
+				<div class="float-right">
 					<a href="<?= base_url('jarak/add') ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Tambah Data
 					</a>
 				</div>
@@ -14,8 +14,8 @@
 		</div>
 		<div class="box-body table-responsive">
 			<div class="box">
-				<div class="col-md-8 mx-auto col-md-offset-4">
-					<table class="table table-bordered border text-center table-striped" id="table1">
+				<div class="col-md-8 mx-auto col-md-offset-6">
+					<table class="table table-responsive table-bordered border text-center table-striped" id="table1">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th>
