@@ -23,6 +23,7 @@ function flashData()
 ?>
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/sweetalert2/sweetalert2.min.css">
     <script script src="<?= base_url() ?>assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+
     <body></body>
 <?php
 }
@@ -32,6 +33,7 @@ function head_web()
 ?>
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +50,23 @@ function head_web()
 <?php
 }
 
-function err_pass($lok){
+function down_web()
+{
+?>
+    <!-- jQuery -->
+    <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="<?= base_url() ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="<?= base_url() ?>assets/dist/js/adminlte.min.js"></script>
+    </body>
+
+    </html>
+<?php
+}
+
+function err_pass($lok)
+{
 ?>
     <script>
         Swal.fire({
@@ -64,7 +82,8 @@ function err_pass($lok){
 <?php
 }
 
-function err_nik($lok){
+function err_nik($lok)
+{
 ?>
     <script>
         Swal.fire({
@@ -80,7 +99,8 @@ function err_nik($lok){
 <?php
 }
 
-function err_phone($lok){
+function err_phone($lok)
+{
 ?>
     <script>
         Swal.fire({
@@ -167,4 +187,18 @@ function tampil_simpan($lokasi)
 function indo_currency($nominal)
 {
     return $result = "Rp " . number_format($nominal, 2, ',', '.');
+}
+
+function indo_jam($waktu)
+{
+    $w = substr($waktu, 0, 5);
+    return $w;
+}
+
+function indo_date($date)
+{
+    $d = substr($date, 8, 2);
+    $m = substr($date, 5, 2);
+    $y = substr($date, 0, 4);
+    return $d . '/' . $m . '/' . $y;
 }

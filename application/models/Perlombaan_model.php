@@ -36,7 +36,6 @@ class Perlombaan_model extends CI_Model
             'keterangan'    => $post['keterangan'],
             'durasi'        => $post['durasi'],
             'jumlah_line'   => $post['line'],
-            'biaya'         => $post['biaya'],
         ];
         $this->db->insert('t_perlombaan', $params);
     }
@@ -52,42 +51,15 @@ class Perlombaan_model extends CI_Model
             'keterangan'    => $post['keterangan'],
             'durasi'        => $post['durasi'],
             'jumlah_line'   => $post['line'],
-            'biaya'         => $post['biaya'],
             'updated'       => date('Y-m-d H:i:s'),
         ];
         $this->db->where('perlombaan_id', $post['id']);
         $this->db->update('t_perlombaan', $params);
     }
 
-    function check_kode_product($code, $id = null)
-    {
-        $this->db->from('p_perlombaan');
-        $this->db->where('kode_product', $code);
-        if ($id != null) {
-            $this->db->where('perlombaan_id !=', $id);
-        }
-        return $query =  $this->db->get();
-    }
-
     function del($id)
     {
         $this->db->where('perlombaan_id', $id);
         $this->db->delete('t_perlombaan');
-    }
-
-    function update_stock_in($data)
-    {
-        $qty    = $data['qty'];
-        $id     = $data['perlombaan_id'];
-        $sql = "UPDATE p_perlombaan SET stock = stock + '$qty' WHERE perlombaan_id = '$id'";
-        $this->db->query($sql);
-    }
-
-    function update_stock_out($data)
-    {
-        $qty    = $data['qty'];
-        $id     = $data['perlombaan_id'];
-        $sql = "UPDATE p_perlombaan SET stock = stock - '$qty' WHERE perlombaan_id = '$id'";
-        $this->db->query($sql);
     }
 }

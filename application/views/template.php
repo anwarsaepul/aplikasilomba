@@ -84,7 +84,8 @@
               <?= $this->uri->segment(1) == 'kategori' ||
                 $this->uri->segment(1) == 'jarak' ||
                 $this->uri->segment(1) == 'sasaran' ||
-                $this->uri->segment(1) == 'perlombaan' ? 'active' : '' ?>">
+                $this->uri->segment(1) == 'perlombaan' ||
+                $this->uri->segment(1) == 'jadwal' ? 'active' : '' ?>">
                 <i class="nav-icon fa fa-archive"></i>
                 <p>
                   Lomba
@@ -114,6 +115,12 @@
                   <a href="<?= base_url('perlombaan') ?>" class="nav-link <?= $this->uri->segment(1) == 'perlombaan' ? 'active' : '' ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Perlombaan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('jadwal') ?>" class="nav-link <?= $this->uri->segment(1) == 'jadwal' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Jadwal Lomba</p>
                   </a>
                 </li>
               </ul>
@@ -185,7 +192,14 @@
             window.location = link;
           }
         })
+      });
 
+      $(document).on('click', '#select', function() {
+        const perlombaan_id = $(this).data('id');
+        const nama_kategori = $(this).data('nama_kategori');
+
+        $('#perlombaan_id').val(perlombaan_id);
+        $('#nama_kategori').val(nama_kategori);
       });
     });
   </script>

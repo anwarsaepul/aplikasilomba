@@ -28,7 +28,6 @@ class Perlombaan extends CI_Controller
         $perlombaan->keterangan          = null;
         $perlombaan->durasi              = null;
         $perlombaan->jumlah_line         = null;
-        $perlombaan->biaya               = null;
 
         $query_kategori = $this->kategori_model->get();
         $query_jarak    = $this->jarak_model->get();
