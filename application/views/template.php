@@ -93,36 +93,45 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?= base_url('kategori') ?>" class="nav-link <?= $this->uri->segment(1) == 'kategori' ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Kategori</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?= base_url('jarak') ?>" class="nav-link <?= $this->uri->segment(1) == 'jarak' ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Jarak</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?= base_url('sasaran') ?>" class="nav-link <?= $this->uri->segment(1) == 'sasaran' ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sasaran</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?= base_url('perlombaan') ?>" class="nav-link <?= $this->uri->segment(1) == 'perlombaan' ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Perlombaan</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?= base_url('jadwal') ?>" class="nav-link <?= $this->uri->segment(1) == 'jadwal' ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Jadwal Lomba</p>
-                  </a>
-                </li>
+                <?php if ($this->session->userdata('level') == 1) { ?>
+                  <li class="nav-item">
+                    <a href="<?= base_url('kategori') ?>" class="nav-link <?= $this->uri->segment(1) == 'kategori' ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Kategori</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<?= base_url('jarak') ?>" class="nav-link <?= $this->uri->segment(1) == 'jarak' ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Jarak</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<?= base_url('sasaran') ?>" class="nav-link <?= $this->uri->segment(1) == 'sasaran' ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sasaran</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<?= base_url('perlombaan') ?>" class="nav-link <?= $this->uri->segment(1) == 'perlombaan' ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Perlombaan</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<?= base_url('jadwal') ?>" class="nav-link <?= $this->uri->segment(1) == 'jadwal' ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Jadwal Lomba</p>
+                    </a>
+                  </li>
+                <?php } else { ?>
+                  <li class="nav-item">
+                    <a href="<?= base_url('jadwal') ?>" class="nav-link <?= $this->uri->segment(1) == 'jadwal' ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Jadwal Lomba</p>
+                    </a>
+                  </li>
+                <?php } ?>
               </ul>
             </li>
 

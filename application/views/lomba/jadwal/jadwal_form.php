@@ -115,9 +115,7 @@
                                 <td><?= $data->durasi ?> Menit</td>
                                 <td><?= $data->jumlah_line ?></td>
                                 <td>
-                                    <button class="btn btn-primary btn-xs" data-dismiss="modal" aria-label="Close" id="select" 
-                                    data-id="<?= $data->perlombaan_id ?>" 
-                                    data-nama_kategori="<?= $data->nama_kategori ?>">
+                                    <button class="btn btn-primary btn-xs" data-dismiss="modal" aria-label="Close" id="select" data-id="<?= $data->perlombaan_id ?>" data-nama_kategori="<?= $data->nama_kategori ?>">
                                         <i class="fa fa-check"></i> Pilih</button>
                                 </td>
                             </tr>

@@ -18,11 +18,12 @@ class jadwal extends CI_Controller
 
     function add()
     {
+        ini_set('date.timezone', 'Asia/Jakarta'); 
         $jadwal = new stdClass();
         $jadwal->jadwal_id          = null;
         $jadwal->nama_kategori      = null;
         $jadwal->tanggal_tanding    = date('Y-m-d');
-        $jadwal->jam_tanding        = date('H:i', time() + (60 * 60 * 5));
+        $jadwal->jam_tanding        = date('H:i');
         $jadwal->biaya              = null;
 
         $lomba = $this->perlombaan_model->tampilItem()->result();
@@ -45,17 +46,10 @@ class jadwal extends CI_Controller
 
             $lomba = $this->perlombaan_model->tampilItem()->result();
 
-            // $query_kategori = $this->kategori_model->get();
-            // $query_jarak    = $this->jarak_model->get();
-            // $query_sasaran  = $this->sasaran_model->get();
-
             $data = array(
                 'page'      => 'Edit',
                 'lomba'     => $lomba,
                 'row'       => $jadwal,
-                // 'kategori'  => $query_kategori,
-                // 'jarak'     => $query_jarak,
-                // 'sasaran'   => $query_sasaran,
             );
             $this->template->load('template', 'lomba/jadwal/jadwal_form', $data);
         } else {

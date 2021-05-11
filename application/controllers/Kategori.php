@@ -7,6 +7,7 @@ class Kategori extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
+        checkAdmin();
         $this->load->model('kategori_model');
     }
 

@@ -7,6 +7,7 @@ class Sasaran extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
+        checkAdmin();
         $this->load->model('sasaran_model');
     }
 

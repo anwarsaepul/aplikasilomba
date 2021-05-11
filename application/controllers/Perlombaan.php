@@ -7,6 +7,7 @@ class Perlombaan extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
+        checkAdmin();
         $this->load->model(['perlombaan_model', 'kategori_model', 'jarak_model', 'sasaran_model']);
     }
 

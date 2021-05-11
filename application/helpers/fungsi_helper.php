@@ -18,6 +18,15 @@ function checklogin()
     }
 }
 
+function checkAdmin()
+{
+    $CI = &get_instance();
+    $CI->load->library('session_id');
+    if ($CI->session_id->user_login()->level != 1) {
+        redirect('dashboard');
+    }
+}
+
 function flashData()
 {
 ?>

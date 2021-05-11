@@ -7,6 +7,7 @@ class Jarak extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
+        checkAdmin();
         $this->load->model('jarak_model');
     }
 
