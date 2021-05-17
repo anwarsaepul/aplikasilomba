@@ -12,12 +12,13 @@ class jadwal extends CI_Controller
 
     function index()
     {
-        $data['row'] = $this->jadwal_model->tampilItem();
+        $data['row'] = $this->jadwal_model->tampilItem2();
         $this->template->load('template', 'lomba/jadwal/jadwal_data', $data);
     }
 
     function add()
     {
+        checkAdmin();
         ini_set('date.timezone', 'Asia/Jakarta'); 
         $jadwal = new stdClass();
         $jadwal->jadwal_id          = null;
@@ -40,6 +41,7 @@ class jadwal extends CI_Controller
 
     public function edit($id)
     {
+        checkAdmin();
         $query = $this->jadwal_model->tampilItem($id);
         if ($query->num_rows() > 0) {
             $jadwal         = $query->row();

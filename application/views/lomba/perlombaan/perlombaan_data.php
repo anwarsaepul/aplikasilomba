@@ -1,5 +1,5 @@
 <!-- Main content -->
-<section class="content">
+<section class="content bg-light">
     <div class="box">
         <div class="box-header">
             <div class="col-sm p-3">
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="table-responsive p-3">
-            <table class="table table-bordered table-responsive text-center table-striped" id="table1">
+            <table class="table table-responsive table-bordered text-center table-striped" id="table1">
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>

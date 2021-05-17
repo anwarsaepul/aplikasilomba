@@ -134,6 +134,25 @@
                 <?php } ?>
               </ul>
             </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link 
+              <?= $this->uri->segment(1) == 'trx' ||
+                $this->uri->segment(1) == 'order' ? 'active' : '' ?>">
+                <i class="nav-icon fas fa-shopping-cart"></i>
+                <p>
+                  Transaksi
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url('order') ?>" class="nav-link <?= $this->uri->segment(1) == 'sale' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Order</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
 
             <li class="nav-item">
               <a href="<?= base_url('auth/logout') ?>" class="nav-link">
@@ -210,6 +229,31 @@
         $('#perlombaan_id').val(perlombaan_id);
         $('#nama_kategori').val(nama_kategori);
       });
+
+      $(document).on('click', '#set_detail', function() {
+        const nama_kategori = $(this).data('nama_kategori');
+        const jarak = $(this).data('jarak');
+        const nama_sasaran = $(this).data('nama_sasaran');
+        const point = $(this).data('point');
+        const keterangan = $(this).data('keterangan');
+        const durasi = $(this).data('durasi');
+        const jumlah_line = $(this).data('jumlah_line');
+        const tanggal_tanding = $(this).data('tanggal_tanding');
+        const jam_tanding = $(this).data('jam_tanding');
+        const biaya = $(this).data('biaya');
+
+        $('#nama_kategori').text(nama_kategori);
+        $('#jarak').text(jarak);
+        $('#nama_sasaran').text(nama_sasaran);
+        $('#point').text(point);
+        $('#keterangan').text(keterangan);
+        $('#durasi').text(durasi);
+        $('#jumlah_line').text(jumlah_line);
+        $('#tanggal_tanding').text(tanggal_tanding);
+        $('#jam_tanding').text(jam_tanding);
+        $('#biaya').text(biaya);
+      });
+
     });
   </script>
 </body>
