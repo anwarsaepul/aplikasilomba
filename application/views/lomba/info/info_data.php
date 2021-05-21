@@ -1,14 +1,14 @@
 <!-- Main content -->
 <section class="content bg-light">
-    <div class="box bg-dark">
+    <div class="box">
         <div class="box-header">
             <div class="col-sm p-3">
                 <div class="float-left">
-                    <h3><i class="nav-icon fa fa-object-group"></i> Jadwal</h3>
+                    <h3><i class="nav-icon fa fa-object-group"></i> Informasi Lomba</h3>
                 </div>
                 <?php if ($this->session->userdata('level') == 1) { ?>
                     <div class="float-right">
-                        <a href="<?= base_url('jadwal/add') ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Data jadwal
+                        <a href="<?= base_url('info/add') ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Data info
                         </a>
                     </div>
                 <?php } ?>
@@ -38,8 +38,8 @@
                                     <i class="fa fa-eye"></i> Detail
                                 </a>
                                 <?php if ($this->session->userdata('level') == 1) { ?>
-                                    <a href="<?= base_url('jadwal/edit/' . $data->jadwal_id) ?>" class="btn btn-primary btn-xs mb-1"><i class="fa fa-edit"></i>Update</a>
-                                    <a href="<?= base_url('jadwal/del/' . $data->jadwal_id) ?>" class="btn btn-danger btn-xs mb-1" id="tmblhps"><i class="fa fa-trash"></i>Delete</a>
+                                    <a href="<?= base_url('info/edit/' . $data->lomba_id) ?>" class="btn btn-primary btn-xs mb-1"><i class="fa fa-edit"></i>Update</a>
+                                    <a href="<?= base_url('info/del/' . $data->lomba_id) ?>" class="btn btn-danger btn-xs mb-1" id="tmblhps"><i class="fa fa-trash"></i>Delete</a>
                                 <?php } ?>
                             </td>
                         </tr>
@@ -64,7 +64,7 @@
                     <tbody>
                         <tr>
                             <th>Nama Kategori</th>
-                            <td><span id="nama_kategori"></span></td>
+                            <td><span id="nama_kategori2"></span></td>
                         </tr>
                         <tr>
                             <th>Jarak</th>

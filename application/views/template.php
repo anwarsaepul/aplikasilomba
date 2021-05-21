@@ -85,7 +85,7 @@
                 $this->uri->segment(1) == 'jarak' ||
                 $this->uri->segment(1) == 'sasaran' ||
                 $this->uri->segment(1) == 'perlombaan' ||
-                $this->uri->segment(1) == 'jadwal' ? 'active' : '' ?>">
+                $this->uri->segment(1) == 'info' ? 'active' : '' ?>">
                 <i class="nav-icon fa fa-archive"></i>
                 <p>
                   Lomba
@@ -119,16 +119,16 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url('jadwal') ?>" class="nav-link <?= $this->uri->segment(1) == 'jadwal' ? 'active' : '' ?>">
+                    <a href="<?= base_url('info') ?>" class="nav-link <?= $this->uri->segment(1) == 'info' ? 'active' : '' ?>">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Jadwal Lomba</p>
+                      <p>Info Lomba</p>
                     </a>
                   </li>
                 <?php } else { ?>
                   <li class="nav-item">
-                    <a href="<?= base_url('jadwal') ?>" class="nav-link <?= $this->uri->segment(1) == 'jadwal' ? 'active' : '' ?>">
+                    <a href="<?= base_url('info') ?>" class="nav-link <?= $this->uri->segment(1) == 'info' ? 'active' : '' ?>">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Jadwal Lomba</p>
+                      <p>Info Lomba</p>
                     </a>
                   </li>
                 <?php } ?>
@@ -137,6 +137,7 @@
             <li class="nav-item">
               <a href="#" class="nav-link 
               <?= $this->uri->segment(1) == 'trx' ||
+                $this->uri->segment(1) == 'keranjang' ||
                 $this->uri->segment(1) == 'order' ? 'active' : '' ?>">
                 <i class="nav-icon fas fa-shopping-cart"></i>
                 <p>
@@ -144,6 +145,14 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url('keranjang') ?>" class="nav-link <?= $this->uri->segment(1) == 'keranjang' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Keranjang</p>
+                  </a>
+                </li>
+              </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="<?= base_url('order') ?>" class="nav-link <?= $this->uri->segment(1) == 'sale' ? 'active' : '' ?>">
@@ -223,11 +232,16 @@
       });
 
       $(document).on('click', '#select', function() {
-        const perlombaan_id = $(this).data('id');
+        const perlombaan_id = $(this).data('perlombaan_id');
+        // const info_id       = $(this).data('info_id');
+        const info_id       = $(this).data('id');
         const nama_kategori = $(this).data('nama_kategori');
+        const biaya         = $(this).data('biaya');
 
         $('#perlombaan_id').val(perlombaan_id);
+        $('#info_id').val(info_id);
         $('#nama_kategori').val(nama_kategori);
+        $('#biaya').val(biaya);
       });
 
       $(document).on('click', '#set_detail', function() {
@@ -242,7 +256,7 @@
         const jam_tanding = $(this).data('jam_tanding');
         const biaya = $(this).data('biaya');
 
-        $('#nama_kategori').text(nama_kategori);
+        $('#nama_kategori2').text(nama_kategori);
         $('#jarak').text(jarak);
         $('#nama_sasaran').text(nama_sasaran);
         $('#point').text(point);
@@ -252,7 +266,11 @@
         $('#tanggal_tanding').text(tanggal_tanding);
         $('#jam_tanding').text(jam_tanding);
         $('#biaya').text(biaya);
+        $('#biaya2').text(biaya);
       });
+
+      // function tambahdata(){
+      // }
 
     });
   </script>

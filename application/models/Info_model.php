@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class jadwal_model extends CI_Model
+class info_model extends CI_Model
 {
     function get($id = null)
     {
@@ -27,15 +27,17 @@ class jadwal_model extends CI_Model
 
     function tampilItem2($id = null)
     {
-        $this->db->select('t_jadwal.*, nama_kategori, jarak_sasaran, nama_sasaran, point, keterangan, durasi, jumlah_line');
-        $this->db->from('t_jadwal');
+        $this->db->select('t_lomba.*, nama_kategori, jarak_sasaran, nama_sasaran, point, keterangan, durasi, jumlah_line');
+        $this->db->from('t_lomba');
         // 'table yg ingin di joinkan', 'tabel yang sama = tabel yang sama'
-        $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_jadwal.perlombaan_id');
+        // $this->db->join('t_keranjang', 't_lomba.lomba_id = t_keranjang.lomba_id', 'right');
+        $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
         $this->db->join('t_kategori', 't_kategori.kategori_id = t_perlombaan.kategori_id');
         $this->db->join('t_jarak', 't_jarak.jarak_id = t_perlombaan.jarak_id');
         $this->db->join('t_sasaran', 't_sasaran.sasaran_id = t_perlombaan.sasaran_id');
+        // $this->db->join('t_lomba', 't_keranjang.lomba_id = t_lomba.lomba_id', 'right');
         if ($id != null) {
-            $this->db->where('jadwal_id', $id);
+            $this->db->where('lomba_id', $id);
         }
         return $query = $this->db->get();
     }
@@ -62,7 +64,7 @@ class jadwal_model extends CI_Model
             'biaya'             => $post['biaya'],
             'updated'           => date('Y-m-d H:i:s'),
         ];
-        $this->db->where('jadwal_id', $post['id']);
+        $this->db->where('jadwal_id', $post['jadwal_id']);
         $this->db->update('t_jadwal', $params);
     }
 

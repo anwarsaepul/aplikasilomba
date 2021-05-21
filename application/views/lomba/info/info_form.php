@@ -4,10 +4,10 @@
         <div class="box-header">
             <div class="col-sm mb-5 pt-3">
                 <div class="float-left">
-                    <h3><i class="nav-icon fa fa-object-group"></i> Jadwal</h3>
+                    <h3><i class="nav-icon fa fa-object-group"></i> info</h3>
                 </div>
                 <div class="float-right">
-                    <a href="<?= base_url('jadwal') ?>" class="btn btn-warning btn-flat"><i class="nav-icon fa fa-undo"></i> Back
+                    <a href="<?= base_url('info') ?>" class="btn btn-warning btn-flat"><i class="nav-icon fa fa-undo"></i> Back
                     </a>
                 </div>
             </div>
@@ -15,19 +15,19 @@
         <div class="box-body">
             <div class="box pb-2">
                 <div class="col-md-6 mx-auto col-md-offset-6">
-                    <form action="<?= base_url('jadwal/process') ?>" method="POST">
+                    <form action="<?= base_url('info/process') ?>" method="POST">
                         <table width="100%">
                             <tr>
                                 <div class="form-group">
-                                    <h3 class="box-title text-center"><?= ucfirst($page) ?> Data jadwal</h3>
+                                    <h3 class="box-title text-center"><?= ucfirst($page) ?> Data info</h3>
                                 </div>
                             </tr>
                             <tr>
                                 <div class="form-group">
                                     <label id="perlombaan">Perlombaan *</label>
                                     <div class="form-group input-group">
-                                        <input type="hidden" name="id" id="jadwal_id" value="<?= $row->jadwal_id ?>">
-                                        <input type="hidden" name="perlombaan_id" id="perlombaan_id">
+                                        <input type="hidden" name="lomba_id" id="lomba_id" value="<?= $row->lomba_id ?>">
+                                        <input type="hidden" name="perlombaan_id" id="perlombaan_id" value="<?= $row->perlombaan_id ?>">
                                         <input type="text" name="nama_kategori" id="nama_kategori" value="<?= $row->nama_kategori ?>" class="form-control" required autofocus>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-item">
@@ -115,7 +115,7 @@
                                 <td><?= $data->durasi ?> Menit</td>
                                 <td><?= $data->jumlah_line ?></td>
                                 <td>
-                                    <button class="btn btn-primary btn-xs" data-dismiss="modal" aria-label="Close" id="select" data-id="<?= $data->perlombaan_id ?>" data-nama_kategori="<?= $data->nama_kategori ?>">
+                                    <button class="btn btn-primary btn-xs" data-dismiss="modal" aria-label="Close" id="select" data-perlombaan_id="<?= $data->perlombaan_id ?>" data-nama_kategori="<?= $data->nama_kategori ?>">
                                         <i class="fa fa-check"></i> Pilih</button>
                                 </td>
                             </tr>
