@@ -43,7 +43,7 @@ class Lomba_model extends CI_Model
         $this->db->delete('t_lomba');
     }
 
-    
+
 
 
 

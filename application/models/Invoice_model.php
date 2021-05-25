@@ -1,12 +1,12 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Order_model extends CI_Model
+class Invoice_model extends CI_Model
 {
     function get($id = null)
     {
-        $this->db->from('t_order');
+        $this->db->from('t_invoice');
         if ($id != null) {
-            $this->db->where('order_id', $id);
+            $this->db->where('invoice_id', $id);
         }
         return $query = $this->db->get();
     }
@@ -14,7 +14,7 @@ class Order_model extends CI_Model
     function invoice_no()
     {
         $sql = "SELECT MAX(MID(invoice,9,4)) AS invoice_no 
-                FROM t_order 
+                FROM t_invoice 
                 WHERE MID(invoice,3,6) = DATE_FORMAT(CURDATE(), '%y%m%d')";
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0) {
@@ -31,25 +31,25 @@ class Order_model extends CI_Model
     {
         $params = [
             // nama d db        => nama di inputan
-            'lomba_id'  => $post['id'],
+            'invoice'   => $post['invoice'],
+            'total'     => $post['totalpesanan'],
             'user_id'   => $this->session->userdata('user_id'),
-            'invoice'   => '0',
         ];
-        $this->db->insert('t_order', $params);
+        $this->db->insert('t_invoice', $params);
     }
 
     function del($table, $id)
     {
         $this->db->where($table, $id);
         $this->db->where('invoice', '0');
-        $this->db->delete('t_order');
+        $this->db->delete('t_invoice');
     }
 
     function update_invoice($post)
     {
         $invoice    = $post['invoice'];
         $user_id    = $this->session->userdata('user_id');
-        $sql = "UPDATE t_order SET invoice = '$invoice' WHERE user_id = '$user_id' AND invoice = '0'";
+        $sql = "UPDATE t_invoice SET invoice = '$invoice' WHERE user_id = '$user_id' AND invoice = '0'";
         $this->db->query($sql);
     }
 }

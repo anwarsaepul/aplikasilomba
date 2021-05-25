@@ -1,57 +1,6 @@
 <!-- Main content -->
 <section class="container-fluid bg-light p-2">
     <div class="row p-2">
-        <div class="col-md-6 mx-auto">
-            <div class="box-body mx-auto info-box p-4">
-                <div class="col-md mt-2">
-                    <form action="<?= base_url('keranjang/process') ?>" method="POST">
-                        <table width="100%">
-                            <tr>
-                                <td style="vertical-align: top; width: 20%;">
-                                    <label for="kode_product">Lomba</label>
-                                </td>
-                                <td>
-                                    <div class="form-group input-group">
-                                        <input type="hidden" name="id" id="info_id">
-                                        <input type="hidden" name="perlombaan_id" id="perlombaan_id">
-                                        <input type="hidden" name="invoice" value="<?= $invoice ?>">
-                                        <input type="text" name="nama_kategori" id="nama_kategori" value="" class="form-control" required autofocus>
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-item">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <label for="biaya">Biaya</label>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="number" id="biaya" name="biaya" value="0" class="form-control" readonly>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <div class="">
-                                        <button type="submit" id="addcart" name="add_cart" class="btn btn-block btn-primary">
-                                            <i class="fas fa-cart-plus"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row p-2">
         <div class="col-md">
             <div class="box box-widget">
                 <div class="box-body table-responsive p-3">
@@ -98,44 +47,6 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row p-2">
-        <div class="col-md-6 mx-auto">
-            <div class="box-body mx-auto info-box p-4">
-                <div class="col-md mt-2">
-                    <form action="<?= base_url('keranjang/process') ?>" method="POST">
-                        <table width="100%">
-                            <tr>
-                                <td style="vertical-align: top; width: 35%;">
-                                    <label for="totalpesanan">Total Pesanaan</label>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input name="totalpesanan" value="<?= indo_currency($biaya); ?>" class="form-control" readonly>
-                                        <input type="hidden" id="totalpesanan" name="totalpesanan" value="<?= $biaya; ?>">
-                                        <input type="hidden" name="invoice" value="<?= $invoice ?>">
-                                        <input type="hidden" name="perlombaan_id2" id="perlombaan_id2">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                </td>
-                                <td>
-                                    <div class="mx-auto col-md-8">
-                                        <input type="hidden" name="invoice2" value="">
-                                        <button id="process-payment" type="submit" name="process-payment" class="btn btn-block btn-success">
-                                            <i class="fas fa-cart-arrow-down"></i> Bayar
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
                 </div>
             </div>
         </div>

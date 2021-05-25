@@ -138,7 +138,7 @@
               <a href="#" class="nav-link 
               <?= $this->uri->segment(1) == 'trx' ||
                 $this->uri->segment(1) == 'keranjang' ||
-                $this->uri->segment(1) == 'order' ? 'active' : '' ?>">
+                $this->uri->segment(1) == 'pesanan' ? 'active' : '' ?>">
                 <i class="nav-icon fas fa-shopping-cart"></i>
                 <p>
                   Transaksi
@@ -155,9 +155,9 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<?= base_url('order') ?>" class="nav-link <?= $this->uri->segment(1) == 'sale' ? 'active' : '' ?>">
+                  <a href="<?= base_url('pesanan') ?>" class="nav-link <?= $this->uri->segment(1) == 'pesanan' ? 'active' : '' ?>">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Order</p>
+                    <p>Pesanan</p>
                   </a>
                 </li>
               </ul>
@@ -239,6 +239,8 @@
         const biaya         = $(this).data('biaya');
 
         $('#perlombaan_id').val(perlombaan_id);
+        $('#perlombaan_id2').val(perlombaan_id);
+
         $('#info_id').val(info_id);
         $('#nama_kategori').val(nama_kategori);
         $('#biaya').val(biaya);

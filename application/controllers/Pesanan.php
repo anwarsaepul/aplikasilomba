@@ -1,5 +1,5 @@
 <?php
-class Keranjang extends CI_Controller
+class Pesanan extends CI_Controller
 {
     function __construct()
     {
@@ -13,8 +13,6 @@ class Keranjang extends CI_Controller
     {
         $row        = $this->info_model->tampilItem2();
         $keranjang  = $this->keranjang_model->getkeranjang();
-        // $keranjang  = $this->keranjang_model->get();
-        // $lomba  = $this->perlombaan_model->tampilItem()->result();
 
         $data = array(
             // 'page'   => 'Add',
@@ -23,7 +21,7 @@ class Keranjang extends CI_Controller
             'invoice'   => $this->invoice_model->invoice_no(),
         );
         // $data['row'] = $this->sasaran_model->get();
-        $this->template->load('template', 'trx/keranjang/keranjang_data', $data);
+        $this->template->load('template', 'trx/pesanan/pesanan_data', $data);
     }
 
     function process()
@@ -39,10 +37,18 @@ class Keranjang extends CI_Controller
                 redirect('keranjang');
             }
         } else if (isset($_POST['process-payment'])) {
-            $this->invoice_model->add($post);
+            // echo $post['perlombaan_id2'];
+            // $this->detail_model->add($post);
             $this->order_model->update_invoice($post);
             $this->keranjang_model->del('user_id', $this->session->userdata('user_id'));
-            redirect('pesanan');
+            // $this->keranjang_model->del('user_id', $this->session->userdata('user_id'));
+
+
+            // $this->sale_model->add_transaksi($post);
+            // $this->kredit_model->add_transaksik($post);
+            // $this->db->empty_table('t_keranjang');
+            // redirect('sale');
+            // tampil_simpan('report/penjualan');
         }
     }
 

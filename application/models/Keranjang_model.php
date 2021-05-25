@@ -5,10 +5,27 @@ class Keranjang_model extends CI_Model
     function get($id = null)
     {
         $this->db->from('t_keranjang');
+        $this->db->where('user_id', $this->session->userdata('user_id'));
         if ($id != null) {
             $this->db->where('keranjang_id', $id);
         }
         return $query = $this->db->get();
+    }
+
+        function add_keranjang($post)
+    {
+        $params = [
+            //nama d db => nama di inputan
+            'lomba_id' => $post['id'],
+            'user_id'   => $this->session->userdata('user_id'),
+        ];
+        $this->db->insert('t_keranjang', $params);
+    }
+
+    function del($table, $id)
+    {
+        $this->db->where($table, $id);
+        $this->db->delete('t_keranjang');
     }
 
     function getkeranjang($id = null)
@@ -27,20 +44,8 @@ class Keranjang_model extends CI_Model
             $this->db->where('keranjang_id', $id);
         }
         return $query = $this->db->get();
+        
     }
-
-    
-    function add_keranjang($post)
-    {
-        $params = [
-            //nama d db => nama di inputan
-            'lomba_id' => $post['id'],
-            'user_id'   => $this->session->userdata('user_id')
-        ];
-        $this->db->insert('t_keranjang', $params);
-    }
-
-
 
     function getkeranjang2($id = null)
     {
@@ -57,21 +62,7 @@ class Keranjang_model extends CI_Model
         return $query = $this->db->get();
     }
 
-    function del($id)
-    {
-        $this->db->where('keranjang_id', $id);
-        $this->db->delete('t_keranjang');
-    }
 
-    // function get_keranjang()
-    // {
-    //     $this->db->select('t_keranjang.*, lomba_id', 'right');
-    //     $this->db->from('t_keranjang');
-    //     // 'table yg ingin di joinkan', 'tabel yang sama = tabel yang sama'
-    //     $this->db->join('t_lomba', 't_keranjang.lomba_id = t_lomba.lomba_id', 'right');
-    //     $this->db->order_by('keranjang_id', 'desc');
-    //     return $query = $this->db->get();
-    // }
 
     function get_keranjang_user($id = null)
     {
@@ -104,6 +95,20 @@ class Keranjang_model extends CI_Model
         return $query = $this->db->get();
     }
 
+    
+    function check_lomba_id($code, $id = null)
+    {
+        // nama table
+        $this->db->from('t_keranjang');
+        // yg di cek
+        $this->db->where('lomba_id', $code);
+        // jika id tdk null
+        if ($id != null) {
+            // cek keranjang_id tdk sama dgn $id
+            $this->db->where('keranjang_id !=', $id);
+        }
+        return $query =  $this->db->get();
+    }
 
 
 
@@ -112,6 +117,15 @@ class Keranjang_model extends CI_Model
 
 
 
+    function get_keranjang()
+    {
+        $this->db->select('t_keranjang.*, p_item.kode_product, nama_item, harga_jual');
+        $this->db->from('t_keranjang');
+        // 'table yg ingin di joinkan', 'tabel yang sama = tabel yang sama'
+        $this->db->join('p_item', 't_keranjang.item_id = p_item.item_id');
+        $this->db->order_by('keranjang_id', 'desc');
+        return $query = $this->db->get();
+    }
 
 
 
@@ -132,6 +146,9 @@ class Keranjang_model extends CI_Model
                 WHERE item_id = '$id'";
         $this->db->query($sql);
     }
+
+
+
 
 
     function hitung_total()
