@@ -9,9 +9,10 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>Kategori</th>
-                                    <th>Tanggal Tanding</th>
-                                    <th>Biaya</th>
+                                    <th>No Invoice</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Tanggal Order</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -19,31 +20,29 @@
                                 <?php
                                 $no = 1;
                                 $biaya = 0;
-                                foreach ($keranjang->result() as $key => $data) { ?>
+                                foreach ($invoice->result() as $key => $data) { ?>
                                     <tr>
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
-                                        <td><?= $data->nama_kategori ?></td>
-                                        <td><?= indo_date($data->tanggal_tanding) ?></td>
-                                        <td><?= indo_currency($data->biaya) ?></td>
+                                        <td><?= $data->invoice ?></td>
+                                        <td><?= indo_currency($data->total) ?></td>
                                         <td>
-                                            <a class="btn btn-default btn-xs mb-1" id="set_detail" data-toggle="modal" data-target="#modal-detail" data-nama_kategori="<?= $data->nama_kategori ?>" data-jarak="<?= $data->jarak_sasaran ?>" data-nama_sasaran="<?= $data->nama_sasaran ?>" data-point="<?= $data->point ?>" data-keterangan="<?= $data->keterangan ?>" data-durasi="<?= $data->durasi ?>" data-jumlah_line="<?= $data->jumlah_line ?>" data-tanggal_tanding="<?= indo_date($data->tanggal_tanding) ?>" data-jam_tanding="<?= indo_jam($data->jam_tanding) ?>" data-biaya="<?= indo_currency($data->biaya) ?>">
+                                            <strong>
+                                                <?php
+                                                    if ($data->status_pesanan == 0) 
+                                                        { ?> Belum di bayar <?php } 
+                                                    elseif ($data->status_pesanan == 1) 
+                                                        { ?> Sedang di vertifikasi <?php } 
+                                                    else { ?> Lunas <?php } ?>
+                                            </strong>
+                                        </td>
+                                        <td><?= indo_date($data->created) ?></td>
+                                        <td>
+                                            <a class="btn btn-default btn-xs mb-1" id="set_detail">
                                                 <i class="fa fa-eye"></i> Detail
                                             </a>
-                                            <a href="<?= base_url('keranjang/del/' . $data->keranjang_id . '/' . $data->lomba_id) ?>" class="btn btn-danger btn-xs mb-1" id="tmblhps"><i class="fa fa-trash"></i>Delete</a>
                                         </td>
                                     </tr>
-                                <?php
-                                    $biaya += $data->biaya;
-                                }
-                                ?>
-
-                                <tr style="font-weight: bold;">
-                                    <td class="text-left">Jumlah</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><?= indo_currency($biaya); ?></td>
-                                    <td></td>
-                                </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

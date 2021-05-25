@@ -5,6 +5,7 @@ class Invoice_model extends CI_Model
     function get($id = null)
     {
         $this->db->from('t_invoice');
+        $this->db->where('user_id', $this->session->userdata('user_id'));
         if ($id != null) {
             $this->db->where('invoice_id', $id);
         }

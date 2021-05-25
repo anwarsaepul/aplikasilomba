@@ -11,6 +11,8 @@ class Pesanan extends CI_Controller
 
     function index()
     {
+        $invoice    = $this->invoice_model->get();
+
         $row        = $this->info_model->tampilItem2();
         $keranjang  = $this->keranjang_model->getkeranjang();
 
@@ -18,7 +20,7 @@ class Pesanan extends CI_Controller
             // 'page'   => 'Add',
             'row'       => $row,
             'keranjang' => $keranjang,
-            'invoice'   => $this->invoice_model->invoice_no(),
+            'invoice'   => $invoice,
         );
         // $data['row'] = $this->sasaran_model->get();
         $this->template->load('template', 'trx/pesanan/pesanan_data', $data);
