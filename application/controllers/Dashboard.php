@@ -6,10 +6,12 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         checklogin();
+        $this->load->model(['lomba_model']);
     }
 
-    public function index()
+    function index()
     {
-        $this->template->load('template', 'dashboard');
+        $data['row'] = $this->lomba_model->tampilItem2();
+        $this->template->load('template', 'dashboard', $data);
     }
 }

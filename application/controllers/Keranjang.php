@@ -13,16 +13,12 @@ class Keranjang extends CI_Controller
     {
         $row        = $this->info_model->tampilItem2();
         $keranjang  = $this->keranjang_model->getkeranjang();
-        // $keranjang  = $this->keranjang_model->get();
-        // $lomba  = $this->perlombaan_model->tampilItem()->result();
 
         $data = array(
-            // 'page'   => 'Add',
             'row'       => $row,
             'keranjang' => $keranjang,
             'invoice'   => $this->invoice_model->invoice_no(),
         );
-        // $data['row'] = $this->sasaran_model->get();
         $this->template->load('template', 'trx/keranjang/keranjang_data', $data);
     }
 

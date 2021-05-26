@@ -14,10 +14,10 @@ class Session_id
         return $user_data = $this->ci->user_model->get($user_id)->row();
     }
 
-    function count_item()
+    function hitung_keranjang()
     {
-        $this->ci->load->model('item_model');
-        return $this->ci->item_model->get()->num_rows();
+        $this->ci->load->model('keranjang_model');
+        return $this->ci->keranjang_model->get()->num_rows();
     }
 
     function count_supplier()
