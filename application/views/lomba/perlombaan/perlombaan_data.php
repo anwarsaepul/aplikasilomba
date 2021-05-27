@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="table-responsive p-3">
-            <table class="table table-responsive table-bordered text-center table-striped" id="table1">
+            <table class="table table-bordered text-center table-striped" id="table1">
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>

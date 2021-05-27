@@ -24,7 +24,7 @@ class Invoice_model extends CI_Model
         $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
         // $this->db->join('t_jarak', 't_jarak.jarak_id = t_perlombaan.jarak_id');
         // $this->db->join('t_sasaran', 't_sasaran.sasaran_id = t_perlombaan.sasaran_id');
-        $this->db->join('t_kategori', 't_kategori.kategori_id = t_perlombaan.kategori_id');
+        // $this->db->join('t_kategori', 't_kategori.kategori_id = t_perlombaan.kategori_id');
         // $this->db->where('user_id', $user_id);
         if ($id != null) {
             $this->db->where('invoice_id', $id);

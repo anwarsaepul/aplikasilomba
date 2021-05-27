@@ -21,12 +21,7 @@
                         </div>
                         <div class="form-group">
                             <label>Kategori *</label>
-                            <select name="kategori" class="form-control" required>
-                                <option value="">--Pilih Kategori--</option>
-                                <?php foreach ($kategori->result() as $key => $data) { ?>
-                                    <option value="<?= $data->kategori_id ?>" <?= $data->kategori_id == $row->kategori_id ? "selected" : null ?>><?= $data->nama_kategori ?></option>
-                                <?php } ?>
-                            </select>
+                            <input type="text" value="<?= $row->nama_kategori ?>" class="form-control" id="kategori" name="kategori" required placeholder="Input Nama Kategori">
                         </div>
                         <div class="form-group">
                             <label for="jarak">Jarak *</label>

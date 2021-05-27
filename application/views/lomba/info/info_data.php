@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="box-body table-responsive p-3">
-            <table class="table table-bordered table-responsive text-center table-striped" id="table1">
+            <table class="table table-bordered text-center table-striped" id="table1">
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>
