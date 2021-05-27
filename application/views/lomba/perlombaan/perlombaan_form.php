@@ -4,7 +4,7 @@
         <div class="box-header">
             <div class="col-sm mb-5 pt-3">
                 <div class="float-left">
-                    <h3><i class="nav-icon fa fa-object-group"></i> perlombaan</h3>
+                    <h3><i class="nav-icon fa fa-object-group"></i> Perlombaan</h3>
                 </div>
                 <div class="float-right">
                     <a href="<?= base_url('perlombaan') ?>" class="btn btn-warning btn-flat"><i class="nav-icon fa fa-undo"></i> Back
