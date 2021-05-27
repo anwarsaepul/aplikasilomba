@@ -93,9 +93,7 @@
             <?php if ($this->session->userdata('level') == 1) { ?>
               <li class="nav-item">
                 <a href="#" class="nav-link 
-              <?= $this->uri->segment(1) == 'jarak' ||
-                $this->uri->segment(1) == 'sasaran' ||
-                $this->uri->segment(1) == 'perlombaan' ||
+              <?= $this->uri->segment(1) == 'perlombaan' ||
                 $this->uri->segment(1) == 'info' ? 'active' : '' ?>">
                   <i class="nav-icon fa fa-archive"></i>
                   <p>
@@ -104,18 +102,6 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="<?= base_url('jarak') ?>" class="nav-link <?= $this->uri->segment(1) == 'jarak' ? 'active' : '' ?>">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Jarak</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="<?= base_url('sasaran') ?>" class="nav-link <?= $this->uri->segment(1) == 'sasaran' ? 'active' : '' ?>">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Sasaran</p>
-                    </a>
-                  </li>
                   <li class="nav-item">
                     <a href="<?= base_url('perlombaan') ?>" class="nav-link <?= $this->uri->segment(1) == 'perlombaan' ? 'active' : '' ?>">
                       <i class="far fa-circle nav-icon"></i>

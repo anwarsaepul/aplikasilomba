@@ -7,7 +7,7 @@ class info extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
-        $this->load->model(['info_model', 'sasaran_model', 'perlombaan_model', 'lomba_model']);
+        $this->load->model(['info_model', 'perlombaan_model', 'lomba_model']);
     }
 
     function index()

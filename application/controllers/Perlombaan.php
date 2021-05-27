@@ -8,7 +8,7 @@ class Perlombaan extends CI_Controller
         flashData();
         checklogin();
         checkAdmin();
-        $this->load->model(['perlombaan_model', 'sasaran_model']);
+        $this->load->model(['perlombaan_model']);
     }
 
     function index()
