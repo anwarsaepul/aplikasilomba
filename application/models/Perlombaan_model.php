@@ -13,11 +13,11 @@ class Perlombaan_model extends CI_Model
 
     function tampilItem($id = null)
     {
-        $this->db->select('t_perlombaan.*, nama_kategori, jarak_sasaran');
+        $this->db->select('t_perlombaan.*, nama_kategori');
         $this->db->from('t_perlombaan');
         // 'table yg ingin di joinkan', 'tabel yang sama = tabel yang sama'
         $this->db->join('t_kategori', 't_kategori.kategori_id = t_perlombaan.kategori_id');
-        $this->db->join('t_jarak', 't_jarak.jarak_id = t_perlombaan.jarak_id');
+        // $this->db->join('t_jarak', 't_jarak.jarak_id = t_perlombaan.jarak_id');
         // $this->db->join('t_sasaran', 't_sasaran.sasaran_id = t_perlombaan.sasaran_id');
         if ($id != null) {
             $this->db->where('perlombaan_id', $id);
@@ -30,7 +30,7 @@ class Perlombaan_model extends CI_Model
         $params = [
             // nama d db    => nama di inputan
             'kategori_id'   => $post['kategori'],
-            'jarak_id'      => $post['jarak'],
+            'jarak_sasaran' => $post['jarak'],
             'sasaran'       => $post['sasaran'],
             'point'         => $post['point'],
             'keterangan'    => $post['keterangan'],
@@ -45,7 +45,7 @@ class Perlombaan_model extends CI_Model
         $params = [
             // nama d db    => nama di inputan
             'kategori_id'   => $post['kategori'],
-            'jarak_id'      => $post['jarak'],
+            'jarak_sasaran' => $post['jarak'],
             'sasaran'       => $post['sasaran'],
             'point'         => $post['point'],
             'keterangan'    => $post['keterangan'],

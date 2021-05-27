@@ -32,7 +32,7 @@ class info_model extends CI_Model
         // 'table yg ingin di joinkan', 'tabel yang sama = tabel yang sama'
         $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
         $this->db->join('t_kategori', 't_kategori.kategori_id = t_perlombaan.kategori_id');
-        $this->db->join('t_jarak', 't_jarak.jarak_id = t_perlombaan.jarak_id');
+        // $this->db->join('t_jarak', 't_jarak.jarak_id = t_perlombaan.jarak_id');
         // $this->db->join('t_sasaran', 't_sasaran.sasaran_id = t_perlombaan.sasaran_id');
         // $this->db->join('t_lomba', 't_keranjang.lomba_id = t_lomba.lomba_id', 'right');
         if ($id != null) {

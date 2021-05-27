@@ -30,6 +30,7 @@ class Perlombaan extends CI_Controller
         $perlombaan->durasi              = null;
         $perlombaan->jumlah_line         = null;
 
+        $perlombaan->jarak_sasaran       = null;
         $perlombaan->sasaran            = null;
 
 

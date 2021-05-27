@@ -29,13 +29,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Jarak *</label>
-                            <select name="jarak" class="form-control" required>
-                                <option value="">--Pilih Jarak--</option>
-                                <?php foreach ($jarak->result() as $key => $data) { ?>
-                                    <option value="<?= $data->jarak_id ?>" <?= $data->jarak_id == $row->jarak_id ? "selected" : null ?>><?= $data->jarak_sasaran ?> M</option>
-                                <?php } ?>
-                            </select>
+                            <label for="jarak">Jarak *</label>
+                            <input type="number" value="<?= $row->jarak_sasaran ?>" class="form-control" id="jarak" name="jarak" required placeholder="Input jarak Sasaran">
                         </div>
                         <div class="form-group">
                             <label>Sasaran *</label>
