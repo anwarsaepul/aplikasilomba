@@ -8,7 +8,7 @@ class Perlombaan extends CI_Controller
         flashData();
         checklogin();
         checkAdmin();
-        $this->load->model(['perlombaan_model', 'kategori_model', 'jarak_model', 'sasaran_model']);
+        $this->load->model(['perlombaan_model', 'jarak_model', 'sasaran_model']);
     }
 
     function index()
@@ -35,13 +35,13 @@ class Perlombaan extends CI_Controller
         $perlombaan->sasaran            = null;
 
 
-        $query_kategori = $this->kategori_model->get();
+        // $query_kategori = $this->kategori_model->get();
         $query_jarak    = $this->jarak_model->get();
         // $query_sasaran  = $this->sasaran_model->get();
 
         $data = array(
             'page'      => 'Add',
-            'kategori'  => $query_kategori,
+            // 'kategori'  => $query_kategori,
             'jarak'     => $query_jarak,
             // 'sasaran'   => $query_sasaran,
             'row'       => $perlombaan
