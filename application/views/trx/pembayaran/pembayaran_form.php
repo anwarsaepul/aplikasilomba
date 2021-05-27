@@ -39,7 +39,12 @@
                         </div>
                         <div class="form-group">
                             <label>Sasaran *</label>
-                            <input type="text" value="<?= $row->sasaran ?>" class="form-control" id="sasaran" name="sasaran" required placeholder="Input sasaran">
+                            <select name="sasaran" class="form-control" required>
+                                <option value="">--Pilih Sasaran--</option>
+                                <?php foreach ($sasaran->result() as $key => $data) { ?>
+                                    <option value="<?= $data->sasaran_id ?>" <?= $data->sasaran_id == $row->sasaran_id ? "selected" : null ?>><?= $data->nama_sasaran ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="point">Point *</label>

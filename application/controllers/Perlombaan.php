@@ -24,21 +24,24 @@ class Perlombaan extends CI_Controller
         $perlombaan->perlombaan_sasaran   = null;
         $perlombaan->kategori_id         = null;
         $perlombaan->jarak_id            = null;
-        $perlombaan->sasaran_id          = null;
+        // $perlombaan->sasaran_id          = null;
         $perlombaan->point               = null;
         $perlombaan->keterangan          = null;
         $perlombaan->durasi              = null;
         $perlombaan->jumlah_line         = null;
 
+        $perlombaan->sasaran            = null;
+
+
         $query_kategori = $this->kategori_model->get();
         $query_jarak    = $this->jarak_model->get();
-        $query_sasaran  = $this->sasaran_model->get();
+        // $query_sasaran  = $this->sasaran_model->get();
 
         $data = array(
             'page'      => 'Add',
             'kategori'  => $query_kategori,
             'jarak'     => $query_jarak,
-            'sasaran'   => $query_sasaran,
+            // 'sasaran'   => $query_sasaran,
             'row'       => $perlombaan
         );
 
@@ -50,7 +53,7 @@ class Perlombaan extends CI_Controller
     {
         $query = $this->perlombaan_model->get($id);
         if ($query->num_rows() > 0) {
-            $perlombaan = $query->row();
+            $perlombaan     = $query->row();
             $query_kategori = $this->kategori_model->get();
             $query_jarak    = $this->jarak_model->get();
             $query_sasaran  = $this->sasaran_model->get();

@@ -14,14 +14,36 @@ class Invoice_model extends CI_Model
 
     function getinvoicedetail($id)
     {
-        $this->db->select('t_invoice.*, biaya, nama_kategori, tanggal_tanding, jarak_sasaran, nama_sasaran, point, keterangan, durasi, jumlah_line, jam_tanding');
+        // $user_id = $this->session->userdata('user_id');
+
+        $this->db->select('t_invoice.*, biaya, nama_kategori, tanggal_tanding, jarak_sasaran, sasaran, point, keterangan, durasi, jumlah_line, jam_tanding');
+        $this->db->from('t_invoice');
+        // $this->db->where('user_id', $this->session->userdata('user_id'));
+        $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
+        $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
+        $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
+        $this->db->join('t_jarak', 't_jarak.jarak_id = t_perlombaan.jarak_id');
+        // $this->db->join('t_sasaran', 't_sasaran.sasaran_id = t_perlombaan.sasaran_id');
+        $this->db->join('t_kategori', 't_kategori.kategori_id = t_perlombaan.kategori_id');
+        // $this->db->where('user_id', $user_id);
+        if ($id != null) {
+            $this->db->where('invoice_id', $id);
+        }
+        return $query = $this->db->get();
+    }
+
+    function getinvoicedetail2($id)
+    {
+        $this->db->select('t_invoice.*, t_order.*');
         $this->db->from('t_invoice');
         $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
         $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
         $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
         $this->db->join('t_jarak', 't_jarak.jarak_id = t_perlombaan.jarak_id');
-        $this->db->join('t_sasaran', 't_sasaran.sasaran_id = t_perlombaan.sasaran_id');
+        // $this->db->join('t_sasaran', 't_sasaran.sasaran_id = t_perlombaan.sasaran_id');
         $this->db->join('t_kategori', 't_kategori.kategori_id = t_perlombaan.kategori_id');
+
+        // $this->db->where('user_id', $this->session->userdata('user_id'));
         if ($id != null) {
             $this->db->where('invoice_id', $id);
         }

@@ -30,6 +30,7 @@ class Pesanan extends CI_Controller
     function detail($id)
     {
         $invoice    = $this->invoice_model->getinvoicedetail($id);
+        // $invoice    = $this->invoice_model->get($id);
         $row        = $this->lomba_model->tampilItem2();
 
         if ($invoice->num_rows() > 0) {
@@ -39,10 +40,21 @@ class Pesanan extends CI_Controller
                 'invoice'   => $invoice,
                 'row'       => $row,
             );
+        }else {
+            tampil_error($lokasi = 'pesanan');
         }
-        // var_dump($invoice->result());
+        // var_dump($inv);
         $this->template->load('template', 'trx/pesanan/pesanan_detail', $data);
     }
+
+    
+
+    function bayar($id)
+    {
+        echo $id;
+
+    }
+
 
 
 

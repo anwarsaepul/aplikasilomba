@@ -34,7 +34,7 @@
                             <td style="width: 5%;"><?= $no++ ?>.</td>
                             <td><?= $data->nama_kategori ?></td>
                             <td><?= $data->jarak_sasaran ?> M</td>
-                            <td><?= $data->nama_sasaran ?></td>
+                            <td><?= $data->sasaran ?></td>
                             <td><?= $data->point ?></td>
                             <td><?= $data->keterangan ?></td>
                             <td><?= $data->durasi ?> Menit</td>
