@@ -38,32 +38,12 @@
 
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
+          <a class="nav-link" href="<?= base_url('keranjang') ?>">
             <i class="nav-icon fas fa-shopping-cart"></i>
             <span class="badge badge-warning navbar-badge">
               <?= ucfirst($this->session_id->hitung_keranjang()) ?>
             </span>
           </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-item dropdown-header">15 Notifications</span>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-users mr-2"></i> 8 friend requests
-              <span class="float-right text-muted text-sm">12 hours</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-file mr-2"></i> 3 new reports
-              <span class="float-right text-muted text-sm">2 days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-          </div>
         </li>
 
         <li class="nav-item">
@@ -110,22 +90,22 @@
                 <p>Dashboard</p>
               </a>
             </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link 
+            <?php if ($this->session->userdata('level') == 1) { ?>
+              <li class="nav-item">
+                <a href="#" class="nav-link 
               <?= $this->uri->segment(1) == 'kategori' ||
                 $this->uri->segment(1) == 'jarak' ||
                 $this->uri->segment(1) == 'sasaran' ||
                 $this->uri->segment(1) == 'perlombaan' ||
                 $this->uri->segment(1) == 'info' ? 'active' : '' ?>">
-                <i class="nav-icon fa fa-archive"></i>
-                <p>
-                  Lomba
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <?php if ($this->session->userdata('level') == 1) { ?>
+                  <i class="nav-icon fa fa-archive"></i>
+                  <p>
+                    Lomba
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+
                   <li class="nav-item">
                     <a href="<?= base_url('kategori') ?>" class="nav-link <?= $this->uri->segment(1) == 'kategori' ? 'active' : '' ?>">
                       <i class="far fa-circle nav-icon"></i>
@@ -156,16 +136,9 @@
                       <p>Info Lomba</p>
                     </a>
                   </li>
-                <?php } else { ?>
-                  <li class="nav-item">
-                    <a href="<?= base_url('info') ?>" class="nav-link <?= $this->uri->segment(1) == 'info' ? 'active' : '' ?>">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Info Lomba</p>
-                    </a>
-                  </li>
-                <?php } ?>
-              </ul>
-            </li>
+                </ul>
+              </li>
+            <?php } ?>
             <li class="nav-item">
               <a href="#" class="nav-link 
               <?= $this->uri->segment(1) == 'trx' ||

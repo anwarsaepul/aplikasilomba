@@ -6,7 +6,7 @@ class Pesanan extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
-        $this->load->model(['keranjang_model', 'info_model', 'perlombaan_model', 'order_model', 'invoice_model']);
+        $this->load->model(['keranjang_model', 'info_model', 'perlombaan_model', 'order_model', 'invoice_model', 'lomba_model']);
     }
 
     function index()
@@ -25,6 +25,27 @@ class Pesanan extends CI_Controller
         // $data['row'] = $this->sasaran_model->get();
         $this->template->load('template', 'trx/pesanan/pesanan_data', $data);
     }
+
+
+    function detail($id)
+    {
+        $invoice    = $this->invoice_model->getinvoicedetail($id);
+        $row        = $this->lomba_model->tampilItem2();
+
+        if ($invoice->num_rows() > 0) {
+            $inv = $invoice->row();
+            $data = array(
+                'inv'       => $inv,
+                'invoice'   => $invoice,
+                'row'       => $row,
+            );
+        }
+        // var_dump($invoice->result());
+        $this->template->load('template', 'trx/pesanan/pesanan_detail', $data);
+    }
+
+
+
 
     function process()
     {

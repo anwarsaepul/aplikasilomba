@@ -12,11 +12,11 @@ class Keranjang_model extends CI_Model
         return $query = $this->db->get();
     }
 
-        function add_keranjang($post)
+        function add_keranjang($id)
     {
         $params = [
             //nama d db => nama di inputan
-            'lomba_id' => $post['id'],
+            'lomba_id' => $id,
             'user_id'   => $this->session->userdata('user_id'),
         ];
         $this->db->insert('t_keranjang', $params);

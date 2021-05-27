@@ -27,11 +27,11 @@ class Order_model extends CI_Model
         return $invoice = "ID" . date('ymd') . $no;
     }
 
-    function add($post)
+    function add($id)
     {
         $params = [
             // nama d db        => nama di inputan
-            'lomba_id'  => $post['id'],
+            'lomba_id'  => $id,
             'user_id'   => $this->session->userdata('user_id'),
             'invoice'   => '0',
         ];
@@ -51,5 +51,27 @@ class Order_model extends CI_Model
         $user_id    = $this->session->userdata('user_id');
         $sql = "UPDATE t_order SET invoice = '$invoice' WHERE user_id = '$user_id' AND invoice = '0'";
         $this->db->query($sql);
+    }
+
+    function getinvoice($invoice)
+    {
+        // $user_id = $this->session->userdata('user_id');
+
+        // $this->db->select('t_order.*, t_lomba.*, t_perlombaan.*, nama_kategori, jarak_sasaran, nama_sasaran, point, keterangan, durasi, jumlah_line');
+        // $this->db->from('t_order');
+        // $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
+        // $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
+        // $this->db->join('t_kategori', 't_kategori.kategori_id = t_perlombaan.kategori_id');
+        // $this->db->join('t_jarak', 't_jarak.jarak_id = t_perlombaan.jarak_id');
+        // $this->db->join('t_sasaran', 't_sasaran.sasaran_id = t_perlombaan.sasaran_id');
+        // $this->db->where('user_id', $user_id);
+
+        $this->db->where('invoice', $invoice);
+
+        // if ($id != null) {
+        //     $this->db->where('order_id', $id);
+        // }
+        return $query = $this->db->get();
+        
     }
 }

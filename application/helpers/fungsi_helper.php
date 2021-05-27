@@ -204,6 +204,12 @@ function indo_jam($waktu)
     return $w;
 }
 
+function jam($date)
+{
+    $w    = substr($date, 11, 5);
+    return $w;
+}
+
 function indo_date($date)
 {
     $d = substr($date, 8, 2);

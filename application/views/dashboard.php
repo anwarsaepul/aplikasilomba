@@ -22,7 +22,7 @@
 						<h5 class="mb-1"><?= $data->nama_kategori ?></h5>
 						<small class=""><?= $data->keterangan ?></small><br>
 						<span class="badge badge-success mb-3"><?= indo_currency($data->biaya) ?></span><br>
-						<a href="<?= base_url('lomba/prosess/' . $data->lomba_id) ?>" class="btn btn-sm btn-primary mb-1">Masukan keranjang</a>
+						<a href="<?= base_url('dashboard/process/' . $data->lomba_id) ?>" class="btn btn-sm btn-primary mb-1">Masukan keranjang</a>
 						<a class="btn btn-default btn-xs mb-1" id="set_detail" data-toggle="modal" data-target="#modal-detail" data-nama_kategori="<?= $data->nama_kategori ?>" data-jarak="<?= $data->jarak_sasaran ?>" data-nama_sasaran="<?= $data->nama_sasaran ?>" data-point="<?= $data->point ?>" data-keterangan="<?= $data->keterangan ?>" data-durasi="<?= $data->durasi ?>" data-jumlah_line="<?= $data->jumlah_line ?>" data-tanggal_tanding="<?= indo_date($data->tanggal_tanding) ?>" data-jam_tanding="<?= indo_jam($data->jam_tanding) ?>" data-biaya="<?= indo_currency($data->biaya) ?>">
 							<i class="fa fa-eye"></i> Detail
 						</a>

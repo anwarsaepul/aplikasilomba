@@ -1,62 +1,11 @@
 <!-- Main content -->
 <section class="container-fluid bg-light p-2">
     <div class="row p-2">
-        <div class="col-md-6 mx-auto">
-            <div class="box-body mx-auto info-box p-4">
-                <div class="col-md mt-2">
-                    <form action="<?= base_url('keranjang/process') ?>" method="POST">
-                        <table width="100%">
-                            <tr>
-                                <td style="vertical-align: top; width: 20%;">
-                                    <label for="kode_product">Lomba</label>
-                                </td>
-                                <td>
-                                    <div class="form-group input-group">
-                                        <input type="hidden" name="id" id="info_id">
-                                        <input type="hidden" name="perlombaan_id" id="perlombaan_id">
-                                        <input type="hidden" name="invoice" value="<?= $invoice ?>">
-                                        <input type="text" name="nama_kategori" id="nama_kategori" value="" class="form-control" required autofocus>
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-item">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <label for="biaya">Biaya</label>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="number" id="biaya" name="biaya" value="0" class="form-control" readonly>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <div class="">
-                                        <button type="submit" id="addcart" name="add_cart" class="btn btn-block btn-primary">
-                                            <i class="fas fa-cart-plus"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row p-2">
         <div class="col-md">
             <div class="box box-widget">
                 <div class="box-body table-responsive p-3">
                     <div class="mx-auto">
-                        <table class="table table-bordered text-center table-striped" id="table1">
+                        <table class="table table-bordered text-center table-striped">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
@@ -89,9 +38,7 @@
                                 ?>
 
                                 <tr style="font-weight: bold;">
-                                    <td class="text-left">Jumlah</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="text-left" colspan="3">Jumlah</td>
                                     <td><?= indo_currency($biaya); ?></td>
                                     <td></td>
                                 </tr>
@@ -103,7 +50,7 @@
         </div>
     </div>
 
-    <div class="row p-2">
+    <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="box-body mx-auto info-box p-4">
                 <div class="col-md mt-2">
@@ -129,7 +76,7 @@
                                     <div class="mx-auto col-md-8">
                                         <input type="hidden" name="invoice2" value="">
                                         <button id="process-payment" type="submit" name="process-payment" class="btn btn-block btn-success">
-                                            <i class="fas fa-cart-arrow-down"></i> Bayar
+                                            <i class="fas fa-cart-arrow-down"></i> Beli
                                         </button>
                                     </div>
                                 </td>
@@ -152,7 +99,7 @@
                 </button>
             </div>
             <div class="modal-body table-responsive">
-                <table class="table table-bordered table-responsive text-center table-striped" id="table1">
+                <table class="table table-bordered table-responsive text-center table-striped">
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
