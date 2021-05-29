@@ -6,7 +6,7 @@ class Pesanan extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
-        $this->load->model(['keranjang_model', 'info_model', 'perlombaan_model', 'order_model', 'invoice_model', 'lomba_model']);
+        $this->load->model(['keranjang_model', 'info_model', 'perlombaan_model', 'order_model', 'invoice_model', 'lomba_model', 'pembayaran_model']);
     }
 
     function index()
@@ -17,42 +17,54 @@ class Pesanan extends CI_Controller
         $keranjang  = $this->keranjang_model->getkeranjang();
 
         $data = array(
-            // 'page'   => 'Add',
             'row'       => $row,
             'keranjang' => $keranjang,
             'invoice'   => $invoice,
         );
-        // $data['row'] = $this->sasaran_model->get();
         $this->template->load('template', 'trx/pesanan/pesanan_data', $data);
     }
 
 
     function detail($id)
     {
-        $invoice    = $this->invoice_model->getinvoicedetail($id);
-        // $invoice    = $this->invoice_model->get($id);
-        $row        = $this->lomba_model->tampilItem2();
+        $invoice    = $this->invoice_model->getinvoicedetail2($id);
+        $cekinvoice = $this->invoice_model->get($id);
+        $gambar     = $this->pembayaran_model->tampilgambar($id);
 
-        if ($invoice->num_rows() > 0) {
-            $inv = $invoice->row();
+        if ($cekinvoice->num_rows() > 0) {
+            $inv = $cekinvoice->row();
             $data = array(
                 'inv'       => $inv,
                 'invoice'   => $invoice,
-                'row'       => $row,
+                'gambar'    => $gambar,
             );
-        }else {
+        } else {
             tampil_error($lokasi = 'pesanan');
         }
-        // var_dump($inv);
+        // var_dump($cekinvoice->result());
         $this->template->load('template', 'trx/pesanan/pesanan_detail', $data);
     }
 
-    
+
 
     function bayar($id)
     {
-        echo $id;
+        $invoice    = $this->invoice_model->getinvoicedetail2($id);
+        $cekinvoice = $this->invoice_model->get($id);
+        // $row        = $this->lomba_model->tampilItem2();
 
+        if ($cekinvoice->num_rows() > 0) {
+            $inv = $cekinvoice->row();
+            $data = array(
+                'inv'       => $inv,
+                'invoice'   => $invoice,
+                // 'row'       => $row,
+            );
+        } else {
+            tampil_error($lokasi = 'pesanan');
+        }
+        // var_dump($cekinvoice->result());
+        $this->template->load('template', 'trx/pembayaran/pembayaran_data', $data);
     }
 
 
@@ -84,6 +96,36 @@ class Pesanan extends CI_Controller
             // $this->db->empty_table('t_keranjang');
             // redirect('sale');
             // tampil_simpan('report/penjualan');
+        } else if (isset($_POST['pembayaran'])) {
+            // $config['upload-path']      = './assets/img/uploads/pembayaran/';
+            $config['upload_path']      = './assets/img/uploads/pembayaran/';
+            $config['allowed_types']    = 'gif|jpg|jpeg|png';
+            $config['max_size']         = '2048';
+            $config['file_name']         = 'ID-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+            $this->load->library('upload', $config);
+
+            // ketika berhasil diupload
+            if ($this->upload->do_upload('gambar')) {
+                $post['gambar'] = $this->upload->data('file_name');
+                $this->pembayaran_model->add($post);
+                $this->invoice_model->update_status($post);
+            } else {
+                $this->upload->display_errors();
+                ?>
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        text: 'Error',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        title: 'Photo gagal diupload!'
+                    }).then((result) => {
+                        window.location = '<?= site_url('pesanan') ?>';
+                    })
+                </script>
+                <?php
+            }
+            tampil_simpan('pesanan/detail/' . $post['invoice_id']);
         }
     }
 

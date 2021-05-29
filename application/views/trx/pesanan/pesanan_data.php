@@ -33,7 +33,7 @@
                                             </strong>
                                         </td>
                                         <td>
-                                            <a class="btn btn-default btn-sm mb-1" href="<?= base_url('pesanan/detail/' . $data->invoice_id) ?>">
+                                            <a class="btn btn-success btn-sm mb-1" href="<?= base_url('pesanan/detail/' . $data->invoice_id) ?>">
                                             Lihat Detail <i class="fas fa-chevron-circle-right"></i> 
                                             </a>
                                         </td>

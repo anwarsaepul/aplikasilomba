@@ -63,7 +63,7 @@ class Pembayaran extends CI_Controller
     }
 
 
-    public function edit($id)
+    function edit($id)
     {
         $query = $this->pembayaran_model->get($id);
         if ($query->num_rows() > 0) {
@@ -88,9 +88,10 @@ class Pembayaran extends CI_Controller
     function process()
     {
         $post = $this->input->post(null, TRUE);
-        if (isset($_POST['Add'])) {
+        if (isset($_POST['pembayaran'])) {
+            // echo 'ok';
             $this->pembayaran_model->add($post);
-            tampil_simpan($lokasi = 'pembayaran');
+            // tampil_simpan($lokasi = 'pembayaran');
         } elseif (isset($_POST['Edit'])) {
             $this->pembayaran_model->edit($post);
             tampil_edit($lokasi = 'pembayaran');

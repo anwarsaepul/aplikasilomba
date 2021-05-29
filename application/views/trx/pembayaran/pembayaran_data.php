@@ -5,83 +5,93 @@
             <div class="box box-widget">
                 <div class="box-body">
                     <div class="info-box p-4 col-md-6 mx-auto">
+                        <?= form_open_multipart('pesanan/process') ?>
                         <table width="100%">
-                            <form action="<?= base_url('report/penjualan/process') ?>" method="POST">
-                                <tr>
-                                    <!-- <td></td> -->
-                                    <td class="pb-3" colspan="2">
-                                        <div class="card-header text-center bg-success">
-                                            INVOICE
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="vertical-align: top; width: 35%;">
-                                        <label for="invoice">No Invoice</label>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                            <input id="grand_total_v" value="" class="form-control" name="invoice" readonly>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="user">Customer</label>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                            <input id="grand_total_v" value="" class="form-control" readonly>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="vertical-align: top; width: 30%;">
-                                        <label for="cash">Cash</label>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                            <input type="number" name="cash" id="cash" min="0" class="form-control" required>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="vertical-align: top;">
-                                        <label for="kembalian">Sisa Akhir</label>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                            <input type="number" id="kembalian_v" readonly class="form-control">
-                                            <input type="hidden" name="kembalian" id="kembalian" readonly class="form-control">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="vertical-align: top;">
-                                        <label for="note">Note</label>
-                                    </td>
-                                    <td>
-                                        <div class="form-group mx-auto">
-                                            <div>
-                                                <textarea name="catatan" id="note" rows="3" class="form-control"></textarea>
+                            <tr>
+                                <!-- <td></td> -->
+                                <td class="pb-3" colspan="2">
+                                    <div class="card-header text-center bg-success">
+                                        PEMBAYARAN
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top; width: 35%;">
+                                    <label for="invoice">No Invoice</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input id="invoice" value="<?= $inv->invoice ?>" class="form-control" name="invoice" readonly>
+                                        <input type="hidden" value="<?= $inv->invoice_id ?>" class="form-control" name="invoice_id">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="total">Total Transaksi</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input id="total" value="<?= indo_currency($inv->total) ?>" class="form-control" name="total" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="waktu">Waktu Transaksi</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input id="waktu" value="<?= indo_date($inv->created) ?> <?= jam($inv->created) ?>" class="form-control" name="waktu" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="user">Customer</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input id="grand_total_v" value="<?= $this->session->userdata('nama_lengkap') ?>" class="form-control" readonly>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="gambar">File input</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" name="gambar" id="gambar" required>
                                             </div>
+
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td colspan="2">
-                                        <div class="mx-auto text-center">
-                                            <a href="" id="set_detail" data-toggle="modal" data-target="#modal-detail" class="btn mr-2 btn-default btn-flat">
-                                                <i class="fa fa-eye"></i> History
-                                            </a>
-                                            <button id="pembayaran-kredit" type="submit" name="pembayaran-kredit" class="btn btn-flat btn-success">
-                                                <i class="fas fa-cart-arrow-down"></i> Bayar
-                                            </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="catatan">Catatan</label>
+                                </td>
+                                <td>
+                                    <div class="form-group mx-auto">
+                                        <div>
+                                            <textarea name="catatan" id="catatan" rows="3" class="form-control"></textarea>
                                         </div>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td colspan="2">
+                                    <div class="mx-auto text-center">
+                                        <button id="pembayaran" type="submit" name="pembayaran" class="btn btn-flat btn-success">
+                                            <i class="fas fa-paper-plane"></i> Kirim Gambar
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
                         </table>
-                        </form>
+                        <?= form_close() ?>
                     </div>
                 </div>
             </div>

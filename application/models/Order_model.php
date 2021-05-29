@@ -57,8 +57,10 @@ class Order_model extends CI_Model
     {
         // $user_id = $this->session->userdata('user_id');
 
+        $this->db->select('t_order.*');
         // $this->db->select('t_order.*, t_lomba.*, t_perlombaan.*, nama_kategori, jarak_sasaran, nama_sasaran, point, keterangan, durasi, jumlah_line');
-        // $this->db->from('t_order');
+        $this->db->from('t_order');
+        // $this->db->join('t_invoice', 't_invoice.invoice = t_order.invoice');
         // $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
         // $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
         // $this->db->join('t_kategori', 't_kategori.kategori_id = t_perlombaan.kategori_id');
