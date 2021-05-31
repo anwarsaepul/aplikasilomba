@@ -121,7 +121,8 @@
               <a href="#" class="nav-link 
               <?= $this->uri->segment(1) == 'trx' ||
                 $this->uri->segment(1) == 'keranjang' ||
-                $this->uri->segment(1) == 'pesanan' ? 'active' : '' ?>">
+                $this->uri->segment(1) == 'pesanan' ||
+                $this->uri->segment(1) == 'invoice' ? 'active' : '' ?>">
                 <i class="nav-icon fas fa-shopping-cart"></i>
                 <p>
                   Transaksi
@@ -144,14 +145,23 @@
                   </a>
                 </li>
               </ul>
+              <?php if ($this->session->userdata('level') == 1) { ?>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<?= base_url('invoice') ?>" class="nav-link <?= $this->uri->segment(1) == 'invoice' ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Invoice</p>
+                    </a>
+                  </li>
+                </ul>
             </li>
-
-            <li class="nav-item">
-              <a href="<?= base_url('auth/logout') ?>" class="nav-link">
-                <i class="nav-icon fas fa-sign-out-alt"></i></i>
-                <p>Logout</p>
-              </a>
-            </li>
+          <?php } ?>
+          <li class="nav-item">
+            <a href="<?= base_url('auth/logout') ?>" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i></i>
+              <p>Logout</p>
+            </a>
+          </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -12,6 +12,16 @@ class Invoice_model extends CI_Model
         return $query = $this->db->get();
     }
 
+    function getall($id = null)
+    {
+        $this->db->from('t_invoice');
+        $this->db->order_by('invoice_id', 'desc');
+        if ($id != null) {
+            $this->db->where('invoice_id', $id);
+        }
+        return $query = $this->db->get();
+    }
+
     function getinvoicedetail($id)
     {
         // $user_id = $this->session->userdata('user_id');
@@ -30,11 +40,12 @@ class Invoice_model extends CI_Model
 
     function getinvoicedetail2($id)
     {
-        $this->db->select('t_invoice.*, biaya, nama_kategori, tanggal_tanding, jarak_sasaran, sasaran, point, keterangan, durasi, jumlah_line, jam_tanding');
+        $this->db->select('t_invoice.*, biaya, nama_kategori, tanggal_tanding, jarak_sasaran, sasaran, point, keterangan, durasi, jumlah_line, jam_tanding, users.*');
         $this->db->from('t_invoice');
         $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
         $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
         $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
+        $this->db->join('users', 'users.user_id = t_invoice.user_id');
         // $this->db->where('invoice_id', $id);
 
         // $this->db->where('user_id', $this->session->userdata('user_id'));
@@ -105,8 +116,23 @@ class Invoice_model extends CI_Model
 
     function update_status($post)
     {
+        ini_set('date.timezone', 'Asia/Jakarta'); 
         $invoice_id    = $post['invoice_id'];
-        $sql = "UPDATE t_invoice SET status_pesanan = '1' WHERE invoice_id = '$invoice_id'";
+        $waktu         = date('Y-m-d H:i:s');
+        $sql = "UPDATE t_invoice SET status_pesanan = '1', updated = '$waktu'  WHERE invoice_id = '$invoice_id'";
         $this->db->query($sql);
     }
+
+    function konfirmasi($id)
+    {
+        ini_set('date.timezone', 'Asia/Jakarta'); 
+        $params = [
+            // nama d db    => nama di inputan
+            'status_pesanan'    => '2',
+            'updated'           => date('Y-m-d H:i:s'),
+        ];
+        $this->db->where('invoice_id', $id);
+        $this->db->update('t_invoice', $params);
+    }
 }
+

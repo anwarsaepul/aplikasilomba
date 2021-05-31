@@ -12,7 +12,6 @@ class Pesanan extends CI_Controller
     function index()
     {
         $invoice    = $this->invoice_model->get();
-
         $row        = $this->info_model->tampilItem2();
         $keranjang  = $this->keranjang_model->getkeranjang();
 
@@ -32,7 +31,7 @@ class Pesanan extends CI_Controller
         $gambar     = $this->pembayaran_model->tampilgambar($id);
 
         if ($cekinvoice->num_rows() > 0) {
-            $inv = $cekinvoice->row();
+            $inv = $invoice->row();
             $data = array(
                 'inv'       => $inv,
                 'invoice'   => $invoice,

@@ -103,11 +103,7 @@
                                         <tr style="font-weight: bold;">
                                             <td class="text-left" colspan="3">Jumlah</td>
                                             <td><?= indo_currency($biaya); ?></td>
-                                            <td>
-                                                <a href="<?= base_url('pesanan/bayar/' . $inv->invoice_id) ?>" class="btn btn-primary btn-sm">
-                                                    <i class="fas fa-money-check-alt"></i> Bayar
-                                                </a>
-                                            </td>
+                                            <td></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

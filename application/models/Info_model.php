@@ -67,15 +67,6 @@ class info_model extends CI_Model
         $this->db->update('t_jadwal', $params);
     }
 
-    function check_kode_product($code, $id = null)
-    {
-        $this->db->from('p_jadwal');
-        $this->db->where('kode_product', $code);
-        if ($id != null) {
-            $this->db->where('jadwal_id !=', $id);
-        }
-        return $query =  $this->db->get();
-    }
 
     function del($id)
     {
@@ -83,19 +74,4 @@ class info_model extends CI_Model
         $this->db->delete('t_jadwal');
     }
 
-    function update_stock_in($data)
-    {
-        $qty    = $data['qty'];
-        $id     = $data['jadwal_id'];
-        $sql = "UPDATE p_jadwal SET stock = stock + '$qty' WHERE jadwal_id = '$id'";
-        $this->db->query($sql);
-    }
-
-    function update_stock_out($data)
-    {
-        $qty    = $data['qty'];
-        $id     = $data['jadwal_id'];
-        $sql = "UPDATE p_jadwal SET stock = stock - '$qty' WHERE jadwal_id = '$id'";
-        $this->db->query($sql);
-    }
 }
