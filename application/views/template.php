@@ -154,14 +154,22 @@
                     </a>
                   </li>
                 </ul>
+              <?php } ?>
             </li>
-          <?php } ?>
-          <li class="nav-item">
-            <a href="<?= base_url('auth/logout') ?>" class="nav-link">
-              <i class="nav-icon fas fa-sign-out-alt"></i></i>
-              <p>Logout</p>
-            </a>
-          </li>
+            <?php if ($this->session->userdata('level') == 1) { ?>
+              <li class="nav-item">
+                <a href="<?= base_url('laporan') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' || $this->uri->segment(1) == '' ? 'active' : '' ?>">
+                  <i class="nav-icon fas fa-print"></i>
+                  <p>Laporan</p>
+                </a>
+              </li>
+            <?php } ?>
+            <li class="nav-item">
+              <a href="<?= base_url('auth/logout') ?>" class="nav-link">
+                <i class="nav-icon fas fa-sign-out-alt"></i></i>
+                <p>Logout</p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

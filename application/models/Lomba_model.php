@@ -89,22 +89,4 @@ class Lomba_model extends CI_Model
         }
         return $query =  $this->db->get();
     }
-
-
-
-    function update_stock_in($data)
-    {
-        $qty    = $data['qty'];
-        $id     = $data['lomba_id'];
-        $sql = "UPDATE p_lomba SET stock = stock + '$qty' WHERE lomba_id = '$id'";
-        $this->db->query($sql);
-    }
-
-    function update_stock_out($data)
-    {
-        $qty    = $data['qty'];
-        $id     = $data['lomba_id'];
-        $sql = "UPDATE p_lomba SET stock = stock - '$qty' WHERE lomba_id = '$id'";
-        $this->db->query($sql);
-    }
 }
