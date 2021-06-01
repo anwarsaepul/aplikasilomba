@@ -41,7 +41,7 @@
           <a class="nav-link" href="<?= base_url('keranjang') ?>">
             <i class="nav-icon fas fa-shopping-cart"></i>
             <span class="badge badge-warning navbar-badge">
-              <?= ucfirst($this->session_id->hitung_keranjang()) ?>
+              <?= $this->session_id->hitung_keranjang() ?>
             </span>
           </a>
         </li>
@@ -154,22 +154,20 @@
                     </a>
                   </li>
                 </ul>
-              <?php } ?>
             </li>
-            <?php if ($this->session->userdata('level') == 1) { ?>
-              <li class="nav-item">
-                <a href="<?= base_url('laporan') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' || $this->uri->segment(1) == '' ? 'active' : '' ?>">
-                  <i class="nav-icon fas fa-print"></i>
-                  <p>Laporan</p>
-                </a>
-              </li>
-            <?php } ?>
             <li class="nav-item">
-              <a href="<?= base_url('auth/logout') ?>" class="nav-link">
-                <i class="nav-icon fas fa-sign-out-alt"></i></i>
-                <p>Logout</p>
+              <a href="<?= base_url('laporan') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' || $this->uri->segment(1) == '' ? 'active' : '' ?>">
+                <i class="nav-icon fas fa-print"></i>
+                <p>Laporan</p>
               </a>
             </li>
+          <?php } ?>
+          <li class="nav-item">
+            <a href="<?= base_url('auth/logout') ?>" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i></i>
+              <p>Logout</p>
+            </a>
+          </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

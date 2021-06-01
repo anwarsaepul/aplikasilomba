@@ -20,23 +20,18 @@ class Session_id
         return $this->ci->keranjang_model->get()->num_rows();
     }
 
-    function count_supplier()
+    function hitung_invoice()
     {
-        $this->ci->load->model('supplier_model');
-        return $this->ci->supplier_model->get()->num_rows();
+        $this->ci->load->model('invoice_model');
+        return $this->ci->invoice_model->getall()->num_rows();
     }
 
-    function count_customer()
+    function hitung_data_invoice($id)
     {
-        $this->ci->load->model('customer_model');
-        return $this->ci->customer_model->get()->num_rows();
+        $this->ci->load->model('invoice_model');
+        return $this->ci->invoice_model->filter_data($id)->num_rows();
     }
 
-    function count_user()
-    {
-        $this->ci->load->model('sales_model');
-        return $this->ci->sales_model->get()->num_rows();
-    }
 
     function count_sale()
     {

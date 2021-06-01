@@ -53,7 +53,7 @@
                             </tbody>
                         </table>
                         <div class="float-right mt-2">
-                            <a href="<?= base_url('pesanan/bayar/') ?>" class="btn btn-primary btn-sm">
+                            <a href="<?= base_url('laporan/export/') ?>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-file-export"></i> Export ke Excel
                             </a>
                         </div>
