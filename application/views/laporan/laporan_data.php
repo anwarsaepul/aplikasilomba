@@ -9,7 +9,7 @@
                             <select name="filterdata" class="form-control">
                                 <option value="">Semua Data</option>
                                 <option value="0">Belum Dibayar</option>
-                                <option value="1">Sedang di Vertifikasi</option>
+                                <option value="1">Sedang diverifikasi</option>
                                 <option value="2">Lunas</option>
                             </select>
                             <span class="input-group-append">
@@ -40,7 +40,7 @@
                                         <td>
                                             <strong>
                                                 <?php
-                                                if ($data->status_pesanan == 0) { ?> Belum dibayar <?php } elseif ($data->status_pesanan == 1) { ?> Sedang di vertifikasi <?php } else { ?> Lunas <?php } ?>
+                                                if ($data->status_pesanan == 0) { ?> Belum dibayar <?php } elseif ($data->status_pesanan == 1) { ?> Sedang diverifikasi <?php } else { ?> Lunas <?php } ?>
                                             </strong>
                                         </td>
                                         <td>

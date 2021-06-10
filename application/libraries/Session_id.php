@@ -32,19 +32,16 @@ class Session_id
         return $this->ci->invoice_model->filter_data($id)->num_rows();
     }
 
-
-    function count_sale()
+    function hitung_user()
     {
-        $id = date('Y-m-d');
-        $this->ci->load->model('sale_model');
-        return $this->ci->sale_model->get($id)->num_rows();
+        $this->ci->load->model('user_model');
+        return $this->ci->user_model->get()->num_rows();
     }
-    
-    function count_sale_day()
+
+    function hitung_peserta()
     {
-        $id = date('Y-m-d');
-        $this->ci->load->model('sale_model');
-        return $this->ci->sale_model->gettransaksihariini($id)->num_rows();
+        $this->ci->load->model('order_model');
+        return $this->ci->order_model->get()->num_rows();
     }
 
 }

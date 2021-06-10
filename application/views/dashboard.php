@@ -1,44 +1,118 @@
 <div class="container-fluid p-3">
     <?php if ($this->session->userdata('level') == 1) { ?>
-        <div class="card col-sm-6 mt-3 mx-auto text-center">
-            <div class="card-header">
-                <span class="card-title">Data Invoice</span>
+        <div class="row p-2">
+            <div class="col-sm-6 mx-auto">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <span class="card-title">Data Invoice</span>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>Data</th>
+                                    <th style="width: 40px">Informasi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Belum Dibayar</td>
+                                    <td><span class="badge bg-danger"><?= $this->session_id->hitung_data_invoice('0') ?></span></td>
+                                </tr>
+                                <tr>
+                                    <td>2.</td>
+                                    <td>Sedang Diverifikasi</td>
+                                    <td><span class="badge bg-warning"><?= $this->session_id->hitung_data_invoice('1') ?></span></td>
+                                </tr>
+                                <tr>
+                                    <td>3.</td>
+                                    <td>Lunas</td>
+                                    <td><span class="badge bg-success"><?= $this->session_id->hitung_data_invoice('2') ?></span></td>
+                                </tr>
+                                <tr>
+                                    <td>4.</td>
+                                    <td>Semua Invoice</td>
+                                    <td><span class="badge bg-primary"><?= $this->session_id->hitung_invoice() ?></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
             </div>
-            <!-- /.card-header -->
-            <div class="card-body p-0">
-                <table class="table table-sm">
-                    <thead>
+            <div class="col-sm-6 mx-auto">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <span class="card-title">Data Peserta</span>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>Data</th>
+                                    <th style="width: 40px">Informasi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Semua User</td>
+                                    <td><span class="badge bg-danger"><?= $this->session_id->hitung_user() - 1 ?></span></td>
+                                </tr>
+                                <tr>
+                                    <td>2.</td>
+                                    <td>Semua Peserta</td>
+                                    <td><span class="badge bg-warning"><?= $this->session_id->hitung_peserta() ?></span></td>
+                                </tr>
+                                <tr>
+                                    <td>3.</td>
+                                    <td>Peserta Lomba </td>
+                                    <td><span class="badge bg-success"><?= $this->session_id->hitung_data_invoice('2') ?></span></td>
+                                </tr>
+                                <tr>
+                                    <td>4.</td>
+                                    <td>Semua Invoice</td>
+                                    <td><span class="badge bg-primary"><?= $this->session_id->hitung_invoice() ?></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+
+            <div class="table-responsive p-3">
+                <table class="table table-bordered text-center table-striped">
+                    <thead class="thead-dark">
                         <tr>
-                            <th style="width: 10px">#</th>
-                            <th>Data</th>
-                            <th style="width: 40px">Informasi</th>
+                            <th>#</th>
+                            <th>Kategori</th>
+                            <th>Belum Dibayar</th>
+                            <th>Sedang Diverifikasi</th>
+                            <th>Lunas</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1.</td>
-                            <td>Belum Dibayar</td>
-                            <td><span class="badge bg-danger"><?= $this->session_id->hitung_data_invoice('0') ?></span></td>
-                        </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Sedang Divertivikasi</td>
-                            <td><span class="badge bg-warning"><?= $this->session_id->hitung_data_invoice('1') ?></span></td>
-                        </tr>
-                        <tr>
-                            <td>3.</td>
-                            <td>Lunas</td>
-                            <td><span class="badge bg-success"><?= $this->session_id->hitung_data_invoice('2') ?></span></td>
-                        </tr>
-                        <tr>
-                            <td>4.</td>
-                            <td>Semua Invoice</td>
-                            <td><span class="badge bg-primary"><?= $this->session_id->hitung_invoice() ?></span></td>
-                        </tr>
+                        <?php $no = 1;
+                        foreach ($row->result() as $key => $data) { ?>
+                            <tr>
+                                <td style="width: 5%;"><?= $no++ ?>.</td>
+                                <td><?= $data->nama_kategori ?></td>
+                                <td><?= $data->jarak_sasaran ?> M</td>
+                                <td><?= $data->sasaran ?></td>
+                                <td><?= $data->point ?></td>
+                                <td><?= $data->point ?></td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
-            <!-- /.card-body -->
         </div>
         <!-- /.card -->
     <?php } else { ?>
@@ -63,7 +137,7 @@
                             <h5 class="mb-1"><?= $data->nama_kategori ?></h5>
                             <small class=""><?= $data->keterangan ?></small><br>
                             <span class="badge badge-success mb-3"><?= indo_currency($data->biaya) ?></span><br>
-                            <a href="<?= base_url('dashboard/process/' . $data->lomba_id) ?>" class="btn btn-sm btn-primary mb-1">Masukan keranjang</a>
+                            <a href="<?= base_url('dashboard/process/' . $data->lomba_id) ?>" class="btn btn-sm btn-primary mb-1">Daftar</a>
                             <a class="btn btn-default btn-xs mb-1" id="set_detail" data-toggle="modal" data-target="#modal-detail" data-nama_kategori="<?= $data->nama_kategori ?>" data-jarak="<?= $data->jarak_sasaran ?>" data-nama_sasaran="<?= $data->sasaran ?>" data-point="<?= $data->point ?>" data-keterangan="<?= $data->keterangan ?>" data-durasi="<?= $data->durasi ?>" data-jumlah_line="<?= $data->jumlah_line ?>" data-tanggal_tanding="<?= indo_date($data->tanggal_tanding) ?>" data-jam_tanding="<?= indo_jam($data->jam_tanding) ?>" data-biaya="<?= indo_currency($data->biaya) ?>">
                                 <i class="fa fa-eye"></i> Detail
                             </a>

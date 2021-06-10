@@ -6,13 +6,20 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         checklogin();
-        $this->load->model(['lomba_model', 'keranjang_model', 'order_model']);
+        $this->load->model(['lomba_model', 'keranjang_model', 'order_model', 'perlombaan_model']);
     }
 
     function index()
     {
-        $data['row'] = $this->lomba_model->tampilItem2();
+        $lomba  = $this->perlombaan_model->tampilItem();
+        $row    = $this->lomba_model->tampiljumlahpeserta();
+
+        $data = array(
+            'row'       => $row,
+            'lomba'   => $lomba,
+        );
         $this->template->load('template', 'dashboard', $data);
+        // var_dump($row->result());
     }
 
 

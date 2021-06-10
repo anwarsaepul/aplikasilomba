@@ -29,12 +29,12 @@
                                         <td>
                                             <strong>
                                                 <?php
-                                                if ($data->status_pesanan == 0) { ?> Belum di bayar <?php } elseif ($data->status_pesanan == 1) { ?> Sedang di vertifikasi <?php } else { ?> Lunas <?php } ?>
+                                                if ($data->status_pesanan == 0) { ?> Belum di bayar <?php } elseif ($data->status_pesanan == 1) { ?> Sedang di verifikasi <?php } else { ?> Lunas <?php } ?>
                                             </strong>
                                         </td>
                                         <td>
                                             <a class="btn btn-success btn-sm mb-1" href="<?= base_url('pesanan/detail/' . $data->invoice_id) ?>">
-                                            Lihat Detail <i class="fas fa-chevron-circle-right"></i> 
+                                                Lihat Detail <i class="fas fa-chevron-circle-right"></i>
                                             </a>
                                         </td>
                                     </tr>

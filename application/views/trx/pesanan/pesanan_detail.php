@@ -53,7 +53,7 @@
                         </td>
                         <td>
                             <span>: <?php
-                                    if ($inv->status_pesanan == 0) { ?> Belum di bayar <?php } elseif ($inv->status_pesanan == 1) { ?> Sedang di vertifikasi <?php } else { ?> Lunas <?php } ?>
+                                    if ($inv->status_pesanan == 0) { ?> Belum di bayar <?php } elseif ($inv->status_pesanan == 1) { ?> Sedang di verifikasi <?php } else { ?> Lunas <?php } ?>
                             </span>
                         </td>
                     </tr>

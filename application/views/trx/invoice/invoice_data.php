@@ -29,7 +29,7 @@
                                         <td>
                                             <strong>
                                                 <?php
-                                                if ($data->status_pesanan == 0) { ?> Belum di bayar <?php } elseif ($data->status_pesanan == 1) { ?> Sedang di vertifikasi <?php } else { ?> Lunas <?php } ?>
+                                                if ($data->status_pesanan == 0) { ?> Belum di bayar <?php } elseif ($data->status_pesanan == 1) { ?> Sedang diverifikasi <?php } else { ?> Lunas <?php } ?>
                                             </strong>
                                         </td>
                                         <td>

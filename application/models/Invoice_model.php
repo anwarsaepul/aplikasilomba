@@ -35,6 +35,19 @@ class Invoice_model extends CI_Model
         return $query = $this->db->get();
     }
 
+    function tampil_peserta()
+    {
+        // $datafilter = $post['filterdata'];
+
+        $this->db->from('t_invoice');
+        $this->db->where('status_pesanan', 2);
+        $this->db->order_by('invoice_id', 'desc');
+        // if ($id != null) {
+        //     $this->db->where('invoice_id', $id);
+        // }
+        return $query = $this->db->get();
+    }
+
     function getinvoicedetail($id)
     {
         // $user_id = $this->session->userdata('user_id');

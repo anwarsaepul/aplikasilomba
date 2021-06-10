@@ -50,7 +50,7 @@
 
                                             <?php if ($biaya > 0) { ?>
                                                 <button id="process-payment" type="submit" name="process-payment" class="btn btn-sm btn-success ">
-                                                    <i class="fas fa-cart-arrow-down"></i> Beli
+                                                    <i class="fas fa-cart-arrow-down"></i> Bayar
                                                 </button>
                                             <?php } ?>
 

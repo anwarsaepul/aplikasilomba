@@ -156,12 +156,37 @@
                 </ul>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('laporan') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' || $this->uri->segment(1) == '' ? 'active' : '' ?>">
+              <a href="<?= base_url('laporan') ?>" class="nav-link 
+              <?= $this->uri->segment(1) == 'laporan' ||
+                  $this->uri->segment(1) == 'laporan/invoice' ? 'active' : '' ?>">
                 <i class="nav-icon fas fa-print"></i>
                 <p>Laporan</p>
+                <i class="right fas fa-angle-left"></i>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url('laporan/invoice') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'invoice'  ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>invoice</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url('laporan/peserta') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'peserta'  ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Peserta</p>
+                  </a>
+                </li>
+              </ul>
             </li>
           <?php } ?>
+          <li class="nav-item">
+            <a href="<?= base_url('penilaian') ?>" class="nav-link <?= $this->uri->segment(1) == 'penilaian' || $this->uri->segment(1) == '' ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-book"></i>
+              <p>Penilaian</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="<?= base_url('auth/logout') ?>" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i></i>
