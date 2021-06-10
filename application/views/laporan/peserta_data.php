@@ -15,8 +15,13 @@
                                 <tr>
                                     <th>#</th>
                                     <th>No Invoice</th>
+                                    <th>NIK</th>
                                     <th>Nama Peserta</th>
-                                    <th>Aksi</th>
+                                    <th>Tempat Lahir</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Alamat</th>
+                                    <th>Telepon</th>
+                                    <th>Tanggal Daftar</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -27,10 +32,13 @@
                                     <tr>
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
                                         <td><?= $data->invoice ?></td>
+                                        <td><?= $data->nik ?></td>
                                         <td><?= $data->nama_lengkap ?></td>
-                                        <td><a href="" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Nilai
-                                            </a>
-                                        </td>
+                                        <td><?= $data->tempat_lahir ?></td>
+                                        <td><?= indo_date($data->tanggal_lahir) ?></td>
+                                        <td><?= $data->alamat ?></td>
+                                        <td><?= $data->phone ?></td>
+                                        <td><?= indo_date($data->created) ?> <?= jam($data->created) ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

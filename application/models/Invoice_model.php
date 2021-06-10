@@ -39,9 +39,12 @@ class Invoice_model extends CI_Model
     {
         // $datafilter = $post['filterdata'];
 
+        $this->db->select('t_invoice.*, users.*');
         $this->db->from('t_invoice');
         $this->db->where('status_pesanan', 2);
         $this->db->order_by('invoice_id', 'desc');
+        $this->db->join('users', 'users.user_id = t_invoice.user_id');
+
         // if ($id != null) {
         //     $this->db->where('invoice_id', $id);
         // }

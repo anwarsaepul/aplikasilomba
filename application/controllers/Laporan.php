@@ -22,7 +22,7 @@ class Laporan extends CI_Controller
     $data = array(
       'invoice'   => $invoice,
     );
-    $this->template->load('template', 'laporan/laporan_data', $data);
+    $this->template->load('template', 'laporan/invoice_data', $data);
   }
 
   function peserta()
@@ -31,7 +31,7 @@ class Laporan extends CI_Controller
     $data = array(
       'invoice'   => $peserta,
     );
-    $this->template->load('template', 'laporan/laporan_data', $data);
+    $this->template->load('template', 'laporan/peserta_data', $data);
   }
 
   function process()

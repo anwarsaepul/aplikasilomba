@@ -7,12 +7,12 @@ class Penilaian extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
-        $this->load->model(['info_model', 'perlombaan_model', 'lomba_model']);
+        $this->load->model(['info_model', 'perlombaan_model', 'lomba_model', 'invoice_model']);
     }
 
     function index()
     {
-        $data['row'] = $this->lomba_model->tampilItem2();
+        $data['invoice'] = $this->invoice_model->tampil_peserta();
         $this->template->load('template', 'penilaian/penilaian_data', $data);
     }
 
