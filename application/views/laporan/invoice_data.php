@@ -20,7 +20,7 @@
                 </div>
                 <div class="box-body table-responsive pl-3 pr-3">
                     <div class="mx-auto">
-                        <table class="table table-bordered text-center table-striped" id="table1">
+                        <table class="table table-bordered text-center table-striped" id="example">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
@@ -52,11 +52,6 @@
                                 <?php } ?>
                             </tbody>
                         </table>
-                        <div class="float-right mt-2">
-                            <a href="<?= base_url('laporan/export/') ?>" class="btn btn-primary btn-sm">
-                                <i class="fas fa-file-export"></i> Export ke Excel
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>

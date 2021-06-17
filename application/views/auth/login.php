@@ -5,7 +5,6 @@
                 <div class="form-group text-center">
                     <h3>Login Aplikasi</h3>
                 </div>
-
                 <form action="<?= base_url() ?>auth/process" method="post">
                     <div class="form-group">
                         <label for="phone">No Telpon </label>
