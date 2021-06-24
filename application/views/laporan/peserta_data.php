@@ -14,7 +14,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>No Invoice</th>
+                                    <th>No Peserta</th>
                                     <th>NIK</th>
                                     <th>Nama Peserta</th>
                                     <th>Komunitas</th>

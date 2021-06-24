@@ -1,14 +1,47 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class info_model extends CI_Model
+class Penilaian_model extends CI_Model
 {
     function get($id = null)
     {
-        $this->db->from('t_jadwal');
+        $this->db->from('t_penilaian');
         if ($id != null) {
-            $this->db->where('jadwal_id', $id);
+            $this->db->where('penilaian_id', $id);
         }
         return $query = $this->db->get();
+    }
+
+    function add($data)
+    {
+        $params = [
+            // nama d db    => nama di inputan
+            'invoice_id'    => $data['id'],
+            'gelombang'     => $data['gelombang'],
+            'lajur'         => $data['lajur'],
+            'nilai'         => 0,
+        ];
+        $this->db->insert('t_penilaian', $params);
+    }
+
+    function cek_tertinggi()
+    {
+        // $this->db->select('t_penilaian.*');
+        $this->db->from('t_penilaian');
+        // $this->db->select_max('penilaian_id');
+        $this->db->order_by('penilaian_id', 'desc');
+        $this->db->limit(1);
+        return $query = $this->db->get();
+    }
+
+
+
+    function update_status($post)
+    {
+        ini_set('date.timezone', 'Asia/Jakarta');
+        $invoice_id    = $post['invoice_id'];
+        $waktu         = date('Y-m-d H:i:s');
+        $sql = "UPDATE t_invoice SET status_pesanan = '1', updated = '$waktu'  WHERE invoice_id = '$invoice_id'";
+        $this->db->query($sql);
     }
 
     function tampilItem($id = null)
@@ -41,17 +74,7 @@ class info_model extends CI_Model
         return $query = $this->db->get();
     }
 
-    function add($post)
-    {
-        $params = [
-            // nama d db    => nama di inputan
-            'perlombaan_id'     => $post['perlombaan_id'],
-            'tanggal_tanding'   => $post['date'],
-            'jam_tanding'       => $post['jam'],
-            'biaya'             => $post['biaya'],
-        ];
-        $this->db->insert('t_jadwal', $params);
-    }
+
 
     function edit($post)
     {

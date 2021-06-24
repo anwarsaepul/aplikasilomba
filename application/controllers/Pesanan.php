@@ -6,7 +6,7 @@ class Pesanan extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
-        $this->load->model(['keranjang_model', 'info_model', 'perlombaan_model', 'order_model', 'invoice_model', 'lomba_model', 'pembayaran_model']);
+        $this->load->model(['keranjang_model', 'info_model', 'perlombaan_model', 'order_model', 'invoice_model', 'lomba_model', 'pembayaran_model', 'penilaian_model']);
     }
 
     function index()
@@ -87,14 +87,6 @@ class Pesanan extends CI_Controller
             // $this->detail_model->add($post);
             $this->order_model->update_invoice($post);
             $this->keranjang_model->del('user_id', $this->session->userdata('user_id'));
-            // $this->keranjang_model->del('user_id', $this->session->userdata('user_id'));
-
-
-            // $this->sale_model->add_transaksi($post);
-            // $this->kredit_model->add_transaksik($post);
-            // $this->db->empty_table('t_keranjang');
-            // redirect('sale');
-            // tampil_simpan('report/penjualan');
         } else if (isset($_POST['pembayaran'])) {
             // $config['upload-path']      = './assets/img/uploads/pembayaran/';
             $config['upload_path']      = './assets/img/uploads/pembayaran/';

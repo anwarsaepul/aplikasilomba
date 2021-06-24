@@ -7,12 +7,27 @@ class Penilaian extends CI_Controller
         parent::__construct();
         flashData();
         checklogin();
-        $this->load->model(['info_model', 'perlombaan_model', 'lomba_model', 'invoice_model', 'pembayaran_model']);
+        $this->load->model(['info_model', 'perlombaan_model', 'lomba_model', 'invoice_model', 'pembayaran_model', 'penilaian_model']);
     }
 
     function index()
     {
+        // $data_tertinggi = $this->penilaian_model->cek_tertinggi();
+
+
+        // if ($data_tertinggi->num_rows() > 0) {
+        //     $dt = $data_tertinggi->row();
+        //     $data = array(
+        //         // 'inv'       => $dt,
+        //         // 'invoice'   => $invoice,
+        //         // 'row'       => $row,
+        //     );
+        // } 
+
+
         $data['invoice'] = $this->invoice_model->tampil_peserta();
+        // $data = $this->penilaian_model->cek_tertinggi();
+        // var_dump($dt);
         $this->template->load('template', 'penilaian/penilaian_data', $data);
     }
 

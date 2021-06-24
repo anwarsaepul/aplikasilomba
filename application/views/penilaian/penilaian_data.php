@@ -15,6 +15,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>No Invoice</th>
+                                    <th>Nama Kategori</th>
                                     <th>Nama Peserta</th>
                                     <th>Komunitas</th>
                                     <th>Telepon</th>
@@ -29,6 +30,7 @@
                                     <tr>
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
                                         <td><?= $data->invoice ?></td>
+                                        <td><?= $data->nama_kategori ?></td>
                                         <td><?= $data->nama_lengkap ?></td>
                                         <td><?= $data->komunitas ?></td>
                                         <td><?= $data->phone ?></td>
