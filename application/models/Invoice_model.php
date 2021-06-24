@@ -14,8 +14,10 @@ class Invoice_model extends CI_Model
 
     function getall($id = null)
     {
+        $this->db->select('t_invoice.*, users.*');
         $this->db->from('t_invoice');
         $this->db->order_by('invoice_id', 'desc');
+        $this->db->join('users', 'users.user_id = t_invoice.user_id');
         if ($id != null) {
             $this->db->where('invoice_id', $id);
         }
@@ -24,14 +26,11 @@ class Invoice_model extends CI_Model
 
     function filter_data($id)
     {
-        // $datafilter = $post['filterdata'];
-
+        $this->db->select('t_invoice.*, users.*');
         $this->db->from('t_invoice');
+        $this->db->join('users', 'users.user_id = t_invoice.user_id');
         $this->db->where('status_pesanan', $id);
         $this->db->order_by('invoice_id', 'desc');
-        // if ($id != null) {
-        //     $this->db->where('invoice_id', $id);
-        // }
         return $query = $this->db->get();
     }
 

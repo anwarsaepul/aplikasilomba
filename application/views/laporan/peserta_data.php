@@ -10,17 +10,18 @@
                 </div>
                 <div class="box-body table-responsive pl-3 pr-3">
                     <div class="mx-auto">
-                        <table class="table table-bordered text-center table-striped" id="table1">
+                        <table class="table table-bordered text-center table-striped" id="example">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
                                     <th>No Invoice</th>
                                     <th>NIK</th>
                                     <th>Nama Peserta</th>
+                                    <th>Komunitas</th>
+                                    <th>Telepon</th>
                                     <th>Tempat Lahir</th>
                                     <th>Tanggal Lahir</th>
                                     <th>Alamat</th>
-                                    <th>Telepon</th>
                                     <th>Tanggal Daftar</th>
                                 </tr>
                             </thead>
@@ -34,10 +35,11 @@
                                         <td><?= $data->invoice ?></td>
                                         <td><?= $data->nik ?></td>
                                         <td><?= $data->nama_lengkap ?></td>
+                                        <td><?= $data->komunitas ?></td>
+                                        <td><?= $data->phone ?></td>
                                         <td><?= $data->tempat_lahir ?></td>
                                         <td><?= indo_date($data->tanggal_lahir) ?></td>
                                         <td><?= $data->alamat ?></td>
-                                        <td><?= $data->phone ?></td>
                                         <td><?= indo_date($data->created) ?> <?= jam($data->created) ?></td>
                                     </tr>
                                 <?php } ?>

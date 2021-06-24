@@ -6,8 +6,8 @@
                 <div class="box box-widget">
                     <div class="box-body">
                         <div class="info-box p-4 col-md-6 mx-auto">
-                            <?= form_open_multipart('pesanan/process') ?>
                             <table width="100%">
+                                <?= form_open_multipart('pesanan/process') ?>
                                 <tr>
                                     <!-- <td></td> -->
                                     <td class="pb-3" colspan="2">
@@ -91,8 +91,8 @@
                                         </div>
                                     </td>
                                 </tr>
+                                <?= form_close() ?>
                             </table>
-                            <?= form_close() ?>
                         </div>
                     </div>
                 </div>

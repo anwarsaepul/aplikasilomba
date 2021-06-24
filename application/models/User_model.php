@@ -17,6 +17,7 @@ class User_model extends CI_Model
             // nama d db    => nama di inputan
             'nik'           => $post['nik'],
             'nama_lengkap'  => $post['nama_user'],
+            'komunitas'     => $post['komunitas'],
             'tempat_lahir'  => $post['tempat_lahir'],
             'tanggal_lahir' => $post['date'],
             'alamat'        => $post['alamat'],
@@ -36,6 +37,15 @@ class User_model extends CI_Model
         return $query = $this->db->get();
     }
 
+    // function getuser()
+    // {   
+    //     $id = $this->session->userdata('user_id');
+
+    //     $this->db->from('users');
+    //     $this->db->where('user_id', $id);
+    //     return $query = $this->db->get();
+    // }
+
     function check_data($checkdata, $code, $id = null)
     {
         $this->db->from('users');
@@ -43,7 +53,6 @@ class User_model extends CI_Model
         if ($id != null) {
             $this->db->where('user_id !=', $id);
         }
-            return $query =  $this->db->get();
+        return $query =  $this->db->get();
     }
-    
 }

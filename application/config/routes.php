@@ -49,31 +49,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'dashboard';
+$route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // Costume URL
 // nama route   = 'nama file controler/method'
-$route['customer'] = 'pelanggan';
-$route['customer/add'] = 'pelanggan/add';
-$route['customer/process'] = 'pelanggan/process';
-$route['customer/edit/(:num)'] = 'pelanggan/edit/$1';
-$route['customer/del/(:num)'] = 'pelanggan/del/$1';
 
-$route['stock/in'] = 'stock/stock_in_data';
-$route['stock/in/add'] = 'stock/stock_in_add';
-$route['stock/in/del/(:num)/(:num)'] = 'stock/stock_in_del'; 
+$route['petunjuk_teknis']   = 'home/petunjuk_teknis';
+$route['faq']               = 'home/faq';
+$route['kontak']            = 'home/kontak';
 
-$route['stock/out'] = 'stock/stock_out_data';
-$route['stock/out/add'] = 'stock/stock_out_add';
-$route['stock/out/del/(:num)/(:num)'] = 'stock/stock_out_del'; 
+// $route['customer'] = 'pelanggan';
+// $route['customer/add'] = 'pelanggan/add';
+// $route['customer/process'] = 'pelanggan/process';
+// $route['customer/edit/(:num)'] = 'pelanggan/edit/$1';
+// $route['customer/del/(:num)'] = 'pelanggan/del/$1';
 
-$route['report/penjualan']                   = 'report_penjualan/harian';
-$route['report/penjualan/detail/(:num)']     = 'report_penjualan/detail/$1';
-$route['report/penjualan/del/(:any)']        = 'report_penjualan/del/$1';
-$route['report/penjualan/del/item/(:any)']   = 'report_penjualan/del_item/$1';
-$route['report/penjualan/del/(:any)/(:any)'] = 'report_penjualan/delitem/$1';
-$route['report/penjualan/print/(:num)']      = 'report_penjualan/print_penjualan/$1';
-$route['report/penjualan/kredit/(:num)']     = 'report_penjualan/kredit/$1';
-$route['report/penjualan/process']           = 'report_penjualan/process';
+// $route['stock/in'] = 'stock/stock_in_data';
+// $route['stock/in/add'] = 'stock/stock_in_add';
+// $route['stock/in/del/(:num)/(:num)'] = 'stock/stock_in_del'; 
+
+// $route['stock/out'] = 'stock/stock_out_data';
+// $route['stock/out/add'] = 'stock/stock_out_add';
+// $route['stock/out/del/(:num)/(:num)'] = 'stock/stock_out_del'; 
+
+// $route['report/penjualan']                   = 'report_penjualan/harian';
+// $route['report/penjualan/detail/(:num)']     = 'report_penjualan/detail/$1';
+// $route['report/penjualan/del/(:any)']        = 'report_penjualan/del/$1';
+// $route['report/penjualan/del/item/(:any)']   = 'report_penjualan/del_item/$1';
+// $route['report/penjualan/del/(:any)/(:any)'] = 'report_penjualan/delitem/$1';
+// $route['report/penjualan/print/(:num)']      = 'report_penjualan/print_penjualan/$1';
+// $route['report/penjualan/kredit/(:num)']     = 'report_penjualan/kredit/$1';
+// $route['report/penjualan/process']           = 'report_penjualan/process';

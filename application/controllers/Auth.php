@@ -33,6 +33,8 @@ class Auth extends CI_Controller
                 $data = array(
                     'user_id'       => $datalogin['user_id'],
                     'nama_lengkap'  => $datalogin['nama_lengkap'],
+                    'nik'           => $datalogin['nik'],
+                    'phone'       => $datalogin['user_id'],
                     'phone'         => $datalogin['phone'],
                     'password'      => $datalogin['password'],
                     'level'         => $datalogin['level'],

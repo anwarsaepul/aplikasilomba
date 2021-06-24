@@ -24,7 +24,10 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>No Invoice</th>
+                                    <th>No Peserta</th>
+                                    <th>Nama Peserta</th>
+                                    <th>Komunitas</th>
+                                    <th>Telepon</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -37,6 +40,9 @@
                                     <tr>
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
                                         <td><?= $data->invoice ?></td>
+                                        <td><?= $data->nama_lengkap ?></td>
+                                        <td><?= $data->komunitas ?></td>
+                                        <td><?= $data->phone ?></td>
                                         <td>
                                             <strong>
                                                 <?php

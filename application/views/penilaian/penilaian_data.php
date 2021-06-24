@@ -16,6 +16,8 @@
                                     <th>#</th>
                                     <th>No Invoice</th>
                                     <th>Nama Peserta</th>
+                                    <th>Komunitas</th>
+                                    <th>Telepon</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -28,7 +30,9 @@
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
                                         <td><?= $data->invoice ?></td>
                                         <td><?= $data->nama_lengkap ?></td>
-                                        <td><a href="" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Nilai
+                                        <td><?= $data->komunitas ?></td>
+                                        <td><?= $data->phone ?></td>
+                                        <td><a href="<?= base_url('penilaian/input/' . $data->invoice_id) ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Nilai
                                             </a>
                                         </td>
                                     </tr>

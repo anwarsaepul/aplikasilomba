@@ -9,7 +9,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>No Invoice</th>
+                                    <th>No Peserta</th>
                                     <th>Total</th>
                                     <th>Tanggal Order</th>
                                     <th>Status</th>

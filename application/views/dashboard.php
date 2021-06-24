@@ -20,22 +20,39 @@
                                 <tr>
                                     <td>1.</td>
                                     <td>Belum Dibayar</td>
-                                    <td><span class="badge bg-danger"><?= $this->session_id->hitung_data_invoice('0') ?></span></td>
+                                    <td>
+                                        <a href="<?= base_url('laporan/invoice') ?>">
+                                            <span class="badge bg-danger"><?= $this->session_id->hitung_data_invoice('0') ?></span>
+                                        </a>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>2.</td>
                                     <td>Sedang Diverifikasi</td>
-                                    <td><span class="badge bg-warning"><?= $this->session_id->hitung_data_invoice('1') ?></span></td>
+                                    <td>
+                                        <a href="<?= base_url('laporan/invoice') ?>">
+                                            <span class="badge bg-warning"><?= $this->session_id->hitung_data_invoice('1') ?></span>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>3.</td>
                                     <td>Lunas</td>
-                                    <td><span class="badge bg-success"><?= $this->session_id->hitung_data_invoice('2') ?></span></td>
+                                    <td>
+                                        <a href="<?= base_url('laporan/invoice') ?>">
+                                            <span class="badge bg-success"><?= $this->session_id->hitung_data_invoice('2') ?></span>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>4.</td>
                                     <td>Semua Invoice</td>
-                                    <td><span class="badge bg-primary"><?= $this->session_id->hitung_invoice() ?></span></td>
+                                    <td>
+                                        <a href="<?= base_url('laporan/invoice') ?>">
+                                            <span class="badge bg-primary"><?= $this->session_id->hitung_invoice() ?></span>
+                                        </a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

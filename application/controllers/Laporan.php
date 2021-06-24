@@ -48,6 +48,4 @@ class Laporan extends CI_Controller
     );
     $this->template->load('template', 'laporan/invoice_data', $data);
   }
-
-
 }

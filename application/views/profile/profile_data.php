@@ -1,0 +1,135 @@
+<!-- Main content -->
+<section class="content bg-light">
+    <div class="row">
+        <div class="col-sm m-4">
+            <div class="box box-widget">
+                <div class="box-body">
+                    <div class="info-box p-4 col-md-6 mx-auto">
+                        <table width="100%">
+                            <tr>
+                                <!-- <td></td> -->
+                                <td class="pb-3" colspan="3">
+                                    <div class="card-header text-center bg-success">
+                                        PROFILE
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top; width: 35%;">
+                                    <label for="nik">NIK</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input id="nik" value="<?= $this->session->userdata('nama_lengkap') ?>" class="form-control" name="nik" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top; width: 35%;">
+                                    <label for="invoice">Nama</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input id="invoice" value="<?= $this->session->userdata('nama_lengkap') ?>" class="form-control" name="invoice" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="total">Total Transaksi</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input id="total" value="" class="form-control" name="total" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="waktu">Waktu Transaksi</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input id="waktu" value="" class="form-control" name="waktu" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="user">Customer</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input id="grand_total_v" value="<?= $this->session->userdata('nama_lengkap') ?>" class="form-control" readonly>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="gambar">File input</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" name="gambar" id="gambar" required>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <label for="catatan">Catatan</label>
+                                </td>
+                                <td>
+                                    <div class="form-group mx-auto">
+                                        <div>
+                                            <textarea name="catatan" id="catatan" rows="3" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td colspan="2">
+                                    <div class="mx-auto text-center">
+                                        <button id="pembayaran" type="submit" name="pembayaran" class="btn btn-flat btn-success">
+                                            <i class="fas fa-paper-plane"></i> Kirim Gambar
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-detail">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center">Detail Pembayaran</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body table-responsive">
+                        <table class="table table-bordered text-center table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Waktu Pembayaran</th>
+                                    <th>Tanggal Pembayaran</th>
+                                    <th>Jumlah Pembayaran</th>
+                                    <th>Catatan</th>
+                                    <!-- <th>Petugas</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
