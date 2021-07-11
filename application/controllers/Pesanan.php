@@ -64,9 +64,6 @@ class Pesanan extends CI_Controller
     }
 
 
-
-
-
     function process()
     {
         $post = $this->input->post(null, TRUE);

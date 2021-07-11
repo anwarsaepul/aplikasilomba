@@ -143,33 +143,13 @@
                 </div>
             </div>
         </div>
-        <!-- membuat 1 baris -->
-        <div class="row">
-            <!-- lakukan looping -->
-            <?php foreach ($row->result() as $key => $data) : ?>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="card mt-3 mb-3 text-center">
-                        <img src="<?= base_url() . 'uploads/panah.jpg' ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="mb-1"><?= $data->nama_kategori ?></h5>
-                            <small class=""><?= $data->keterangan ?></small><br>
-                            <span class="badge badge-success mb-3"><?= indo_currency($data->biaya) ?></span><br>
-                            <a href="<?= base_url('dashboard/process/' . $data->lomba_id) ?>" class="btn btn-sm btn-primary mb-1">Daftar</a>
-                            <a class="btn btn-default btn-xs mb-1" id="set_detail" data-toggle="modal" data-target="#modal-detail" data-nama_kategori="<?= $data->nama_kategori ?>" data-jarak="<?= $data->jarak_sasaran ?>" data-nama_sasaran="<?= $data->sasaran ?>" data-point="<?= $data->point ?>" data-keterangan="<?= $data->keterangan ?>" data-durasi="<?= $data->durasi ?>" data-jumlah_line="<?= $data->jumlah_line ?>" data-tanggal_tanding="<?= indo_date($data->tanggal_tanding) ?>" data-jam_tanding="<?= indo_jam($data->jam_tanding) ?>" data-biaya="<?= indo_currency($data->biaya) ?>">
-                                <i class="fa fa-eye"></i> Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
 
         <section class="bg-100 py-2">
             <div class="container-lg">
                 <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-5 text-center mb-4">
+                    <div class="col-md-8 mt-3 col-lg-5 text-center mb-4">
                         <h2>Kategori Lomba</h2>
-                        <p>3 Kategori lomba menembak ESC Sukabumi 2021</p>
+                        <!-- <p>3 Kategori lomba menembak ESC Sukabumi 2021</p> -->
                     </div>
                 </div>
                 <form action="<?= base_url('order/process') ?>" method="POST">
@@ -197,6 +177,9 @@
                                             </h4>
                                             <a class="btn btn-outline-danger rounded-pill" name="daftar" href="<?= base_url('order/process/' . $data->lomba_id) ?>">
                                                 DAFTAR
+                                            </a>
+                                            <a class="btn btn-default rounded-pill ml-2" id="set_detail" data-toggle="modal" data-target="#modal-detail" data-nama_kategori="<?= $data->nama_kategori ?>" data-jarak="<?= $data->jarak_sasaran ?>" data-nama_sasaran="<?= $data->sasaran ?>" data-point="<?= $data->point ?>" data-keterangan="<?= $data->keterangan ?>" data-durasi="<?= $data->durasi ?>" data-jumlah_line="<?= $data->jumlah_line ?>" data-tanggal_tanding="<?= indo_date($data->tanggal_tanding) ?>" data-jam_tanding="<?= indo_jam($data->jam_tanding) ?>" data-biaya="<?= indo_currency($data->biaya) ?>">
+                                                <i class="fa fa-eye"></i> Detail
                                             </a>
                                         </div>
                                     </div>
