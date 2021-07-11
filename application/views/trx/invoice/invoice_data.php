@@ -3,14 +3,13 @@
     <div class="row p-2">
         <div class="col-md">
             <div class="box box-widget">
+            <div class="col-8 mx-auto">
                 <div class="box-body table-responsive p-3">
-                    <div class="mx-auto">
                         <table class="table table-bordered text-center table-striped" id="table1">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
                                     <th>No Peserta</th>
-                                    <th>Total</th>
                                     <th>Tanggal Order</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
@@ -24,7 +23,6 @@
                                     <tr>
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
                                         <td><?= $data->invoice ?></td>
-                                        <td><?= indo_currency($data->total) ?></td>
                                         <td><?= indo_date($data->created) ?></td>
                                         <td>
                                             <strong>

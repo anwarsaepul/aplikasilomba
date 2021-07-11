@@ -102,34 +102,6 @@
                     <!-- /.card-body -->
                 </div>
             </div>
-
-            <div class="table-responsive p-3">
-                <table class="table table-bordered text-center table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Kategori</th>
-                            <th>Belum Dibayar</th>
-                            <th>Sedang Diverifikasi</th>
-                            <th>Lunas</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $no = 1;
-                        foreach ($row->result() as $key => $data) { ?>
-                            <tr>
-                                <td style="width: 5%;"><?= $no++ ?>.</td>
-                                <td><?= $data->nama_kategori ?></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
         </div>
         <!-- /.card -->
     <?php } else { ?>

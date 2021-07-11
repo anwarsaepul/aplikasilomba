@@ -33,7 +33,7 @@
                                 foreach ($invoice->result() as $key => $data) { ?>
                                     <tr>
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
-                                        <td><?= $data->order_id ?></td>
+                                        <td><?= $data->invoice ?></td>
                                         <td><?= $data->nama_kategori ?></td>
                                         <td><?= $data->nik ?></td>
                                         <td><?= $data->nama_lengkap ?></td>
