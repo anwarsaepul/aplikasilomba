@@ -14,11 +14,11 @@ class Session_id
         return $user_data = $this->ci->user_model->get($user_id)->row();
     }
 
-    function hitung_keranjang()
-    {
-        $this->ci->load->model('keranjang_model');
-        return $this->ci->keranjang_model->get()->num_rows();
-    }
+    // function hitung_keranjang()
+    // {
+    //     $this->ci->load->model('keranjang_model');
+    //     return $this->ci->keranjang_model->get()->num_rows();
+    // }
 
     function hitung_invoice()
     {

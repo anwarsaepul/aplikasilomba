@@ -37,15 +37,6 @@
       <ul class="navbar-nav ml-auto">
 
         <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="<?= base_url('keranjang') ?>">
-            <i class="nav-icon fas fa-shopping-cart"></i>
-            <span class="badge badge-warning navbar-badge">
-              <?= $this->session_id->hitung_keranjang() ?>
-            </span>
-          </a>
-        </li>
-
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
@@ -120,7 +111,6 @@
             <li class="nav-item">
               <a href="#" class="nav-link 
               <?= $this->uri->segment(1) == 'trx' ||
-                $this->uri->segment(1) == 'keranjang' ||
                 $this->uri->segment(1) == 'pesanan' ||
                 $this->uri->segment(1) == 'invoice' ? 'active' : '' ?>">
                 <i class="nav-icon fas fa-shopping-cart"></i>
@@ -129,14 +119,6 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?= base_url('keranjang') ?>" class="nav-link <?= $this->uri->segment(1) == 'keranjang' ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Kategori</p>
-                  </a>
-                </li>
-              </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="<?= base_url('pesanan') ?>" class="nav-link <?= $this->uri->segment(1) == 'pesanan' ? 'active' : '' ?>">
