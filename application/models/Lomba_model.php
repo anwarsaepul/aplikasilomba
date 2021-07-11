@@ -43,7 +43,7 @@ class Lomba_model extends CI_Model
         $this->db->delete('t_lomba');
     }
 
-    function tampiljumlahpeserta($id = null)
+    function tampillomba($id = null)
     {
         $this->db->select('t_lomba.*, t_perlombaan.*');
         $this->db->from('t_lomba');

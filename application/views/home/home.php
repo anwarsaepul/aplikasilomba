@@ -145,112 +145,52 @@
         <!-- ============================================-->
         <!-- <section> begin ============================-->
         <section class="bg-100 py-2">
-
             <div class="container-lg">
                 <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-5 text-center mb-4">
+                    <div class="col-md-8 mt-3 col-lg-5 text-center mb-4">
                         <h2>Kategori Lomba</h2>
-                        <p>3 Kategori lomba menembak ESC Sukabumi 2021</p>
+                        <!-- <p>3 Kategori lomba menembak ESC Sukabumi 2021</p> -->
                     </div>
                 </div>
-                <div class="row h-100 justify-content-center">
-                    <div class="col-md-4 pt-4 px-md-2 px-lg-3">
-                        <div class="card h-80">
-                            <div class="card-body d-flex flex-column justify-content-around mx-auto">
-                                <div class="text-center pt-2"><img class="img-fluid" src="assets/img/icons/kategori1.png" alt="" />
-                                    <h5 class="my-4">Benchrest</h5>
-                                </div>
-                                <ul class="list-unstyled">
-                                    <li class="mb-3"><span class="me-2">
-                                            <svg class="bi bi-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2FAB73" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
-                                            </svg></span>Umum
-                                    </li>
-                                    <li class="mb-3"><span class="me-2">
-                                            <svg class="bi bi-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2FAB73" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
-                                            </svg></span>Jarak 25 Meter
-                                    </li>
-                                    <li class="mb-3"><span class="me-2">
-                                            <svg class="bi bi-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2FAB73" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
-                                            </svg></span>3x Tembakan
-                                </ul>
-                                <div class="text-center my-2">
-                                    <h4 class="mb-3">Rp. 25.000<span class="text-900">/Orang</span>
-                                    </h4>
-                                    <button class="btn btn-outline-danger rounded-pill" type="submit">DAFTAR</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 pt-4 px-md-2 px-lg-3">
-                        <div class="card h-80">
-                            <div class="card-body d-flex flex-column justify-content-around mx-auto">
-                                <div class="text-center pt-2"><img class="img-fluid" src="assets/img/icons/kategori2.png" alt="" />
-                                    <h5 class="my-4">Multirange (PCP/Uklik)</h5>
-                                </div>
-                                <ul class="list-unstyled">
-                                    <li class="mb-3"><span class="me-2">
-                                            <svg class="bi bi-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2FAB73" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
-                                            </svg></span>Umum
-                                    </li>
-                                    <li class="mb-3"><span class="me-2">
-                                            <svg class="bi bi-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2FAB73" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
-                                            </svg></span>Jarak 25 Meter
-                                    </li>
-                                    <li class="mb-3"><span class="me-2">
-                                            <svg class="bi bi-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2FAB73" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
-                                            </svg></span>3x nembak
-                                    </li>
-                                </ul>
-                                <div class="text-center my-2">
-                                    <h4 class="mb-3">Rp. 25.000<span class="text-900">/Orang</span>
-                                    </h4>
-                                    <button class="btn btn-outline-danger rounded-pill" type="submit">DAFTAR</button>
+                <form action="<?= base_url('order/process') ?>" method="POST">
+                    <div class="row h-100 justify-content-center">
+                        <?php foreach ($row->result() as $key => $data) : ?>
+                            <div class="col-md-4 pt-4 px-md-2 px-lg-3">
+                                <div class="card h-80">
+                                    <div class="card-body d-flex flex-column justify-content-around mx-auto">
+                                        <div class="text-center pt-2"><img class="img-fluid" src="assets/img/icons/<?= $data->gambar ?>" alt="" />
+                                            <h5 class="my-4"><?= $data->nama_kategori ?></h5>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-3">
+                                                <i class="fas fa-check success nav-icon"></i> Umum
+                                            </li>
+                                            <li class="mb-3">
+                                                <i class="fas fa-check success nav-icon"></i> <?= $data->jarak_sasaran ?> Meter
+                                            </li>
+                                            <li class="mb-3">
+                                                <i class="fas fa-check success nav-icon"></i>
+                                                <?= $data->keterangan ?>
+                                        </ul>
+                                        <div class="text-center my-2">
+                                            <h4 class="mb-3"><?= indo_currency($data->biaya) ?><span class="text-900">/Orang</span>
+                                            </h4>
+                                            <a class="btn btn-outline-danger rounded-pill" name="daftar" href="<?= base_url('order/process/' . $data->lomba_id) ?>">
+                                                DAFTAR
+                                            </a>
+                                            <a class="btn btn-default rounded-pill ml-2" id="set_detail" data-toggle="modal" data-target="#modal-detail" data-nama_kategori="<?= $data->nama_kategori ?>" data-jarak="<?= $data->jarak_sasaran ?>" data-nama_sasaran="<?= $data->sasaran ?>" data-point="<?= $data->point ?>" data-keterangan="<?= $data->keterangan ?>" data-durasi="<?= $data->durasi ?>" data-jumlah_line="<?= $data->jumlah_line ?>" data-tanggal_tanding="<?= indo_date($data->tanggal_tanding) ?>" data-jam_tanding="<?= indo_jam($data->jam_tanding) ?>" data-biaya="<?= indo_currency($data->biaya) ?>">
+                                                <i class="fa fa-eye"></i> Detail
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
-                    <div class="col-md-4 pt-4 px-md-2 px-lg-3">
-                        <div class="card h-80">
-                            <div class="card-body d-flex flex-column justify-content-around mx-auto">
-                                <div class="text-center pt-2"><img class="img-fluid" src="assets/img/icons/categori3.png" alt="" />
-                                    <h5 class="my-4">Presisi 10 Meter (Pelajar)</h5>
-                                </div>
-                                <ul class="list-unstyled">
-                                    <li class="mb-3"><span class="me-2">
-                                            <svg class="bi bi-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2FAB73" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
-                                            </svg></span>Pelajar
-                                    </li>
-                                    <li class="mb-3"><span class="me-2">
-                                            <svg class="bi bi-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2FAB73" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
-                                            </svg></span>Jarak 10 Meter
-                                    </li>
-                                    <li class="mb-3"><span class="me-2">
-                                            <svg class="bi bi-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2FAB73" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
-                                            </svg></span>3x Nembak
-                                    </li>
-                                </ul>
-                                <div class="text-center my-2">
-                                    <h4 class="mb-3">Rp. 25.000<span class="text-900">/Orang</span>
-                                    </h4>
-                                    <button class="btn btn-outline-danger rounded-pill" type="submit">DAFTAR</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
-            <!-- end of .container-->
-
         </section>
+        
         <section class="py-5">
 
             <div class="container">

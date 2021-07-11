@@ -12,7 +12,7 @@ class Dashboard extends CI_Controller
     function index()
     {
         $lomba  = $this->perlombaan_model->tampilItem();
-        $row    = $this->lomba_model->tampiljumlahpeserta();
+        $row    = $this->lomba_model->tampillomba();
 
         $data = array(
             'row'       => $row,
