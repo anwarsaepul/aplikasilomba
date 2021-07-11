@@ -5,7 +5,7 @@
             <div class="box box-widget">
                 <div class="col-12 col-sm-6 col-md-6 pr-3 mx-auto">
                     <div class="text-center">
-                        <H3 class="">Daftar Peserta</H3>
+                        <H3 class="">Data Peserta</H3>
                     </div>
                 </div>
                 <div class="box-body table-responsive pl-3 pr-3">
@@ -15,6 +15,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>No Peserta</th>
+                                    <th>Nama Kategori</th>
                                     <th>NIK</th>
                                     <th>Nama Peserta</th>
                                     <th>Komunitas</th>
@@ -32,7 +33,8 @@
                                 foreach ($invoice->result() as $key => $data) { ?>
                                     <tr>
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
-                                        <td><?= $data->invoice ?></td>
+                                        <td><?= $data->order_id ?></td>
+                                        <td><?= $data->nama_kategori ?></td>
                                         <td><?= $data->nik ?></td>
                                         <td><?= $data->nama_lengkap ?></td>
                                         <td><?= $data->komunitas ?></td>

@@ -145,12 +145,12 @@ class Invoice_model extends CI_Model
         return $invoice = "ID" . date('ymd') . $no;
     }
 
-    function add($post)
+    function add($inv)
     {
         $params = [
             // nama d db        => nama di inputan
-            'invoice'   => $post['invoice'],
-            'total'     => $post['totalpesanan'],
+            'invoice'   => $inv,
+            // 'total'     => $post['totalpesanan'],
             'user_id'   => $this->session->userdata('user_id'),
         ];
         $this->db->insert('t_invoice', $params);

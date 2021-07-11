@@ -163,6 +163,50 @@
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <section class="bg-100 py-2">
+            <div class="container-lg">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-5 text-center mb-4">
+                        <h2>Kategori Lomba</h2>
+                        <p>3 Kategori lomba menembak ESC Sukabumi 2021</p>
+                    </div>
+                </div>
+                <form action="<?= base_url('order/process') ?>" method="POST">
+                    <div class="row h-100 justify-content-center">
+                        <?php foreach ($row->result() as $key => $data) : ?>
+                            <div class="col-md-4 pt-4 px-md-2 px-lg-3">
+                                <div class="card h-80">
+                                    <div class="card-body d-flex flex-column justify-content-around mx-auto">
+                                        <div class="text-center pt-2"><img class="img-fluid" src="assets/img/icons/<?= $data->gambar ?>" alt="" />
+                                            <h5 class="my-4"><?= $data->nama_kategori ?></h5>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-3">
+                                                <i class="fas fa-check success nav-icon"></i> Umum
+                                            </li>
+                                            <li class="mb-3">
+                                                <i class="fas fa-check success nav-icon"></i> <?= $data->jarak_sasaran ?> Meter
+                                            </li>
+                                            <li class="mb-3">
+                                                <i class="fas fa-check success nav-icon"></i>
+                                                <?= $data->keterangan ?>
+                                        </ul>
+                                        <div class="text-center my-2">
+                                            <h4 class="mb-3"><?= indo_currency($data->biaya) ?><span class="text-900">/Orang</span>
+                                            </h4>
+                                            <a class="btn btn-outline-danger rounded-pill" name="daftar" href="<?= base_url('order/process/' . $data->lomba_id) ?>">
+                                                DAFTAR
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </form>
+            </div>
+        </section>
     <?php } ?>
 </div>
 

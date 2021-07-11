@@ -25,6 +25,28 @@ class Perlombaan_model extends CI_Model
         return $query = $this->db->get();
     }
 
+    
+    // function tampil_peserta()
+    // {
+    //     // $datafilter = $post['filterdata'];
+
+    //     // $this->db->select('t_invoice.*, users.*');
+    //     $this->db->select('t_perlombaan.*, t_invoice.*, users.*, t_order.*, t_lomba.*, t_perlombaan.*');
+    //     $this->db->from('t_perlombaan');
+    //     $this->db->where('status_pesanan', 2);
+    //     $this->db->order_by('invoice_id', 'desc');
+    //     $this->db->join('users', 'users.user_id = t_invoice.user_id');
+    //     $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
+    //     $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
+    //     $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
+    //     // $this->db->join('t_penilaian', 't_penilaian.invoice_id = t_invoice.invoice_id');
+
+    //     // if ($id != null) {
+    //     //     $this->db->where('invoice_id', $id);
+    //     // }
+    //     return $query = $this->db->get();
+    // }
+
     function add($post)
     {
         $params = [

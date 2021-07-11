@@ -15,13 +15,13 @@ class Profile extends CI_Controller
         // echo 'ok';
         $id = $this->session->userdata('user_id');
         $data = $this->user_model->get($id);
-        // $user = $data->row();
-        // $data = array(
-        //     'page'      => 'Add'
-        //     // 'row'       => $perlombaan
-        // );
-        var_dump($data->result());
-        // $this->template->load('template', 'profile/profile_data', $data);
+        $user = $data->row();
+        $data = array(
+            'page'      => 'Add'
+            // 'row'       => $perlombaan
+        );
+        // var_dump($data->result());
+        $this->template->load('template', 'profile/profile_data', $data);
     }
 
     function add()

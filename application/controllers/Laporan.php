@@ -7,7 +7,7 @@ class Laporan extends CI_Controller
     flashData();
     checklogin();
     checkAdmin();
-    $this->load->model(['invoice_model', 'pembayaran_model']);
+    $this->load->model(['invoice_model', 'pembayaran_model', 'order_model']);
   }
 
 
@@ -27,10 +27,11 @@ class Laporan extends CI_Controller
 
   function peserta()
   {
-    $peserta  = $this->invoice_model->tampil_peserta();
+    $peserta  = $this->order_model->tampil_peserta();
     $data = array(
       'invoice'   => $peserta,
     );
+    // var_dump($peserta->result());
     $this->template->load('template', 'laporan/peserta_data', $data);
   }
 

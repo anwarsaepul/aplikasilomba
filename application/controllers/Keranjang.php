@@ -35,8 +35,10 @@ class Keranjang extends CI_Controller
                 redirect('keranjang');
             }
         } else if (isset($_POST['process-payment'])) {
-            $this->invoice_model->add($post);
-            $this->order_model->update_invoice($post);
+            $inv = $this->invoice_model->invoice_no();
+            // $this->order_model->add($id);
+            // $this->invoice_model->add($post);
+            $this->order_model->update_invoice($inv);
             $this->keranjang_model->del('user_id', $this->session->userdata('user_id'));
             redirect('pesanan');
         }

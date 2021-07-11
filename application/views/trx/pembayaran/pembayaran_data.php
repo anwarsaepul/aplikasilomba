@@ -32,7 +32,7 @@
                                     </td>
                                     <td>
                                         <div class="form-group">
-                                            <input id="total" value="<?= indo_currency($inv->total) ?>" class="form-control" name="total" readonly>
+                                            <input id="total" value="<?= indo_currency($inv->biaya) ?>" class="form-control" name="total" readonly>
                                     </td>
                                 </tr>
                                 <tr>
@@ -41,7 +41,7 @@
                                     </td>
                                     <td>
                                         <div class="form-group">
-                                            <input id="waktu" value="<?= indo_date($inv->created) ?> <?= jam($inv->created) ?>" class="form-control" name="waktu" readonly>
+                                            <input id="waktu" value="<?= indo_date($inv->created_invoice) ?> <?= jam($inv->created_invoice) ?>" class="form-control" name="waktu" readonly>
                                     </td>
                                 </tr>
                                 <tr>

@@ -175,7 +175,7 @@
                 <li class="nav-item">
                   <a href="<?= base_url('laporan/peserta') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'peserta'  ? 'active' : '' ?>">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Peserta</p>
+                    <p>Data Peserta</p>
                   </a>
                 </li>
               </ul>

@@ -13,7 +13,6 @@ class Invoice extends CI_Controller
     function index()
     {
         $invoice    = $this->invoice_model->getall();
-
         // $row        = $this->info_model->tampilItem2();
         // $keranjang  = $this->keranjang_model->getkeranjang();
 

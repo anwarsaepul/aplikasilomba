@@ -53,7 +53,7 @@ class Pesanan extends CI_Controller
         // $row        = $this->lomba_model->tampilItem2();
 
         if ($cekinvoice->num_rows() > 0) {
-            $inv = $cekinvoice->row();
+            $inv = $invoice->row();
             $data = array(
                 'inv'       => $inv,
                 'invoice'   => $invoice,

@@ -44,7 +44,7 @@
                                         <td>
                                             <input type="hidden" name="totalpesanan" value="<?= indo_currency($biaya); ?>" class="form-control">
                                             <input type="hidden" id="totalpesanan" name="totalpesanan" value="<?= $biaya; ?>">
-                                            <input type="hidden" name="invoice" value="<?= $invoice ?>">
+                                            <input type="text" name="invoice" value="<?= $invoice ?>">
                                             <input type="hidden" name="perlombaan_id2" id="perlombaan_id2">
                                             <input type="hidden" name="invoice2" value="">
 
@@ -53,7 +53,6 @@
                                                     <i class="fas fa-cart-arrow-down"></i> Bayar
                                                 </button>
                                             <?php } ?>
-
 
                                         </td>
                                     </tr>
