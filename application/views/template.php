@@ -265,10 +265,11 @@
             'colvis'
         ],
         columnDefs: [ {
-            targets: -1,
+            // targets: -1,
             visible: false
         } ]
       });
+
       $('#table1').DataTable({});
 
       $(document).on('click', '#tmblhps', function(e) {

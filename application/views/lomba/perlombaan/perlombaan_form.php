@@ -48,6 +48,22 @@
                             <label for="line">Jumlah Line *</label>
                             <input type="number" value="<?= $row->jumlah_line ?>" class="form-control" id="line" name="line" required placeholder="Input line">
                         </div>
+                        <div class="form-group">
+                            <label for="date">Tanggal Perlombaan *</label>
+                            <div class="form-group">
+                                <input type="date" name="date" id="date" value="<?= $row->tanggal_tanding ?>" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Jam Tanding *</label>
+                            <div class="form-group">
+                                <input type="time" name="jam" value="<?= $row->jam_tanding ?>" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="biaya">Biaya *</label>
+                            <input type="number" value="<?= $row->biaya ?>" class="form-control" id="line" name="biaya" required placeholder="Input biaya">
+                        </div>
                         <div class="form-group text-center">
                             <button type="submit" name="<?= $page ?>" class="btn btn-success btn-flat">
                                 <i class="fa fa-paper-plane"></i>Save

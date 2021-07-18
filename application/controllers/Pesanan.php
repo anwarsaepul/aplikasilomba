@@ -23,7 +23,7 @@ class Pesanan extends CI_Controller
 
     function detail($id)
     {
-        $invoice    = $this->invoice_model->getinvoicedetail2($id);
+        $invoice    = $this->invoice_model->getinvoicedetail3($id);
         $cekinvoice = $this->invoice_model->get($id);
         $gambar     = $this->pembayaran_model->tampilgambar($id);
 
@@ -38,6 +38,7 @@ class Pesanan extends CI_Controller
             tampil_error($lokasi = 'pesanan');
         }
         // var_dump($cekinvoice->result());
+        // var_dump($invoice->result());
         $this->template->load('template', 'trx/pesanan/pesanan_detail', $data);
     }
 
@@ -45,7 +46,7 @@ class Pesanan extends CI_Controller
 
     function bayar($id)
     {
-        $invoice    = $this->invoice_model->getinvoicedetail2($id);
+        $invoice    = $this->invoice_model->getinvoicedetail3($id);
         $cekinvoice = $this->invoice_model->get($id);
         // $row        = $this->lomba_model->tampilItem2();
 
@@ -60,6 +61,7 @@ class Pesanan extends CI_Controller
             tampil_error($lokasi = 'pesanan');
         }
         // var_dump($cekinvoice->result());
+        // var_dump($invoice->result());
         $this->template->load('template', 'trx/pembayaran/pembayaran_data', $data);
     }
 

@@ -31,7 +31,7 @@ class Order_model extends CI_Model
     {
         $params = [
             // nama d db        => nama di inputan
-            'lomba_id'  => $id,
+            'perlombaan_id'  => $id,
             'user_id'   => $this->session->userdata('user_id'),
             'invoice'   => $inv,
         ];
@@ -88,7 +88,7 @@ class Order_model extends CI_Model
         // $this->db->select('t_invoice.*, users.*');
         // $this->db->select('t_order.*, t_order.lomba_id as lb, t_invoice.*, t_perlombaan.*');
         // $this->db->select('t_order.*');
-        $this->db->select('t_order.*, t_invoice.*, t_perlombaan.*,  t_lomba.*, users.*');
+        $this->db->select('t_order.*, t_invoice.*, t_perlombaan.*, users.*');
         $this->db->from('t_order');
         // $this->db->group_by('invoice_id');
         // $this->db->where('lomba_id', 10);
@@ -97,8 +97,8 @@ class Order_model extends CI_Model
         $this->db->join('t_invoice', 't_invoice.invoice = t_order.invoice');
         $this->db->join('users', 'users.user_id = t_invoice.user_id');
         // $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
-        $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
-        $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_lomba.perlombaan_id');
+        // $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
+        $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
         // $this->db->join('t_penilaian', 't_penilaian.invoice_id = t_invoice.invoice_id');
 
         // if ($id != null) {
@@ -118,9 +118,9 @@ class Order_model extends CI_Model
         $this->db->select('t_order.*, t_perlombaan.*, users.*, t_invoice.*');
         $this->db->from('t_order');
         // $this->db->group_by('invoice_id');
-        // $this->db->where('status_pesanan', 2);
+        $this->db->where('status_pesanan', 2);
         // $this->db->order_by('invoice_id', 'desc');
-        $this->db->join('t_invoice', 't_invoice.invoice = t_invoice.invoice');
+        $this->db->join('t_invoice', 't_invoice.invoice = t_order.invoice');
         $this->db->join('users', 'users.user_id = t_invoice.user_id');
         // $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
         $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
@@ -130,6 +130,30 @@ class Order_model extends CI_Model
         // if ($id != null) {
         //     $this->db->where('invoice_id', $id);
         // }
+        return $query = $this->db->get();
+    }
+
+    function tampil_peserta3($id)
+    {
+        $this->db->select('t_order.*, t_invoice.*, users.*, t_penilaian.*');
+        $this->db->from('t_order');
+        $this->db->where('perlombaan_id', $id);
+        $this->db->join('t_invoice', 't_invoice.invoice = t_order.invoice');
+        $this->db->join('t_penilaian', 't_penilaian.invoice_id = t_invoice.invoice_id');
+        $this->db->join('users', 'users.user_id = t_invoice.user_id');
+        // $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
+        // $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
+        return $query = $this->db->get();
+
+    }
+
+    function lomba_terbaru($id = null)
+    {
+        $this->db->from('t_order');
+        $this->db->select_max('perlombaan_id');
+        if ($id != null) {
+            $this->db->where('perlombaan_id', $id);
+        }
         return $query = $this->db->get();
     }
 

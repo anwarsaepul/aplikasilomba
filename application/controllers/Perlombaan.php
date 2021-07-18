@@ -29,6 +29,9 @@ class Perlombaan extends CI_Controller
         $perlombaan->nama_kategori      = null;
         $perlombaan->jarak_sasaran      = null;
         $perlombaan->sasaran            = null;
+        $perlombaan->tanggal_tanding    = date('Y-m-d');
+        $perlombaan->jam_tanding        = date('H:i');
+        $perlombaan->biaya              = null;
 
         $data = array(
             'page'      => 'Add',

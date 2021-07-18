@@ -126,7 +126,7 @@
                 </div>
                 <form action="<?= base_url('order/process') ?>" method="POST">
                     <div class="row h-100 justify-content-center">
-                        <?php foreach ($row->result() as $key => $data) : ?>
+                        <?php foreach ($lomba->result() as $key => $data) : ?>
                             <div class="col-md-4 pt-4 px-md-2 px-lg-3">
                                 <div class="card h-80">
                                     <div class="card-body d-flex flex-column justify-content-around mx-auto">
@@ -147,7 +147,7 @@
                                         <div class="text-center my-2">
                                             <h4 class="mb-3"><?= indo_currency($data->biaya) ?><span class="text-900">/Orang</span>
                                             </h4>
-                                            <a class="btn btn-outline-danger rounded-pill" name="daftar" href="<?= base_url('order/process/' . $data->lomba_id) ?>">
+                                            <a class="btn btn-outline-danger rounded-pill" name="daftar" href="<?= base_url('order/process/' . $data->perlombaan_id) ?>">
                                                 DAFTAR
                                             </a>
                                             <a class="btn btn-default rounded-pill ml-2" id="set_detail" data-toggle="modal" data-target="#modal-detail" data-nama_kategori="<?= $data->nama_kategori ?>" data-jarak="<?= $data->jarak_sasaran ?>" data-nama_sasaran="<?= $data->sasaran ?>" data-point="<?= $data->point ?>" data-keterangan="<?= $data->keterangan ?>" data-durasi="<?= $data->durasi ?>" data-jumlah_line="<?= $data->jumlah_line ?>" data-tanggal_tanding="<?= indo_date($data->tanggal_tanding) ?>" data-jam_tanding="<?= indo_jam($data->jam_tanding) ?>" data-biaya="<?= indo_currency($data->biaya) ?>">

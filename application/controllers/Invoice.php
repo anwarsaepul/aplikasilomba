@@ -21,17 +21,17 @@ class Invoice extends CI_Controller
 
     function detail($id)
     {
-        $invoice    = $this->invoice_model->getinvoicedetail2($id);
+        $invoice    = $this->invoice_model->getinvoicedetail3($id);
         $cekinvoice = $this->invoice_model->get($id);
         $gambar     = $this->pembayaran_model->tampilgambar($id);
 
         // if ($cekinvoice->num_rows() > 0) {
-            $inv = $invoice->row();
-            $data = array(
-                'inv'       => $inv,
-                'invoice'   => $invoice,
-                'gambar'    => $gambar,
-            );
+        $inv = $invoice->row();
+        $data = array(
+            'inv'       => $inv,
+            'invoice'   => $invoice,
+            'gambar'    => $gambar,
+        );
         // } 
         // else {
         //     tampil_error($lokasi = 'invoice');
@@ -49,20 +49,26 @@ class Invoice extends CI_Controller
 
         if ($data_tertinggi->num_rows() > 0) {
             $dt = $data_tertinggi->row();
-            if($dt->lajur == 3){
+            if ($dt->lajur == null) {
+                $gelombang = 1;
+                $lajur = 1;
+            } else if ($dt->lajur == 3) {
                 $gelombang = $dt->gelombang + 1;
                 $lajur = 1;
             } else {
                 $lajur = $dt->lajur + 1;
                 $gelombang = $dt->gelombang;
             }
-
-            $data = array(
-                'id'        => $id,
-                'gelombang' => $gelombang,
-                'lajur'     => $lajur,
-            );
-        } 
+        } else {
+            $gelombang  = 1;
+            $lajur      = 1;
+        }
+        
+        $data = array(
+            'id'        => $id,
+            'gelombang' => $gelombang,
+            'lajur'     => $lajur,
+        );
 
         $cekinvoice = $this->invoice_model->getall($id);
         if ($cekinvoice->num_rows() > 0) {

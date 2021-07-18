@@ -36,6 +36,36 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td style="vertical-align: top; width: 40%;">
+                        <span>Gelombang</span>
+                    </td>
+                    <td>
+                        <div>
+                            <span>: <?= $inv->gelombang ?> </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top; width: 40%;">
+                        <span>Lajur</span>
+                    </td>
+                    <td>
+                        <div>
+                            <span>: <?= $inv->lajur ?> </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top; width: 40%;">
+                        <span>Nilai</span>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="number" value="<?= $inv->nilai ?>" class="form-control" name="nilai" required autofocus>
+                        </div>
+                    </td>
+                </tr>
             </table>
         </div>
     </div>
@@ -112,59 +142,6 @@
                 <a href="" class="btn btn-primary btn-sm">
                     <i class="fas fa-paper-plane"></i> Kirim
                 </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md">
-            <div class="box box-widget p-2">
-                <div class="box-body">
-                    <div class="mx-auto">
-                        <div class="box-body text-center table-responsive">
-                            <table class="table table-bordered text-center table-striped">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Kategori</th>
-                                        <th>Tanggal Tanding</th>
-                                        <th>Biaya</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $no = 1;
-                                    $biaya = 0;
-                                    foreach ($invoice->result() as $key => $data) { ?>
-                                        <tr>
-                                            <td style="width: 5%;"><?= $no++ ?>.</td>
-                                            <td><?= $data->nama_kategori ?></td>
-                                            <td><?= indo_date($data->tanggal_tanding) ?></td>
-                                            <td><?= indo_currency($data->biaya) ?></td>
-                                            <td>
-                                                <a class="btn btn-default btn-xs mb-1" id="set_detail" data-toggle="modal" data-target="#modal-detail" data-nama_kategori="<?= $data->nama_kategori ?>" data-jarak="<?= $data->jarak_sasaran ?>" data-nama_sasaran="<?= $data->sasaran ?>" data-point="<?= $data->point ?>" data-keterangan="<?= $data->keterangan ?>" data-durasi="<?= $data->durasi ?>" data-jumlah_line="<?= $data->jumlah_line ?>" data-tanggal_tanding="<?= indo_date($data->tanggal_tanding) ?>" data-jam_tanding="<?= indo_jam($data->jam_tanding) ?>" data-biaya="<?= indo_currency($data->biaya) ?>">
-                                                    <i class="fa fa-eye"></i> Detail
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php
-                                        $biaya += $data->biaya;
-                                    }
-                                    ?>
-                                    <?php if ($inv->status_pesanan == 0) { ?>
-
-                                        <tr style="font-weight: bold;">
-                                            <td class="text-left" colspan="3">Jumlah</td>
-                                            <td><?= indo_currency($biaya); ?></td>
-                                            <td></td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

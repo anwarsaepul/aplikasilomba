@@ -3,7 +3,7 @@
     <div class="row p-2">
         <div class="col-md">
             <div class="box box-widget">
-                <div class="col-8 mx-auto">
+                <div class="mx-auto">
                     <div class="box-body table-responsive p-3">
                         <table class="table table-bordered text-center table-striped" id="table1">
                             <thead class="thead-dark">
