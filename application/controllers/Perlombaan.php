@@ -61,12 +61,40 @@ class Perlombaan extends CI_Controller
     {
         $post = $this->input->post(null, TRUE);
         if (isset($_POST['Add'])) {
-            $this->perlombaan_model->add($post);
-            tampil_simpan($lokasi = 'perlombaan');
+            // $this->perlombaan_model->add($post);
+            // tampil_simpan($lokasi = 'perlombaan');
+                $config['upload_path']      = './assets/img/uploads/lomba/';
+                $config['allowed_types']    = 'gif|jpg|jpeg|png';
+                $config['max_size']         = '2048';
+                $config['file_name']         = 'ID-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $this->load->library('upload', $config);
+    
+                // ketika berhasil diupload
+                if ($this->upload->do_upload('gambar')) {
+                    $post['gambar'] = $this->upload->data('file_name');
+                    $this->perlombaan_model->add($post);
+                } else {
+                    $this->upload->display_errors();
+                    ?>
+                    <script>
+                        Swal.fire({
+                            icon: 'error',
+                            text: 'Error',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            title: 'Photo gagal diupload!'
+                        }).then((result) => {
+                            window.location = '<?= site_url('perlombaan') ?>';
+                        })
+                    </script>
+                    <?php
+                }
+                tampil_simpan($lokasi = 'perlombaan');
         } elseif (isset($_POST['Edit'])) {
             $this->perlombaan_model->edit($post);
             tampil_edit($lokasi = 'perlombaan');
         }
+
     }
 
     function del($id)

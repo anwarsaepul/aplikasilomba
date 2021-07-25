@@ -67,6 +67,7 @@ class Perlombaan_model extends CI_Model
         $params = [
             // nama d db    => nama di inputan
             'nama_kategori'     => $post['kategori'],
+            'gambar'            => $post['gambar'],
             'jarak_sasaran'     => $post['jarak'],
             'sasaran'           => $post['sasaran'],
             'point'             => $post['point'],
