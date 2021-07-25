@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 pr-3 mx-auto">
                     <div class="text-center">
-                        <H3 class="">Daftar Peserta</H3>
+                        <H3>Daftar Peserta <br> <?= $nama_kategori ?></H3>
                     </div>
                 </div>
                 <div class="box-body table-responsive pl-3 pr-3">
@@ -30,12 +30,15 @@
                                 <tr>
                                     <th>#</th>
                                     <th>No Invoice</th>
+                                    <!-- <th>Nama Kategori</th> -->
                                     <th>Nama Peserta</th>
                                     <th>Komunitas</th>
                                     <th>Gelombang</th>
                                     <th>Lajur</th>
-                                    <th>Nilai</th>
-                                    <th>Aksi</th>
+                                    <?php if ($this->session->userdata('level') == 1) { ?>
+                                        <th>Nilai</th>
+                                        <th>Aksi</th>
+                                    <?php } ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,14 +49,17 @@
                                     <tr>
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
                                         <td><?= $data->invoice ?></td>
+                                        <!-- <td><?= $data->nama_kategori ?></td> -->
                                         <td><?= $data->nama_lengkap ?></td>
                                         <td><?= $data->komunitas ?></td>
                                         <td><?= $data->gelombang ?></td>
                                         <td><?= $data->lajur ?></td>
-                                        <td><?= $data->nilai ?></td>
-                                        <td><a href="<?= base_url('penilaian/input/' . $data->invoice_id) ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Nilai
-                                            </a>
-                                        </td>
+                                        <?php if ($this->session->userdata('level') == 1) { ?>
+                                            <td><?= $data->nilai ?></td>
+                                            <td><a href="<?= base_url('penilaian/input/' . $data->invoice_id) ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Nilai
+                                                </a>
+                                            </td>
+                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
                             </tbody>

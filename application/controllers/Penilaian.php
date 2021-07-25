@@ -18,13 +18,17 @@ class Penilaian extends CI_Controller
 
         $get        = $this->order_model->lomba_terbaru()->row()->perlombaan_id;
         $invoice    = $this->order_model->tampil_peserta3($get);
+        $perlombaan = $this->perlombaan_model->get($get)->row()->nama_kategori;
         $lomba      = $this->perlombaan_model->get();
         $data = array(
-            'row'       => $namalomba,
-            'lomba'     => $lomba,
-            'invoice'   => $invoice,
+            'row'           => $namalomba,
+            'lomba'         => $lomba,
+            'invoice'       => $invoice,
+            'nama_kategori' => $perlombaan,
         );
         $this->template->load('template', 'penilaian/penilaian_data', $data);
+        // var_dump($perlombaan);
+
     }
 
     function input($id) //id invoice
@@ -32,7 +36,7 @@ class Penilaian extends CI_Controller
         checkAdmin();
         $invoice    = $this->invoice_model->getinvoicedetail4($id);
         // $invoice    = $this->penilaian_model->penilaiandetail($id);
-        
+
         $cekinvoice = $this->invoice_model->get($id);
         $gambar     = $this->pembayaran_model->tampilgambar($id);
 
@@ -112,6 +116,10 @@ class Penilaian extends CI_Controller
 
     function process()
     {
+        $namalomba                  = new stdClass();
+        $namalomba->perlombaan_id   = null;
+        $namalomba->nama_kategori   = null;
+
         $post = $this->input->post(null, TRUE);
         if (isset($_POST['Add'])) {
             // $this->info_model->add($post);
@@ -121,14 +129,24 @@ class Penilaian extends CI_Controller
             // $this->info_model->edit($post);
             $this->lomba_model->edit($post);
             tampil_edit($lokasi = 'info');
-        }
-
-        elseif (isset($_POST['save'])) {
+        } elseif (isset($_POST['save'])) {
             $this->penilaian_model->update_data($post);
             // echo $post['nilai'];
             tampil_simpan($lokasi = 'penilaian/input/' . $post['invoice_id']);
+        } else if (isset($_POST['filter'])) {
+            $invoice    = $this->order_model->tampil_peserta3($_POST['filterdata']);
+            $lomba      = $this->perlombaan_model->get();
+            $perlombaan = $this->perlombaan_model->get($_POST['filterdata'])->row()->nama_kategori;
 
+            $data = array(
+                'row'           => $namalomba,
+                'lomba'         => $lomba,
+                'invoice'       => $invoice,
+                'nama_kategori' => $perlombaan,
+            );
+            $this->template->load('template', 'penilaian/penilaian_data', $data);
         }
+        // var_dump($invoice);
     }
 
     // function del($id)
