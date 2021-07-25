@@ -158,7 +158,7 @@
                             <div class="col-md-4 pt-4 px-md-2 px-lg-3">
                                 <div class="card h-80">
                                     <div class="card-body d-flex flex-column justify-content-around mx-auto">
-                                        <div class="text-center pt-2"><img class="img-fluid" src="assets/img/icons/<?= $data->gambar ?>" alt="" />
+                                        <div class="text-center pt-2"><img class="img-fluid" src="assets/img/uploads/lomba/<?= $data->gambar ?>" alt="" />
                                             <h5 class="my-4"><?= $data->nama_kategori ?></h5>
                                         </div>
                                         <ul class="list-unstyled">

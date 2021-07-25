@@ -26,10 +26,11 @@ class Penilaian_model extends CI_Model
     function update_data($post)
     {
         $params = [
-            // nama d db    => nama di inputan
-            'gelombang'     => $post['gelombang'],
-            'lajur'         => $post['lajur'],
-            'nilai'         => $post['nilai'],
+            // nama d db        => nama di inputan
+            'jam_perlombaan'    => $post['jam_perlombaan'],
+            'gelombang'         => $post['gelombang'],
+            'lajur'             => $post['lajur'],
+            'nilai'             => $post['nilai'],
         ];
         $this->db->where('penilaian_id', $post['penilaian_id']);
         $this->db->update('t_penilaian', $params);

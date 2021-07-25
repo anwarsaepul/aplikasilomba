@@ -18,12 +18,18 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 pr-3 mx-auto">
-                    <div class="text-center">
-                        <H3>Jadwal lomba
-                            <br> <?= $perlombaan->nama_kategori ?> (<?= indo_date($perlombaan->tanggal_tanding) ?>)
-                        </H3>
-                    </div>
+                <div class="col-12 col-sm-6 col-md-12 pr-3 mx-auto">
+                    <table width="100%">
+                        <tr>
+                            <td class="mt-3" colspan="3">
+                                <div class="text-center">
+                                    <h3>Jadwal lomba</h3>
+                                    <h3><?= $perlombaan->nama_kategori ?></h3>
+                                    <h3><?= indo_date($perlombaan->tanggal_tanding) ?></h3>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="box-body table-responsive pl-3 pr-3">
                     <div class="mx-auto">
@@ -35,6 +41,7 @@
                                     <!-- <th>Nama Kategori</th> -->
                                     <th>Nama Peserta</th>
                                     <th>Komunitas</th>
+                                    <th>Jam</th>
                                     <th>Gelombang</th>
                                     <th>Lajur</th>
                                     <th>Nilai</th>
@@ -54,11 +61,12 @@
                                         <!-- <td><?= $data->nama_kategori ?></td> -->
                                         <td><?= $data->nama_lengkap ?></td>
                                         <td><?= $data->komunitas ?></td>
+                                        <td><?= indo_jam($data->jam_perlombaan) ?></td>
                                         <td><?= $data->gelombang ?></td>
                                         <td><?= $data->lajur ?></td>
                                         <td><?= $data->nilai ?></td>
                                         <?php if ($this->session->userdata('level') == 1) { ?>
-                                            <td><a href="<?= base_url('penilaian/input/' . $data->invoice_id) ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Nilai
+                                            <td><a href="<?= base_url('penilaian/input/' . $data->invoice_id) ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Update
                                                 </a>
                                             </td>
                                         <?php } ?>

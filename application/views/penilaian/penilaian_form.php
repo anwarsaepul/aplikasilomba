@@ -25,6 +25,12 @@
                     <span>: <?= $inv->komunitas ?> </span>
                 </div>
                 <div class="col-4">
+                    <span>Jam Perlombaan</span>
+                </div>
+                <div class="col-8">
+                    <span>: <?= indo_jam($inv->jam_perlombaan) ?> </span>
+                </div>
+                <div class="col-4">
                     <span>Gelombang</span>
                 </div>
                 <div class="col-8">

@@ -26,6 +26,12 @@
                         <input type="text" value="<?= $inv->komunitas ?>" class="form-control mb-2" disabled>
                     </div>
                     <div class="col-4">
+                        <span>Jam Perlombaan</span>
+                    </div>
+                    <div class="col-8">
+                        <input type="time" name="jam_perlombaan" value="<?= $inv->jam_perlombaan ?>" class="form-control mb-2">
+                    </div>
+                    <div class="col-4">
                         <span>Gelombang</span>
                     </div>
                     <div class="col-8">
