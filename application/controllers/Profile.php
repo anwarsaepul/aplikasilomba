@@ -12,7 +12,6 @@ class Profile extends CI_Controller
 
     function index()
     {
-        // echo 'ok';
         $id = $this->session->userdata('user_id');
         $data = $this->user_model->get($id);
 
@@ -22,9 +21,7 @@ class Profile extends CI_Controller
         }
         $data = array(
             'user'      => $user
-            // 'row'       => $perlombaan
         );
-        // var_dump($user);
         $this->template->load('template', 'profile/profile_data', $data);
     }
 
@@ -50,7 +47,7 @@ class Profile extends CI_Controller
     }
 
 
-    public function edit($id)
+    function edit($id)
     {
         $query = $this->perlombaan_model->get($id);
         if ($query->num_rows() > 0) {
@@ -74,6 +71,17 @@ class Profile extends CI_Controller
         } elseif (isset($_POST['Edit'])) {
             $this->perlombaan_model->edit($post);
             tampil_edit($lokasi = 'perlombaan');
+        } elseif (isset($_POST['save'])) {
+            // echo $post['alamat'];
+            $this->user_model->update_profile($post);
+            tampil_simpan($lokasi = 'profile');
+        } elseif (isset($_POST['save_password'])) {
+            if ($post['password'] != $post['password2']) {
+                err_pass('profile/update_password');
+            } else {
+                $this->user_model->update_password($post);
+                tampil_simpan($lokasi = 'profile');
+            }
         }
     }
 
@@ -81,5 +89,23 @@ class Profile extends CI_Controller
     {
         $this->perlombaan_model->del($id);
         tampil_hapus($lokasi = 'perlombaan');
+    }
+
+    function update_profile() //id invoice
+    {
+        $id = $this->session->userdata('user_id');
+        $query =  $this->user_model->get($id);
+        if ($query->num_rows() > 0) {
+            $user = $query->row();
+        }
+        $data = array(
+            'user'      => $user
+        );
+        $this->template->load('template', 'profile/profile_form', $data);
+    }
+
+    function update_password() //id invoice
+    {
+        $this->template->load('template', 'profile/update_password');
     }
 }

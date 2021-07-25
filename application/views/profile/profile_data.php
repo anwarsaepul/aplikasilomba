@@ -81,9 +81,10 @@
                                 <td></td>
                                 <td colspan="2">
                                     <div class="mx-auto text-center">
-                                        <button id="pembayaran" type="submit" name="pembayaran" class="btn btn-flat btn-success">
-                                            <i class="fa fa-edit"></i>Update Profile
-                                        </button>
+                                        <a href="<?= base_url('profile/update_profile/') ?>" name="update_profile" class="btn btn-primary mr-2"><i class="fa fa-edit"></i> Update Profile
+                                        </a>
+                                        <a href="<?= base_url('profile/update_password/') ?>" name="update_password" class="btn btn-warning"><i class="fas fa-unlock"></i> Update Password
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

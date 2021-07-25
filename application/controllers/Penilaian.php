@@ -68,7 +68,6 @@ class Penilaian extends CI_Controller
         $this->template->load('template', 'penilaian/penilaian_update', $data);
     }
 
-
     function add()
     {
         checkAdmin();
