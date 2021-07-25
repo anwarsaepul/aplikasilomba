@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
+    ini_set('date.timezone', 'Asia/Jakarta'); 
 
 class Order_model extends CI_Model
 {
@@ -139,7 +140,7 @@ class Order_model extends CI_Model
         $this->db->from('t_order');
         $this->db->where('perlombaan_id', $id);
         $this->db->join('t_invoice', 't_invoice.invoice = t_order.invoice');
-        $this->db->join('t_penilaian', 't_penilaian.invoice_id = t_invoice.invoice_id');
+        $this->db->join('t_penilaian', 't_penilaian.invoiceid = t_invoice.invoice_id');
         $this->db->join('users', 'users.user_id = t_invoice.user_id');
         // $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
         // $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');

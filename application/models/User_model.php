@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
-
+    ini_set('date.timezone', 'Asia/Jakarta'); 
 class User_model extends CI_Model
 {
     function login($post)
@@ -36,15 +36,6 @@ class User_model extends CI_Model
         }
         return $query = $this->db->get();
     }
-
-    // function getuser()
-    // {   
-    //     $id = $this->session->userdata('user_id');
-
-    //     $this->db->from('users');
-    //     $this->db->where('user_id', $id);
-    //     return $query = $this->db->get();
-    // }
 
     function check_data($checkdata, $code, $id = null)
     {

@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
-
+ini_set('date.timezone', 'Asia/Jakarta');
 class Penilaian_model extends CI_Model
 {
     function get($id = null)
@@ -15,12 +15,24 @@ class Penilaian_model extends CI_Model
     {
         $params = [
             // nama d db    => nama di inputan
-            'invoice_id'    => $data['id'],
+            'invoiceid'     => $data['invoice_id'],
             'gelombang'     => $data['gelombang'],
             'lajur'         => $data['lajur'],
             'nilai'         => 0,
         ];
         $this->db->insert('t_penilaian', $params);
+    }
+
+    function update_data($post)
+    {
+        $params = [
+            // nama d db    => nama di inputan
+            'gelombang'     => $post['gelombang'],
+            'lajur'         => $post['lajur'],
+            'nilai'         => $post['nilai'],
+        ];
+        $this->db->where('penilaian_id', $post['penilaian_id']);
+        $this->db->update('t_penilaian', $params);
     }
 
     function cek_tertinggi()
@@ -91,9 +103,5 @@ class Penilaian_model extends CI_Model
     }
 
 
-    function del($id)
-    {
-        $this->db->where('jadwal_id', $id);
-        $this->db->delete('t_jadwal');
-    }
+
 }

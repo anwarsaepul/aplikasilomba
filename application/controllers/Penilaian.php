@@ -27,12 +27,14 @@ class Penilaian extends CI_Controller
         $this->template->load('template', 'penilaian/penilaian_data', $data);
     }
 
-    function input($id)
+    function input($id) //id invoice
     {
-        $invoice    =    $this->invoice_model->getinvoicedetail2($id);
-        $cekinvoice     = $this->invoice_model->get($id);
-        $gambar         = $this->pembayaran_model->tampilgambar($id);
-        // $invoice        = $this->invoice_model->tampil_detail($id);
+        checkAdmin();
+        $invoice    = $this->invoice_model->getinvoicedetail4($id);
+        // $invoice    = $this->penilaian_model->penilaiandetail($id);
+        
+        $cekinvoice = $this->invoice_model->get($id);
+        $gambar     = $this->pembayaran_model->tampilgambar($id);
 
         // if ($cekinvoice->num_rows() > 0) {
         $inv = $invoice->row();
@@ -41,16 +43,25 @@ class Penilaian extends CI_Controller
             'invoice'   => $invoice,
             'gambar'    => $gambar,
         );
-        // } 
-        // else {
-        //     tampil_error($lokasi = 'invoice');
-        // }
-        // var_dump($invoice->result());
-        // $this->template->load('template', 'trx/invoice/invoice_detail', $data);
-
-
-        // $data['invoice'] = $this->invoice_model->tampil_peserta();
         $this->template->load('template', 'penilaian/penilaian_form', $data);
+        // var_dump($invoice->result());
+    }
+
+    function update($id) //id invoice
+    {
+        checkAdmin();
+        $invoice    = $this->invoice_model->getinvoicedetail4($id);
+        $cekinvoice = $this->invoice_model->get($id);
+        $gambar     = $this->pembayaran_model->tampilgambar($id);
+
+        // if ($cekinvoice->num_rows() > 0) {
+        $inv = $invoice->row();
+        $data = array(
+            'inv'       => $inv,
+            'invoice'   => $invoice,
+            'gambar'    => $gambar,
+        );
+        $this->template->load('template', 'penilaian/penilaian_update', $data);
     }
 
 
@@ -112,28 +123,18 @@ class Penilaian extends CI_Controller
             tampil_edit($lokasi = 'info');
         }
 
+        elseif (isset($_POST['save'])) {
+            $this->penilaian_model->update_data($post);
+            // echo $post['nilai'];
+            tampil_simpan($lokasi = 'penilaian/input/' . $post['invoice_id']);
 
-        $namalomba                  = new stdClass();
-        $namalomba->perlombaan_id   = null;
-        $namalomba->nama_kategori   = null;
-
-        if (isset($_POST['filter'])) {
-            $invoice    = $this->order_model->tampil_peserta3($_POST['filterdata']);
-            $lomba      = $this->perlombaan_model->get();
         }
-
-        $data = array(
-            'row'       => $namalomba,
-            'lomba'     => $lomba,
-            'invoice'   => $invoice,
-        );
-        $this->template->load('template', 'penilaian/penilaian_data', $data);
     }
 
-    function del($id)
-    {
-        // $this->info_model->del($id);
-        $this->lomba_model->del($id);
-        tampil_hapus($lokasi = 'info');
-    }
+    // function del($id)
+    // {
+    //     // $this->info_model->del($id);
+    //     $this->lomba_model->del($id);
+    //     tampil_hapus($lokasi = 'info');
+    // }
 }

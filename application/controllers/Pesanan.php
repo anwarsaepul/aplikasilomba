@@ -37,8 +37,6 @@ class Pesanan extends CI_Controller
         } else {
             tampil_error($lokasi = 'pesanan');
         }
-        // var_dump($cekinvoice->result());
-        // var_dump($invoice->result());
         $this->template->load('template', 'trx/pesanan/pesanan_detail', $data);
     }
 

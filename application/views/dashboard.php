@@ -1,6 +1,12 @@
 <div class="container-fluid p-3">
     <?php if ($this->session->userdata('level') == 1) { ?>
         <div class="row p-2">
+            
+            <!-- <?php echo 'Default Timezone: ' . date('d-m-Y H:i:s') . '</br>';
+            date_default_timezone_set('Asia/Jakarta');
+            echo 'Indonesian Timezone: ' . date('d-m-Y H:i:s');
+            ?> -->
+
             <div class="col-sm-6 mx-auto">
                 <div class="card m-2">
                     <div class="card-header">

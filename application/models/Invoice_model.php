@@ -1,7 +1,8 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
-
+ini_set('date.timezone', 'Asia/Jakarta');
 class Invoice_model extends CI_Model
 {
+
     function get($id = null)
     {
         $this->db->from('t_invoice');
@@ -170,6 +171,7 @@ class Invoice_model extends CI_Model
     {
         $this->db->select('t_invoice.*, t_order.*, users.*, t_perlombaan.*');
         $this->db->from('t_invoice');
+        // $this->db->join('t_penilaian', 't_penilaian.invoice_id = t_invoice.invoice_id');
         $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
         $this->db->join('users', 'users.user_id = t_invoice.user_id');
         $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
@@ -177,6 +179,25 @@ class Invoice_model extends CI_Model
         if ($id != null) {
             $this->db->where('invoice_id', $id);
         }
+        return $query = $this->db->get();
+    }
+
+    function getinvoicedetail4($id)
+    {
+        $this->db->select('t_invoice.*, t_order.*, users.*, t_perlombaan.*, t_penilaian.*');
+        $this->db->from('t_invoice');
+        $this->db->where('invoice_id', $id);
+        $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
+        $this->db->join('users', 'users.user_id = t_invoice.user_id');
+        $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
+        $this->db->join('t_penilaian', 't_penilaian.invoiceid = t_invoice.invoice_id');
+        // $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
+        // $this->db->join('users', 'users.user_id = t_invoice.user_id');
+        // $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
+
+        // if ($id != null) {
+        //     $this->db->where('invoice_id', $id);
+        // }
         return $query = $this->db->get();
     }
 
@@ -269,7 +290,7 @@ class Invoice_model extends CI_Model
 
     function update_status($post)
     {
-        ini_set('date.timezone', 'Asia/Jakarta'); 
+        ini_set('date.timezone', 'Asia/Jakarta');
         $invoice_id    = $post['invoice_id'];
         $waktu         = date('Y-m-d H:i:s');
         $sql = "UPDATE t_invoice SET status_pesanan = '1', updated = '$waktu'  WHERE invoice_id = '$invoice_id'";
@@ -278,7 +299,7 @@ class Invoice_model extends CI_Model
 
     function konfirmasi($id)
     {
-        ini_set('date.timezone', 'Asia/Jakarta'); 
+        ini_set('date.timezone', 'Asia/Jakarta');
         $params = [
             // nama d db    => nama di inputan
             'status_pesanan'    => '2',
@@ -288,4 +309,3 @@ class Invoice_model extends CI_Model
         $this->db->update('t_invoice', $params);
     }
 }
-

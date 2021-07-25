@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
-
+    ini_set('date.timezone', 'Asia/Jakarta'); 
 class pembayaran_model extends CI_Model
 {
     function get($id = null)

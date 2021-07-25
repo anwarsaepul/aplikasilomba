@@ -7,13 +7,13 @@ class Home extends CI_Controller
         parent::__construct();
         head_web();
         flashData();
-        $this->load->model(['lomba_model']);
+        $this->load->model(['perlombaan_model']);
     }
 
     function index()
     {
         $this->load->view('home/header');
-        $row    = $this->lomba_model->tampillomba();
+        $row    = $this->perlombaan_model->tampilItem();
         $data = array(
             'row'       => $row,
         );
