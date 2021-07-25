@@ -15,7 +15,7 @@ class Penilaian_model extends CI_Model
     {
         $params = [
             // nama d db    => nama di inputan
-            'invoiceid'     => $data['invoice_id'],
+            'invoiceid'     => $data['id'],
             'gelombang'     => $data['gelombang'],
             'lajur'         => $data['lajur'],
             'nilai'         => 0,

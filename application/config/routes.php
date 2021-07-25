@@ -60,6 +60,10 @@ $route['petunjuk_teknis']   = 'home/petunjuk_teknis';
 $route['faq']               = 'home/faq';
 $route['kontak']            = 'home/kontak';
 
+$route['jadwal_lomba']      = 'penilaian';
+// $route['jadwal_lomba/']      = 'penilaian';
+
+
 // $route['customer'] = 'pelanggan';
 // $route['customer/add'] = 'pelanggan/add';
 // $route['customer/process'] = 'pelanggan/process';

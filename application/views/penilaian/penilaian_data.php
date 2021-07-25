@@ -20,7 +20,9 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 pr-3 mx-auto">
                     <div class="text-center">
-                        <H3>Daftar Peserta <br> <?= $nama_kategori ?></H3>
+                        <H3>Jadwal lomba
+                            <br> <?= $perlombaan->nama_kategori ?> (<?= indo_date($perlombaan->tanggal_tanding) ?>)
+                        </H3>
                     </div>
                 </div>
                 <div class="box-body table-responsive pl-3 pr-3">
@@ -29,14 +31,14 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>No Invoice</th>
+                                    <th>No Peserta</th>
                                     <!-- <th>Nama Kategori</th> -->
                                     <th>Nama Peserta</th>
                                     <th>Komunitas</th>
                                     <th>Gelombang</th>
                                     <th>Lajur</th>
+                                    <th>Nilai</th>
                                     <?php if ($this->session->userdata('level') == 1) { ?>
-                                        <th>Nilai</th>
                                         <th>Aksi</th>
                                     <?php } ?>
                                 </tr>
@@ -54,8 +56,8 @@
                                         <td><?= $data->komunitas ?></td>
                                         <td><?= $data->gelombang ?></td>
                                         <td><?= $data->lajur ?></td>
+                                        <td><?= $data->nilai ?></td>
                                         <?php if ($this->session->userdata('level') == 1) { ?>
-                                            <td><?= $data->nilai ?></td>
                                             <td><a href="<?= base_url('penilaian/input/' . $data->invoice_id) ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Nilai
                                                 </a>
                                             </td>

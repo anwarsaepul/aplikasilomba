@@ -30,6 +30,7 @@ class Order_model extends CI_Model
 
     function add($id, $inv)
     {
+        ini_set('date.timezone', 'Asia/Jakarta');
         $params = [
             // nama d db        => nama di inputan
             'perlombaan_id'  => $id,
@@ -41,6 +42,7 @@ class Order_model extends CI_Model
 
     function update_invoice($invoice)
     {
+        ini_set('date.timezone', 'Asia/Jakarta');
         // $invoice    = $post['invoice'];
         $user_id    = $this->session->userdata('user_id');
         $sql = "UPDATE t_order SET invoice = '$invoice' WHERE user_id = '$user_id' AND invoice = '0'";
@@ -139,13 +141,26 @@ class Order_model extends CI_Model
         $this->db->select('t_order.*, t_invoice.*, users.*, t_penilaian.*');
         $this->db->from('t_order');
         $this->db->where('perlombaan_id', $id);
+        $this->db->order_by('nilai', 'desc');
         $this->db->join('t_invoice', 't_invoice.invoice = t_order.invoice');
         $this->db->join('t_penilaian', 't_penilaian.invoiceid = t_invoice.invoice_id');
         $this->db->join('users', 'users.user_id = t_invoice.user_id');
         // $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
         // $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
         return $query = $this->db->get();
+    }
 
+    function tampil_peserta4($id)
+    {
+        // $this->db->select('t_order.*');
+        $this->db->from('t_order');
+        // $this->db->where('perlombaan_id', $id);
+        // $this->db->join('t_invoice', 't_invoice.invoice = t_order.invoice');
+        // $this->db->join('t_penilaian', 't_penilaian.invoiceid = t_invoice.invoice_id');
+        // $this->db->join('users', 'users.user_id = t_invoice.user_id');
+        // $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
+        // $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.lomba_id');
+        return $query = $this->db->get();
     }
 
     function lomba_terbaru($id = null)

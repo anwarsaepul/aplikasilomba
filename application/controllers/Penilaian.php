@@ -18,16 +18,16 @@ class Penilaian extends CI_Controller
 
         $get        = $this->order_model->lomba_terbaru()->row()->perlombaan_id;
         $invoice    = $this->order_model->tampil_peserta3($get);
-        $perlombaan = $this->perlombaan_model->get($get)->row()->nama_kategori;
+        $perlombaan = $this->perlombaan_model->get($get)->row();
         $lomba      = $this->perlombaan_model->get();
         $data = array(
             'row'           => $namalomba,
             'lomba'         => $lomba,
             'invoice'       => $invoice,
-            'nama_kategori' => $perlombaan,
+            'perlombaan'    => $perlombaan,
         );
         $this->template->load('template', 'penilaian/penilaian_data', $data);
-        // var_dump($perlombaan);
+        // var_dump($lomba->result());
 
     }
 
@@ -92,7 +92,7 @@ class Penilaian extends CI_Controller
     }
 
 
-    public function edit($id)
+    function edit($id)
     {
         checkAdmin();
         // $query = $this->info_model->tampilItem($id);
@@ -135,13 +135,13 @@ class Penilaian extends CI_Controller
         } else if (isset($_POST['filter'])) {
             $invoice    = $this->order_model->tampil_peserta3($_POST['filterdata']);
             $lomba      = $this->perlombaan_model->get();
-            $perlombaan = $this->perlombaan_model->get($_POST['filterdata'])->row()->nama_kategori;
+            $perlombaan = $this->perlombaan_model->get($_POST['filterdata'])->row();
 
             $data = array(
                 'row'           => $namalomba,
                 'lomba'         => $lomba,
                 'invoice'       => $invoice,
-                'nama_kategori' => $perlombaan,
+                'perlombaan'    => $perlombaan,
             );
             $this->template->load('template', 'penilaian/penilaian_data', $data);
         }

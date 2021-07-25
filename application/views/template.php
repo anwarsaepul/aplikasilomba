@@ -164,9 +164,9 @@
             </li>
           <?php } ?>
           <li class="nav-item">
-            <a href="<?= base_url('penilaian') ?>" class="nav-link <?= $this->uri->segment(1) == 'penilaian' ? 'active' : '' ?>">
+            <a href="<?= base_url('jadwal_lomba') ?>" class="nav-link <?= $this->uri->segment(1) == 'penilaian' || $this->uri->segment(1) == 'jadwal_lomba' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-book"></i>
-              <p>Penilaian</p>
+              <p>Jadwal Perlombaan</p>
             </a>
           </li>
           <li class="nav-item">
