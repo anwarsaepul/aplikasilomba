@@ -4,7 +4,7 @@
         <div class="col-md">
             <div class="box box-widget">
                 <div class="col-12 col-sm-6 col-md-4 float-right pr-3">
-                    <form action="<?= base_url('penilaian/process') ?>" method="POST">
+                    <form action="<?= base_url('laporan/process') ?>" method="POST">
                         <div class="input-group input-group-sm">
                             <select name="filterdata" class="form-control" required>
                                 <option value="">--Kategori Lomba--</option>
@@ -13,7 +13,7 @@
                                 <?php } ?>
                             </select>
                             <span class="input-group-append">
-                                <button type="submit" name="filter" class="btn btn-info btn-flat">Filter</button>
+                                <button type="submit" name="filter_jadwal" class="btn btn-info btn-flat">Filter</button>
                             </span>
                         </div>
                     </form>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="box-body table-responsive pl-3 pr-3">
                     <div class="mx-auto">
-                        <table class="table table-bordered text-center table-striped" id="table1">
+                        <table class="table table-bordered text-center table-striped" id="example">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
@@ -44,9 +44,6 @@
                                     <th>Gelombang</th>
                                     <th>Lajur</th>
                                     <th>Nilai</th>
-                                    <?php if ($this->session->userdata('level') == 1) { ?>
-                                        <th>Aksi</th>
-                                    <?php } ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,11 +61,6 @@
                                         <td><?= $data->gelombang ?></td>
                                         <td><?= $data->lajur ?></td>
                                         <td><?= $data->nilai ?></td>
-                                        <?php if ($this->session->userdata('level') == 1) { ?>
-                                            <td><a href="<?= base_url('penilaian/input/' . $data->invoice_id) ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Update
-                                                </a>
-                                            </td>
-                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
                             </tbody>

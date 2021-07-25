@@ -1,12 +1,6 @@
 <div class="container-fluid p-3">
     <?php if ($this->session->userdata('level') == 1) { ?>
         <div class="row p-2">
-
-            <!-- <?php echo 'Default Timezone: ' . date('d-m-Y H:i:s') . '</br>';
-                    date_default_timezone_set('Asia/Jakarta');
-                    echo 'Indonesian Timezone: ' . date('d-m-Y H:i:s');
-                    ?> -->
-
             <div class="col-sm-6 mx-auto">
                 <div class="card m-2">
                     <div class="card-header">
@@ -140,12 +134,18 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-6 pr-3 mx-auto">
-                        <div class="text-center">
-                            <H3>Jadwal lomba
-                                <br> <?= $perlombaan->nama_kategori ?> (<?= indo_date($perlombaan->tanggal_tanding) ?>)
-                            </H3>
-                        </div>
+                    <div class="col-12 col-sm-6 col-md-12 pr-3 mx-auto">
+                        <table width="100%">
+                            <tr>
+                                <td class="mt-3" colspan="3">
+                                    <div class="text-center">
+                                        <h3>Jadwal lomba</h3>
+                                        <h3><?= $perlombaan->nama_kategori ?></h3>
+                                        <h3><?= indo_date($perlombaan->tanggal_tanding) ?></h3>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="box-body table-responsive pl-3 pr-3">
                         <div class="mx-auto">
@@ -154,14 +154,13 @@
                                     <tr>
                                         <th>#</th>
                                         <th>No Peserta</th>
-                                        <!-- <th>Nama Kategori</th> -->
                                         <th>Nama Peserta</th>
                                         <th>Komunitas</th>
+                                        <th>Jam</th>
                                         <th>Gelombang</th>
                                         <th>Lajur</th>
                                         <th>Nilai</th>
                                         <?php if ($this->session->userdata('level') == 1) { ?>
-                                            <th>Nilai</th>
                                             <th>Aksi</th>
                                         <?php } ?>
                                     </tr>
@@ -177,12 +176,12 @@
                                             <!-- <td><?= $data->nama_kategori ?></td> -->
                                             <td><?= $data->nama_lengkap ?></td>
                                             <td><?= $data->komunitas ?></td>
+                                            <td><?= indo_jam($data->jam_perlombaan) ?></td>
                                             <td><?= $data->gelombang ?></td>
                                             <td><?= $data->lajur ?></td>
                                             <td><?= $data->nilai ?></td>
                                             <?php if ($this->session->userdata('level') == 1) { ?>
-                                                <td><?= $data->nilai ?></td>
-                                                <td><a href="<?= base_url('penilaian/input/' . $data->invoice_id) ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Nilai
+                                                <td><a href="<?= base_url('penilaian/input/' . $data->invoice_id) ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Update
                                                     </a>
                                                 </td>
                                             <?php } ?>
@@ -201,7 +200,6 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8 mt-3 col-lg-5 text-center mb-4">
                         <h2>Kategori Lomba</h2>
-                        <!-- <p>3 Kategori lomba menembak ESC Sukabumi 2021</p> -->
                     </div>
                 </div>
                 <form action="<?= base_url('order/process') ?>" method="POST">
