@@ -18,7 +18,7 @@
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top; width: 35%;">
-                                        <label for="invoice">No Invoice</label>
+                                        <label for="invoice">No Peserta</label>
                                     </td>
                                     <td>
                                         <div class="form-group">
@@ -54,9 +54,28 @@
                                         </div>
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td style="vertical-align: top;">
-                                        <label for="gambar">File input</label>
+                                        <label for="catatan">Informasi</label>
+                                    </td>
+                                    <td>
+                                        <div class="form-group mx-auto">
+                                            <div class="bg-info text-center p-2">
+                                                <span>
+                                                    Silahkan melakukan pembayaran dengan melakukan Transfer Ke <br>
+                                                    BCA : 1234xxx <br>
+                                                    BRI : 1234xxx <br>
+                                                    AN : Harpin <br>
+                                                    Lalu upload bukti Transaksinya dibawah..!
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <label for="gambar">Pilih Gambar</label>
                                     </td>
                                     <td>
                                         <div class="form-group">
@@ -69,6 +88,7 @@
                                         </div>
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td style="vertical-align: top;">
                                         <label for="catatan">Catatan</label>

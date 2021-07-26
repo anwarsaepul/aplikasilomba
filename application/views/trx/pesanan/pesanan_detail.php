@@ -3,7 +3,7 @@
     <div class="row pl-3 pr-3">
         <div class="col-12 col-sm-6 mx-auto col-md-6 mt-2">
             <div class="card-header text-center bg-success">
-                INVOICE
+                NO PESERTA
             </div>
             <div class="info-box mb-3 pl-3">
                 <table width="100%">
@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <td style="vertical-align: top; width: 40%;">
-                            <span>No Invoice</span>
+                            <span>No Peserta</span>
                         </td>
                         <td>
                             <div>
