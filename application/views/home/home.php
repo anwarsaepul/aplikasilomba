@@ -3,11 +3,14 @@
 <section class="pb-4">
 
     <div class="container">
-        <div class="row flex-center">
-            <div class="col-lg-6 col-md-5 order-md-1"><img class="img-fluid" src="assets/img/illustrations/1.jpg" alt="" /></div>
-            <div class="col-md-7 col-lg-6 mt-5 text-center text-md-start">
-                <h1 class="fw-medium">Executive Shooting Club</h1>
-                <p class="mt-3 mb-4">ESC SUKABUMI adalah sebuah situs yang memberikan informasi tentang perlombaan tembak.</p><a class="btn btn-lg btn-danger hover-top btn-glow" href="dashboard">DAFTAR SEKARANG</a>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="<?= base_url('assets/img/slider1.jpeg') ?>" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="<?= base_url('assets/img/slider2.jpeg') ?>" class="d-block w-100" alt="...">
+                </div>
             </div>
         </div>
     </div>

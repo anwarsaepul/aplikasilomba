@@ -54,7 +54,7 @@
                     </ul>
                     <?php if ($this->session->userdata('user_id') == null) { ?>
                         <form class="d-flex py-3 py-lg-0">
-                            <a class="btn btn-outline-primary rounded-pill order-0" type="button" href="<?= base_url('auth/login') ?>">Masuk</a>
+                            <a class="btn btn-outline-primary rounded-pill order-0 mr-2" type="button" href="<?= base_url('auth/login') ?>">Masuk</a>
                             <a class="btn btn-outline-danger rounded-pill order-0" type="submit" class="nav-link" href="<?= base_url('auth/registrasi') ?>">Daftar</a>
                         </form>
                     <?php } ?>

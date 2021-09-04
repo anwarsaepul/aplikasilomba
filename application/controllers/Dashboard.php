@@ -20,9 +20,9 @@ class Dashboard extends CI_Controller
         $row    = $this->lomba_model->tampillomba2();
 
         $data = array(
-            'row'       => $row,
-            'lomba'     => $lomba,
-            'invoice'   => $invoice,
+            'row'           => $row,
+            'lomba'         => $lomba,
+            'invoice'       => $invoice,
             'perlombaan'    => $perlombaan,
 
         );
