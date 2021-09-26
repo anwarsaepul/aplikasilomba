@@ -11,13 +11,20 @@ class Dashboard extends CI_Controller
 
     function index()
     {
-        $get        = $this->order_model->lomba_terbaru()->row()->perlombaan_id;
+        $get        = $this->perlombaan_model->perlombaan_terbaru()->row()->perlombaan_id;
         $invoice    = $this->order_model->tampil_peserta3($get);
         $perlombaan = $this->perlombaan_model->get($get)->row();
 
 
         $lomba  = $this->perlombaan_model->tampilItem();
         $row    = $this->lomba_model->tampillomba2();
+
+        // $data = [
+        //         'row'           => $row,
+        //         'lomba'         => $lomba,
+        //         'invoice'       => $invoice,
+        //         'perlombaan'    => $perlombaan
+        //         ];
 
         $data = array(
             'row'           => $row,
@@ -27,7 +34,7 @@ class Dashboard extends CI_Controller
 
         );
         $this->template->load('template', 'dashboard', $data);
-        // var_dump($row->result());
+        // var_dump($lomba->result());
     }
 
     function process()

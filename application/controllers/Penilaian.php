@@ -16,7 +16,7 @@ class Penilaian extends CI_Controller
         $namalomba->perlombaan_id   = null;
         $namalomba->nama_kategori   = null;
 
-        $get        = $this->order_model->lomba_terbaru()->row()->perlombaan_id;
+        $get        = $this->perlombaan_model->perlombaan_terbaru()->row()->perlombaan_id;
         $invoice    = $this->order_model->tampil_peserta3($get);
         $perlombaan = $this->perlombaan_model->get($get)->row();
         $lomba      = $this->perlombaan_model->get();

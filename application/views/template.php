@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Aplikasi</title>
+  <title>ESC Sukabumi</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -108,87 +108,81 @@
                 </ul>
               </li>
             <?php } ?>
-            <li class="nav-item">
-              <a href="#" class="nav-link 
+            <?php if ($this->session->userdata('level') != 1) { ?>
+              <li class="nav-item">
+                <a href="#" class="nav-link 
               <?= $this->uri->segment(1) == 'trx' ||
                 $this->uri->segment(1) == 'pesanan' ||
                 $this->uri->segment(1) == 'invoice' ? 'active' : '' ?>">
-                <i class="nav-icon fas fa-shopping-cart"></i>
-                <p>
-                  Pendaftaran
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?= base_url('pesanan') ?>" class="nav-link <?= $this->uri->segment(1) == 'pesanan' ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Transaksi</p>
-                  </a>
-                </li>
-              </ul>
-              <?php if ($this->session->userdata('level') == 1) { ?>
+                  <i class="nav-icon fas fa-shopping-cart"></i>
+                  <p>
+                    Pendaftaran
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="<?= base_url('invoice') ?>" class="nav-link <?= $this->uri->segment(1) == 'invoice' ? 'active' : '' ?>">
+                    <a href="<?= base_url('pesanan') ?>" class="nav-link <?= $this->uri->segment(1) == 'pesanan' ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Transaksi</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            <?php } ?>
+            <?php if ($this->session->userdata('level') == 1) { ?>
+              <li class="nav-item">
+                <a href="<?= base_url('laporan') ?>" class="nav-link 
+              <?= $this->uri->segment(1) == 'laporan' ||
+                $this->uri->segment(1) == 'laporan/invoice' ? 'active' : '' ?>">
+                  <i class="nav-icon fas fa-print"></i>
+                  <p>Laporan</p>
+                  <i class="right fas fa-angle-left"></i>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<?= base_url('laporan/invoice') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'invoice'  ? 'active' : '' ?>">
                       <i class="far fa-circle nav-icon"></i>
                       <p>No Peserta</p>
                     </a>
                   </li>
                 </ul>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<?= base_url('laporan/peserta') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'peserta'  ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Data Peserta</p>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<?= base_url('laporan/jadwal') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'jadwal'  ? 'active' : '' ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Jadwal Perlombaan</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            <?php } ?>
+            <li class="nav-item">
+              <a href="<?= base_url('jadwal_lomba') ?>" class="nav-link <?= $this->uri->segment(1) == 'penilaian' || $this->uri->segment(1) == 'jadwal_lomba' ? 'active' : '' ?>">
+                <i class="nav-icon fas fa-book"></i>
+                <p>Jadwal Perlombaan</p>
+              </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('laporan') ?>" class="nav-link 
-              <?= $this->uri->segment(1) == 'laporan' ||
-                  $this->uri->segment(1) == 'laporan/invoice' ? 'active' : '' ?>">
-                <i class="nav-icon fas fa-print"></i>
-                <p>Laporan</p>
-                <i class="right fas fa-angle-left"></i>
+              <a href="<?= base_url('profile') ?>" class="nav-link <?= $this->uri->segment(1) == 'profile' ? 'active' : '' ?>">
+                <i class="nav-icon fas fa-user"></i>
+                <p>Profile</p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?= base_url('laporan/invoice') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'invoice'  ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>No Peserta</p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?= base_url('laporan/peserta') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'peserta'  ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Data Peserta</p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?= base_url('laporan/jadwal') ?>" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'jadwal'  ? 'active' : '' ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Jadwal Perlombaan</p>
-                  </a>
-                </li>
-              </ul>
             </li>
-          <?php } ?>
-          <li class="nav-item">
-            <a href="<?= base_url('jadwal_lomba') ?>" class="nav-link <?= $this->uri->segment(1) == 'penilaian' || $this->uri->segment(1) == 'jadwal_lomba' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-book"></i>
-              <p>Jadwal Perlombaan</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url('profile') ?>" class="nav-link <?= $this->uri->segment(1) == 'profile' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-user"></i>
-              <p>Profile</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url('auth/logout') ?>" class="nav-link">
-              <i class="nav-icon fas fa-sign-out-alt"></i>
-              <p>Logout</p>
-            </a>
-          </li>
+            <li class="nav-item">
+              <a href="<?= base_url('auth/logout') ?>" class="nav-link">
+                <i class="nav-icon fas fa-sign-out-alt"></i>
+                <p>Logout</p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -251,31 +245,30 @@
         // buttons: [
         //   'copy', 'csv', 'excel', 'pdf', 'print'
         // ]
-        buttons: [
-            {
-                extend: 'print',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            }, 
-            {
-                extend: 'pdf',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            {
-                extend: 'excel',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            'colvis'
+        buttons: [{
+            extend: 'print',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
+            extend: 'pdf',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
+            extend: 'excel',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          'colvis'
         ],
-        columnDefs: [ {
-            // targets: -1,
-            visible: false
-        } ]
+        columnDefs: [{
+          // targets: -1,
+          visible: false
+        }]
       });
 
       $('#table1').DataTable({});

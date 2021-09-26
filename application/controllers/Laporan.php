@@ -19,10 +19,13 @@ class Laporan extends CI_Controller
   function invoice()
   {
     $invoice    = $this->invoice_model->getall();
+    // $invoice    = $this->invoice_model->tampilsemuapeserta();
+    
     $data = array(
       'invoice'   => $invoice,
     );
     $this->template->load('template', 'laporan/invoice_data', $data);
+    // var_dump($invoice->result());
   }
 
   function peserta()

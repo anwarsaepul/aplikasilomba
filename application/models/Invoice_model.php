@@ -26,6 +26,18 @@ class Invoice_model extends CI_Model
         return $query = $this->db->get();
     }
 
+    function tampilsemuapeserta()
+    {
+        $this->db->select('t_order.*, t_invoice.*, t_perlombaan.*, users.*');
+        $this->db->from('t_invoice');
+        // $this->db->from('t_order');
+        $this->db->where('status_pesanan', 2);
+        $this->db->join('t_invoice', 't_invoice.invoice = t_order.invoice');
+        $this->db->join('users', 'users.user_id = t_invoice.user_id');
+        $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
+        return $query = $this->db->get();
+    }
+
 
 
     function filter_data($id)
@@ -307,5 +319,18 @@ class Invoice_model extends CI_Model
         ];
         $this->db->where('invoice_id', $id);
         $this->db->update('t_invoice', $params);
+    }
+
+    // function del_inv($table, $id)
+    // {
+    //     $this->db->where($table, $id);
+    //     $this->db->where('invoice', '0');
+    //     $this->db->delete('t_invoice');
+    // }
+
+    function hapus_invoice($id)
+    {
+        $this->db->where('invoice_id', $id);
+        $this->db->delete('t_invoice');
     }
 }

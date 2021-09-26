@@ -29,16 +29,6 @@
                     </tr>
                     <tr>
                         <td>
-                            <span>Total Transaksi</span>
-                        </td>
-                        <td>
-                            <div>
-                                <span>: <?= indo_currency($inv->total) ?> </span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <span>Waktu Transaksi</span>
                         </td>
                         <td>
@@ -94,16 +84,21 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                    <?php
-                                        $biaya += $data->biaya;
-                                    }
-                                    ?>
+                                    <?php $biaya += $data->biaya;
+                                    } ?>
                                     <?php if ($inv->status_pesanan == 0) { ?>
-
                                         <tr style="font-weight: bold;">
                                             <td class="text-left" colspan="3">Jumlah</td>
                                             <td><?= indo_currency($biaya); ?></td>
-                                            <td></td>
+                                            <td>
+                                                <?php if ($this->session->userdata('level') == 1) { ?>
+                                                    <div class="text-center">
+                                                        <a href="<?= base_url('invoice/konfirmasi/' . $inv->invoice_id) ?>" class="btn btn-primary btn-sm">
+                                                            <i class="fas fa-check-circle"></i> Konfirmasi
+                                                        </a>
+                                                    </div>
+                                                <?php } ?>
+                                            </td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -116,31 +111,32 @@
     </div>
 
     <?php if ($inv->status_pesanan != 0) { ?>
-        <div class="col-12 col-sm-10 mx-auto col-md-10 mt-2">
-            <div class="card-header text-center bg-success">
-                PEMBAYARAN
-            </div>
-            <div class="info-box mb-3 pl-3">
-                <ul class="list-group text-center list-group-flush">
-                    <li class="list-group-item">Waktu Upload : <?= indo_date($gambar->created) ?> <?= jam($gambar->created) ?></li>
-                    <li class="list-group-item">Catatan : <?= $gambar->catatan ?></li>
-                    <li class="list-group-item">Bukti Pembayaran</li>
-                    <li class="list-group-item">
-                        <img src="<?= base_url('assets/img/uploads/pembayaran/' . $gambar->photo) ?>" class="rounded mx-auto img-thumbnail" alt="...">
-                    </li>
-                    <?php if ($this->session->userdata('level') == 1) { ?>
-                        <?php if ($inv->status_pesanan != 2) { ?>
+        <?php if ($gambar != null) { ?>
+            <div class="col-12 col-sm-10 mx-auto col-md-10 mt-2">
+                <div class="card-header text-center bg-success">
+                    PEMBAYARAN
+                </div>
+                <div class="info-box mb-3 pl-3">
+                    <ul class="list-group text-center list-group-flush">
+                        <li class="list-group-item">Waktu Upload : <?= indo_date($gambar->created) ?> <?= jam($gambar->created) ?></li>
+                        <li class="list-group-item">Catatan : <?= $gambar->catatan ?></li>
+                        <li class="list-group-item">Bukti Pembayaran</li>
+                        <li class="list-group-item">
+                            <img src="<?= base_url('assets/img/uploads/pembayaran/' . $gambar->photo) ?>" class="rounded mx-auto img-thumbnail" alt="...">
+                        </li>
+                        <?php if ($this->session->userdata('level') == 1) { ?>
                             <li class="list-group-item">
                                 <a href="<?= base_url('invoice/konfirmasi/' . $inv->invoice_id) ?>" class="btn btn-primary btn-sm">
                                     <i class="fas fa-check-circle"></i> Konfirmasi
                                 </a>
                             </li>
                         <?php } ?>
-                    <?php } ?>
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
+        <?php } ?>
     <?php } ?>
+
 </section>
 
 <div class="modal fade" id="modal-detail">

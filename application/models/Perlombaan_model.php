@@ -107,4 +107,14 @@ class Perlombaan_model extends CI_Model
         $this->db->where('perlombaan_id', $id);
         $this->db->delete('t_perlombaan');
     }
+
+    function perlombaan_terbaru($id = null)
+    {
+        $this->db->from('t_perlombaan');
+        $this->db->select_max('perlombaan_id');
+        if ($id != null) {
+            $this->db->where('perlombaan_id', $id);
+        }
+        return $query = $this->db->get();
+    }
 }

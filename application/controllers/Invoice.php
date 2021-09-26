@@ -79,4 +79,10 @@ class Invoice extends CI_Controller
             tampil_error($lokasi = 'invoice');
         }
     }
+
+    function del($id)
+    {
+        $this->invoice_model->hapus_invoice($id);
+        tampil_hapus($lokasi = 'laporan/invoice');
+    }
 }

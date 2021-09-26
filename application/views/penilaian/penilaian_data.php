@@ -1,10 +1,11 @@
 <!-- Main content -->
 <section class="container-fluid bg-light p-2">
-    <div class="row p-2">
-        <div class="col-md">
-            <div class="box box-widget">
-                <div class="col-12 col-sm-6 col-md-4 float-right pr-3">
-                    <form action="<?= base_url('penilaian/process') ?>" method="POST">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                    <form action="<?= base_url('dashboard/process') ?>" method="POST">
                         <div class="input-group input-group-sm">
                             <select name="filterdata" class="form-control" required>
                                 <option value="">--Kategori Lomba--</option>
@@ -18,6 +19,14 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row p-2">
+        <div class="col-md">
+            <div class="box box-widget">
                 <div class="col-12 col-sm-6 col-md-12 pr-3 mx-auto">
                     <table width="100%">
                         <tr>

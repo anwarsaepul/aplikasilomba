@@ -73,7 +73,7 @@ class Pesanan extends CI_Controller
             // $config['upload-path']      = './assets/img/uploads/pembayaran/';
             $config['upload_path']      = './assets/img/uploads/pembayaran/';
             $config['allowed_types']    = 'gif|jpg|jpeg|png';
-            $config['max_size']         = '2048';
+            // $config['max_size']         = '2048';
             $config['file_name']         = 'ID-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
             $this->load->library('upload', $config);
 

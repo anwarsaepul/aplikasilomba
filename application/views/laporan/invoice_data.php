@@ -50,9 +50,8 @@
                                             </strong>
                                         </td>
                                         <td>
-                                            <a class="btn btn-success btn-sm mb-1" href="<?= base_url('invoice/detail/' . $data->invoice_id) ?>">
-                                                Lihat Detail <i class="fas fa-chevron-circle-right"></i>
-                                            </a>
+                                            <a href="<?= base_url('invoice/del/' . $data->invoice_id) ?>" class="btn btn-danger btn-sm mb-2" id="tmblhps"><i class="fa fa-trash"></i>Delete</a>
+                                            <a href="<?= base_url('invoice/detail/' . $data->invoice_id) ?>" class="btn btn-success btn-sm mb-2">Lihat Detail <i class="fas fa-chevron-circle-right"></i></a>
                                         </td>
                                     </tr>
                                 <?php } ?>
