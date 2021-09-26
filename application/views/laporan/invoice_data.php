@@ -26,6 +26,7 @@
                                     <th>#</th>
                                     <th>No Peserta</th>
                                     <th>Nama Peserta</th>
+                                    <th>Nama Kategori</th>
                                     <th>Komunitas</th>
                                     <th>Telepon</th>
                                     <th>Status</th>
@@ -41,6 +42,7 @@
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
                                         <td><?= $data->invoice ?></td>
                                         <td><?= $data->nama_lengkap ?></td>
+                                        <td><?= $data->nama_kategori ?></td>
                                         <td><?= $data->komunitas ?></td>
                                         <td><?= $data->phone ?></td>
                                         <td>

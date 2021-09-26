@@ -26,6 +26,37 @@ class Invoice_model extends CI_Model
         return $query = $this->db->get();
     }
 
+    function getall2($id = null)
+    {
+        // $this->db->select('t_order.*, t_invoice.*, t_perlombaan.*, users.*');
+        $this->db->select('t_invoice.*, users.*, t_order.*, t_perlombaan.*');
+        $this->db->from('t_invoice');
+        $this->db->order_by('invoice_id', 'desc');
+        $this->db->join('users', 'users.user_id = t_invoice.user_id');
+        // $this->db->where('status_pesanan', 2);
+        $this->db->join('t_order', 't_order.invoice = t_invoice.invoice');
+        // $this->db->join('users', 'users.user_id = t_invoice.user_id');
+        $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
+
+
+
+        // $this->db->select('t_order.*, t_invoice.*, t_perlombaan.*, users.*');
+        // $this->db->from('t_order');
+        // $this->db->where('status_pesanan', 2);
+        // $this->db->join('t_invoice', 't_invoice.invoice = t_order.invoice');
+        // $this->db->join('users', 'users.user_id = t_invoice.user_id');
+        // $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
+
+        if ($id != null) {
+            $this->db->where('invoice_id', $id);
+        }
+        return $query = $this->db->get();
+    }
+
+    
+
+    
+
     function tampilsemuapeserta()
     {
         $this->db->select('t_order.*, t_invoice.*, t_perlombaan.*, users.*');
@@ -73,6 +104,7 @@ class Invoice_model extends CI_Model
         // }
         return $query = $this->db->get();
     }
+    
 
 
     function tampil_peserta2()

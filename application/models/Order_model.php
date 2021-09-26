@@ -147,6 +147,7 @@ class Order_model extends CI_Model
         $this->db->join('users', 'users.user_id = t_invoice.user_id');
         // $this->db->join('t_lomba', 't_lomba.lomba_id = t_order.lomba_id');
         // $this->db->join('t_perlombaan', 't_perlombaan.perlombaan_id = t_order.perlombaan_id');
+        
         return $query = $this->db->get();
     }
 

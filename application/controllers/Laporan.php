@@ -18,7 +18,8 @@ class Laporan extends CI_Controller
 
   function invoice()
   {
-    $invoice    = $this->invoice_model->getall();
+    // $invoice    = $this->invoice_model->getall();
+    $invoice    = $this->invoice_model->getall2();
     // $invoice    = $this->invoice_model->tampilsemuapeserta();
     
     $data = array(
@@ -55,6 +56,7 @@ class Laporan extends CI_Controller
       'perlombaan'    => $perlombaan,
     );
     $this->template->load('template', 'laporan/jadwal_data', $data);
+    // var_dump($invoice->result());
   }
 
   function process()

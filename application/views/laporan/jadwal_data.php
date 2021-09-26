@@ -1,9 +1,10 @@
 <!-- Main content -->
 <section class="container-fluid bg-light p-2">
-    <div class="row p-2">
-        <div class="col-md">
-            <div class="box box-widget">
-                <div class="col-12 col-sm-6 col-md-4 float-right pr-3">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
                     <form action="<?= base_url('laporan/process') ?>" method="POST">
                         <div class="input-group input-group-sm">
                             <select name="filterdata" class="form-control" required>
@@ -18,6 +19,13 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-2">
+        <div class="col-md">
+            <div class="box box-widget">
                 <div class="col-12 col-sm-6 col-md-12 pr-3 mx-auto">
                     <table width="100%">
                         <tr>
@@ -39,6 +47,7 @@
                                     <th>#</th>
                                     <th>No Peserta</th>
                                     <th>Nama Peserta</th>
+                                    <th>Nama Kategori</th>
                                     <th>Komunitas</th>
                                     <th>Jam</th>
                                     <th>Gelombang</th>
@@ -54,8 +63,8 @@
                                     <tr>
                                         <td style="width: 5%;"><?= $no++ ?>.</td>
                                         <td><?= $data->invoice ?></td>
-                                        <!-- <td><?= $data->nama_kategori ?></td> -->
                                         <td><?= $data->nama_lengkap ?></td>
+                                        <td><?= $perlombaan->nama_kategori ?></td>
                                         <td><?= $data->komunitas ?></td>
                                         <td><?= indo_jam($data->jam_perlombaan) ?></td>
                                         <td><?= $data->gelombang ?></td>
